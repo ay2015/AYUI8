@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <colorprimary value="#409EFF" Des="主题色" />
+  <colorsuccess value="#67C23A" Des="成功颜色" />
+  <colorwarning value="#E6A23C" Des="警告颜色" />
+  <colordanger value="#F56C6C" Des="危险颜色"/>
+  <colorinfo value="#909399" Des="信息颜色" />
+  <colortextregular value="#606266" Des="常规文字颜色"/>
+  <colortextplaceholder value="#C0C4CC" Des="占位文字颜色"/>
+  <colortextprimary value="#303133" Des="主要文字颜色"/>
+  <colortextsecondary value="#909399" Des="次要文字颜色"/>
+  <bordercolorbase value="#DCDFE6" Des="一级边框颜色"/>
+  <bordercolorlight value="#E4E7ED" Des="二级边框颜色"/>
+  <bordercolorlighter value="#EBEEF5" Des="三级边框颜色"/>
+  <bordercolorextralight value="#F2F6FC" Des="四级边框颜色"/>
+  <colorwhite value="#FFFFFF" Des="基础白色"/>
+  <colorblack value="#000000" Des="基础黑色"/>
+  <backgroundcolorbase value="#F5F7FA" Des="基础背景色"/>
+  <colorprimary1 value="#FFD9ECFF" Des="自动计算"/>
+  <colorprimary2 value="#FFEBF4FF" Des="自动计算"/>
+  <colorprimary3 value="#FF65B0FF" Des="自动计算"/>
+  <colorprimary4 value="#FF398DE6" Des="自动计算"/>
+  <colorprimary5 value="#FFC6E2FF" Des="自动计算"/>
+  <colorsuccess1 value="#FFC1E6AE" Des="自动计算"/>
+  <colorsuccess2 value="#FFCBEBBC" Des="自动计算"/>
+  <colorsuccess3 value="#FF7CCC55" Des="自动计算"/>
+  <colorsuccess4 value="#FF62914B" Des="自动计算"/>
+  <colorsuccess5 value="#FFB5E29F" Des="自动计算"/>
+  <colorwarning1 value="#FFF7E2C3" Des="自动计算"/>
+  <colorwarning2 value="#FFF9EBD4" Des="自动计算"/>
+  <colorwarning3 value="#FFEAB25D" Des="自动计算"/>
+  <colorwarning4 value="#FFC68F3C" Des="自动计算"/>
+  <colorwarning5 value="#FFF5DAB2" Des="自动计算"/>
+  <colordanger1 value="#FFFEFBFB" Des="自动计算"/>
+  <colordanger2 value="#FFFEF0F0" Des="自动计算"/>
+  <colordanger3 value="#FFF78F8F" Des="自动计算"/>
+  <colordanger4 value="#FFDD6464" Des="自动计算"/>
+  <colordanger5 value="#FFFDE9E9" Des="自动计算"/>
+  <colorinfo1 value="#FFDFE0E2" Des="自动计算"/>
+  <colorinfo2 value="#FFE9EAEB" Des="自动计算"/>
+  <colorinfo3 value="#FFA3A6AB" Des="自动计算"/>
+  <colorinfo4 value="#FF848484" Des="自动计算"/>
+  <colorinfo5 value="#FFD5D6D9" Des="自动计算"/>
+
+</Root>

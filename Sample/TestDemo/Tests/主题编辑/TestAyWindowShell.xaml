@@ -1,0 +1,19 @@
+﻿<control:AyWindowShell x:Class="TestDemo.TestAyWindowShell"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:control="http://www.ayjs.net/2020"    
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+      xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"    BorderThickness="0" CornerRadius="0"
+                  MinWidth="1200" MinHeight="600" Width="1400" Height="800"   Title="AYUI X"  
+      xmlns:local="clr-namespace:TestDemo" WindowStartupLocation="CenterScreen"
+      mc:Ignorable="d" 
+      >
+    <control:AyWindowShell.WindowMenu>
+        <ContextMenu>
+            <MenuItem Header="此窗口为换背景所设计"></MenuItem>
+        </ContextMenu>
+    </control:AyWindowShell.WindowMenu>
+    
+</control:AyWindowShell>

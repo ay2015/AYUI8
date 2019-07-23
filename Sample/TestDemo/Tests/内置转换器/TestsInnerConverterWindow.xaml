@@ -1,0 +1,242 @@
+﻿<Window x:Class="TestDemo.TestsInnerConverterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        x:Name="rootwin"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" 
+        Title="测试转换器" Height="1000" Width="1600">
+    <Window.Resources>
+        <Color x:Key="testColor" >#7AC1FF</Color>
+        <DoubleExtCalcConverter x:Key="btv1"/>
+        <!--<LocalImagePathStringToBitmapImageConverter DecodePixelWidth="48" DecodePixelHeight="48" x:Key="testPathToImage"/>-->
+    </Window.Resources>
+    <Grid x:Name="root" Background="#FFFAE8">
+
+        <Grid Margin="10" >
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+           
+            </Grid.RowDefinitions>
+            <!--<Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>-->
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                <TextBlock Text="测试StringToVisbilityConverter,输入字符串,（不输入,输入ay或者a1都是隐藏右侧按钮）"/>
+                <TextBox Width="100" Height="28" x:Name="txt1"/>
+                <Button Content="测试"  Visibility="{Binding ElementName=txt1,Path=Text,Converter={StringToVisbilityConverter},ConverterParameter=ay#a1}"></Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Grid.Row="1">
+                <TextBlock Text="测试DoubleToThicknessConverter,输入数字表示距离" VerticalAlignment="Center"/>
+                <TextBox Width="100" Height="28" x:Name="txt2" VerticalAlignment="Center"/>
+                <TextBlock Text="转换参数（1\2\3\4分别代表方位上下左右），只能其中1个，这里固定死为3，表示距离左侧" VerticalAlignment="Center"/>
+                <Button Content="测试"   VerticalAlignment="Center" HorizontalAlignment="Left" Margin="{Binding ElementName=txt2,Path=Text,Converter={DoubleToThicknessConverter},ConverterParameter=3}"></Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Grid.Row="2">
+                <TextBlock Text="测试DoubleExtCalcConverter,输入数字表示当前左值" VerticalAlignment="Center"/>
+                <TextBox Width="100" Height="28" x:Name="txt3" VerticalAlignment="Center"/>
+                <TextBlock Text="转换参数（1\2\3\4分别代表方位加减乘除），只能其中1个，这里固定死为1，表示加法运算，左值,运算符号#右值" VerticalAlignment="Center"/>
+                <TextBlock Text="右值这里固定死20,参数分离用#号(资源模式/单例模式用)" VerticalAlignment="Center"/>
+                <TextBox Width="100" Height="28" VerticalAlignment="Center" Text="{Binding ElementName=txt3,Path=Text,Converter={StaticResource btv1},ConverterParameter=1#20}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Grid.Row="3">
+                <TextBlock Text="测试FileLengthFormatConverter,输入数字表示文件大小" VerticalAlignment="Center"/>
+                <TextBox Width="100" Height="28" x:Name="txt4" VerticalAlignment="Center"/>
+                <TextBlock Text="将转换为单位的显示,如果转换参数为1并且长度为0，则显示0B,否则显示ZeroString属性值(默认值0)" VerticalAlignment="Center"/>
+                <TextBox Width="100" Height="28" VerticalAlignment="Center" Text="{Binding ElementName=txt4,Path=Text,Converter={FileLengthFormatConverter}}"/>
+                <TextBox Margin="10,0,0,0" Width="100" Height="28" VerticalAlignment="Center" Text="{Binding ElementName=txt4,Path=Text,Converter={FileLengthFormatConverter},ConverterParameter=1}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Grid.Row="4">
+                <TextBlock Text="ThicknessMultipleMinusOneConverter,将Thickness的值都乘以-1返回,没有使用转换器" VerticalAlignment="Center"/>
+                <Border Padding="4" Background="Green" Width="20" Height="20" Margin="10,0,0,0">
+                    <Grid  Background="Red">
+
+                    </Grid>
+                </Border>
+                <TextBlock Text="使用了转换器，消除了padding的影响" VerticalAlignment="Center"/>
+                <Border Padding="4" Background="Green" Width="20" Height="20" Margin="10,0,0,0">
+                    <Grid Margin="{Binding Padding,RelativeSource={RelativeSource AncestorType=Border,Mode=FindAncestor,AncestorLevel=1},Converter={ThicknessMultipleMinusOneConverter}}" Background="Red">
+                        
+                    </Grid>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Grid.Row="5">
+                <TextBlock Text="SolidColorBrushToStringConverter,将画刷的颜色转换为hex值" VerticalAlignment="Center"/>
+                <Border Padding="4"  x:Name="bdcolorTest" Background="Green" Width="20" Height="20" Margin="10,0,0,0">
+                
+                </Border>
+                <TextBlock x:Name="tbColor1" Text="{Binding ElementName=bdcolorTest,Path=Background}" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding ElementName=bdcolorTest,Path=Background,Converter={SolidColorBrushToStringConverter}}" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                <TextBlock Text="hex值转颜色显示" VerticalAlignment="Center"/>
+                <Border Padding="4"  x:Name="bdcolor1" Background="{Binding ElementName=tbColor1,Path=Text}" Width="20" Height="20" Margin="10,0,0,0">
+
+                </Border>
+                <TextBlock Text="SolidColorBrushToColorConverter看名字就知道怎么用了" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                <Rectangle Width="20" Height="20" x:Name="testrect">
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="#7AC1FF" />
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBlock Text="Mode=OneWayToSource,加一个这个控制，表示调用了转换器的ConvertBack" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                <!--<Rectangle Width="20" Height="20" Fill="{Binding ElementName=testrect,Path=(Shape.Fill).(SolidColorBrush.Color),Converter={SolidColorBrushToColorConverter},Mode=OneWayToSource}"></Rectangle>-->
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Grid.Row="6" Grid.RowSpan="2">
+                <TextBlock Text="LocalImagePathStringToBitmapImageConverter,将string图片路径转图像" VerticalAlignment="Center"/>
+                <TextBox Width="250" Height="28" x:Name="txt5"/>
+                <Image Margin="10,0,0,0" Source="{Binding ElementName=txt5,Path=Text,Converter={LocalImagePathStringToBitmapImageConverter DecodePixelHeight=48,DecodePixelWidth=48}}" >
+                </Image>
+                <TextBlock Text="FileNameConverter文件名转换器：" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding ElementName=txt5,Path=Text,Converter={FileNameConverter}}" VerticalAlignment="Center"/>
+                <!--<Rectangle Width="20" Height="20" Fill="{Binding ElementName=testrect,Path=(Shape.Fill).(SolidColorBrush.Color),Converter={SolidColorBrushToColorConverter},Mode=OneWayToSource}"></Rectangle>-->
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Grid.Row="8">
+                <TextBlock Text="LeftIndentConverter,输入深度1,2,3... 以上的正整数,计算公式= 输入的值*Indent+MarginLeft属性" VerticalAlignment="Center"/>
+                <TextBox Width="50" Height="28" x:Name="txt6"/>
+                <Rectangle Width="20" Height="20" Margin="{Binding ElementName=txt6,Path=Text,Converter={LeftIndentConverter Indent=20,MarginLeft=100}}">
+                    <Rectangle.Fill>
+                        <SolidColorBrush Color="#7AC1FF" />
+                    </Rectangle.Fill>
+                </Rectangle>
+                <!--<Rectangle Width="20" Height="20" Fill="{Binding ElementName=testrect,Path=(Shape.Fill).(SolidColorBrush.Color),Converter={SolidColorBrushToColorConverter},Mode=OneWayToSource}"></Rectangle>-->
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Grid.Row="9">
+                <TextBlock Text="DateTimeToStringConverter日期ToString" VerticalAlignment="Center"/>
+                <TextBox Width="140" Height="28" x:Name="txt7" Text="2019-06-18 23:37:10"/>
+                <TextBlock Margin="10,0,0,0" VerticalAlignment="Center" Text="{Binding ElementName=txt7,Path=Text,Converter={DateTimeToStringConverter},ConverterParameter='yyyy年MM月dd日 HH:mm:ss'}">
+                </TextBlock>
+                <TextBlock Text="  (用于聊天)DateToSmartStringConverter智能显示时间，输入今天的，昨天，去年的日期" VerticalAlignment="Center"/>
+                <TextBlock Margin="10,0,0,0" VerticalAlignment="Center" Text="{Binding ElementName=txt7,Path=Text,Converter={DateToSmartStringConverter}}">
+                </TextBlock>
+                <TextBlock Text="  DateTimeToSmartStringConverter智能显示时间:" VerticalAlignment="Center"/>
+                <TextBlock Margin="10,0,0,0" VerticalAlignment="Center" Text="{Binding ElementName=txt7,Path=Text,Converter={DateTimeToSmartStringConverter}}">
+                </TextBlock>
+                <!--<TextBlock Margin="10,0,0,0" Text="{Binding ElementName=txt7,Path=Text,StringFormat={}{0:yyyy年MM月dd HH:mm}}">
+                </TextBlock>-->
+                <!--<Rectangle Width="20" Height="20" Fill="{Binding ElementName=testrect,Path=(Shape.Fill).(SolidColorBrush.Color),Converter={SolidColorBrushToColorConverter},Mode=OneWayToSource}"></Rectangle>-->
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Grid.Row="10">
+                <TextBlock Text="测试InverseBooleanConverter，请点击checkbox" VerticalAlignment="Center"/>
+                <CheckBox IsThreeState="True" Height="28" x:Name="cb1" Content="true就隐藏，false或者null就显示" VerticalAlignment="Center"/>
+                <Button Content="测试"  VerticalAlignment="Center" Visibility="{Binding ElementName=cb1,Path=IsChecked,Converter={InverseBooleanConverter}}"></Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Grid.Row="11">
+                <TextBlock Text="测试BooleanToVisbilityConverter，请点击checkbox" VerticalAlignment="Center"/>
+                <CheckBox  IsThreeState="True"  Height="28" x:Name="cb2" Content="true就显示，false或者null就隐藏" VerticalAlignment="Center"/>
+                <Button Content="测试"   VerticalAlignment="Center" Visibility="{Binding ElementName=cb2,Path=IsChecked,Converter={BooleanToVisbilityConverter}}"></Button>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Grid.Row="12" Grid.RowSpan="2" x:Name="spByteArray">
+                <TextBlock Text="ByteArrayToBitmapImageConverter,将byte数组转图像" VerticalAlignment="Center"/>
+                <Image Margin="10,0,0,0" Source="{Binding Converter={ByteArrayToBitmapImageConverter DecodePixelHeight=48,DecodePixelWidth=48}}" >
+                </Image>
+                <!--<Rectangle Width="20" Height="20" Fill="{Binding ElementName=testrect,Path=(Shape.Fill).(SolidColorBrush.Color),Converter={SolidColorBrushToColorConverter},Mode=OneWayToSource}"></Rectangle>-->
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Grid.Row="14">
+                <TextBlock Text="ScaleToPercentConverter缩放转换为百分比,效果：值*100" VerticalAlignment="Center"/>
+                <TextBox Width="50" Height="28" x:Name="txt13" Text="5"/>
+                <TextBox Margin="10,0,0,0" Width="50" Text="{Binding ElementName=txt13,Path=Text,Converter={ScaleToPercentConverter}}">
+                </TextBox>
+                <!--<TextBlock Margin="10,0,0,0" Text="{Binding ElementName=txt7,Path=Text,StringFormat={}{0:yyyy年MM月dd HH:mm}}">
+                </TextBlock>-->
+                <!--<Rectangle Width="20" Height="20" Fill="{Binding ElementName=testrect,Path=(Shape.Fill).(SolidColorBrush.Color),Converter={SolidColorBrushToColorConverter},Mode=OneWayToSource}"></Rectangle>-->
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Grid.Row="15">
+                <TextBlock Text="测试DoubleZeroToVisibilityConverter,（输入0则隐藏,其他数值显示）用于没输入则不显示信息"/>
+                <TextBox Width="50" Height="28" x:Name="txt16" Text="0"/>
+                <Button Content="测试"  Visibility="{Binding ElementName=txt16,Path=Text,Converter={DoubleZeroToVisibilityConverter}}"></Button>
+                <TextBlock Text="反转结果（0则显示,其他数值隐藏）可用于表格查询，空记录显示没有查询到结果"/>
+                <Button Content="反转测试2"  Visibility="{Binding ElementName=txt16,Path=Text,Converter={DoubleZeroToVisibilityConverter},ConverterParameter=1}"></Button>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Grid.Row="16">
+                <TextBlock Text="测试DoubleToRoundDoubleConverter,（输入数字，转换精度,转换ConverterParameter为保留几位）"/>
+                <TextBox Width="100" Height="28" x:Name="txt17" Text="1.258"/>
+                <TextBox  Width="100" Height="20" Text="{Binding ElementName=txt17,Path=Text,Converter={DoubleToRoundDoubleConverter},ConverterParameter=2}"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Grid.Row="17">
+                <StackPanel.Resources>
+                    <IfElseConverter Formatter='0|1:男,2:女,3:不男不女#未知' x:Key="k1" IsResource="True"/>
+                    <IfElseConverter Formatter='0:男,1:女,2:不男不女#未知' x:Key="k2"  IsResource="True"/>
+                    <IfElseConverter Formatter='0:男:女' x:Key="k3"  IsResource="True"/>
+                </StackPanel.Resources>
+                <TextBlock Text="测试IfElseConverter,（输入数字，0,1,2,3...）"/>
+                <TextBox Width="60" Height="28" x:Name="txt18" Text="12"/>
+                <TextBlock Text="0|1:男1,2:女2,3:不男不女3#未知000'"/>
+                <TextBox  Width="60" Height="20" Text="{Binding ElementName=txt18,Path=Text,Converter={IfElseConverter Formatter='0|1:男1,2:女2,3:不男不女3#未知000'}}"></TextBox>
+                <TextBlock Text="0|1:男,2:女,3:不男不女#未知'"/>
+                <TextBox  Width="60" Height="20" Text="{Binding ElementName=txt18,Path=Text,Converter={StaticResource k1}}"></TextBox>
+                <TextBlock Text="0:男,1:女,2:不男不女#未知"/>
+                <TextBox  Width="60" Height="20" Text="{Binding ElementName=txt18,Path=Text,Converter={StaticResource k2}}"></TextBox>
+                <TextBlock Text="0:男:女'"/>
+                <TextBox  Width="60" Height="20" Text="{Binding ElementName=txt18,Path=Text,Converter={StaticResource k3}}"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Grid.Row="18">
+                <StackPanel.Resources>
+                    <!--<IfElseStringConverter Formatter=' >=100:123123,<100&>=50:234234,<50&>=20:456456#999999' x:Key="k1" IsResource="True"/>
+                    <IfElseStringConverter Formatter='0:男,1:女,2:不男不女#未知' x:Key="k2"  IsResource="True"/>
+                    <IfElseConverter Formatter='0:男:女' x:Key="k3"  IsResource="True"/>-->
+                </StackPanel.Resources>
+                <TextBlock Text="测试IfElseStringConverter和IfElseColorConverter,（输入整数数字0到101之间的数字）这里右大括号表示&gt;号,&lt;表示小于号"/>
+                <TextBox Width="60" Height="28" x:Name="txt19" Text="12"/>
+                <TextBlock Text=")=100:123123,(100&amp;)=50:234234,(50&amp;)=20:7DE0B3#999999"/>
+                <TextBox  Width="60" Height="20" Text="{Binding ElementName=txt19,Path=Text,Converter={IfElseStringConverter Formatter=')=100:123123,(100&amp;)=50:234234,(50&amp;)=20:7DE0B3#999999'}}" 
+                       Foreground="{Binding ElementName=txt19,Path=Text,Converter={IfElseColorConverter Formatter=')=100:123123,(100&amp;)=50:234234,(50&amp;)=20:7DE0B3#999999'}}"    ></TextBox>
+            
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Grid.Row="19">
+                <TextBlock Text="AgeConverter年龄转换器" VerticalAlignment="Center"/>
+                <TextBox Width="140" Height="28" x:Name="txt20" Text="1991-04-04 23:37:10"/>
+                <TextBlock Margin="10,0,0,0" Text="{Binding ElementName=txt20,Path=Text,Converter={AgeConverter},StringFormat=现在{0}岁}">
+                </TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Grid.Row="20">
+                <TextBlock Text="MathConverter公式计算转换器(支持字母a-z或者{0}..{N}表示n个参数顺序，支持加减乘除括号)" VerticalAlignment="Center"/>
+                <TextBox Width="140" Height="28" x:Name="txt21" Text="10"/>
+                <TextBlock Text="x*6=" Margin="10,0,0,0" />
+                <TextBlock  Text="{Binding ElementName=txt21,Path=Text,Converter={MathConverter},ConverterParameter={}{0}*6}">
+                </TextBlock>
+                <TextBlock Text="x*6+x*2=" Margin="10,0,0,0" />
+                <TextBlock Text="{Binding ElementName=txt21,Path=Text,Converter={MathConverter},ConverterParameter={}{0}*6+{0}*2}">
+                </TextBlock>
+                <TextBlock Text="多值计算(x+2)*3+(y-1)/2" Margin="10,0,0,0" />
+                <TextBox Width="50" Margin="10,0,0,0" Height="28" x:Name="txt22" Text="4"/>
+                <TextBox Width="50" Margin="10,0,0,0" Height="28" x:Name="txt23" Text="6"/>
+                <TextBlock >
+                    <TextBlock.Text>
+                        <MultiBinding Converter="{MathConverter}" 
+                              ConverterParameter="(x+2)*3+(y-1)/2">
+                            <Binding Path="Text" ElementName="txt21" />
+                            <Binding Path="Text" ElementName="txt22" />
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+</Window>

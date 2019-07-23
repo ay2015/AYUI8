@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{15CF03C7-BB8A-4F8B-8C41-B2FB5494FE14}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RDS.Adapter.Design</RootNamespace>
+    <AssemblyName>RDS.Adapter.Design</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommonAdapter.cs" />
+    <Compile Include="DataFakers\DictsTable.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ay\Ay.Framework.DataCreaters\Ay.Framework.DataCreaters.csproj">
+      <Project>{727ca740-0978-43de-b8ff-b3df6549cdd3}</Project>
+      <Name>Ay.Framework.DataCreaters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ay\ay.mvc\ay.mvc.csproj">
+      <Project>{74A5E186-43D4-450E-B314-F261FE0FFFCB}</Project>
+      <Name>ay.mvc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RDS.IAdapter\RDS.IAdapter.csproj">
+      <Project>{b22d11fb-9fa9-42da-ae7e-90ad748abab8}</Project>
+      <Name>RDS.IAdapter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RDS.Models.UI\RDS.Models.UI.csproj">
+      <Project>{8f45295e-1e22-4878-bb6b-27da71ff1819}</Project>
+      <Name>RDS.Models.UI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

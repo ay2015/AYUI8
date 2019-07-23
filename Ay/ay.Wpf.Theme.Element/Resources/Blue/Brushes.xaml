@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<local:ElementStylesBase x:Class="ay.Wpf.Theme.Element.Blue.Brushes"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                       xmlns:s="clr-namespace:System;assembly=mscorlib" 
+                       xmlns:local="clr-namespace:ay.Wpf.Theme.Element"
+                       xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    
+
+    
+</local:ElementStylesBase>

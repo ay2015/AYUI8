@@ -1,0 +1,21 @@
+﻿<Window x:Class="TestDemo.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Window1" Height="600" Width="1200" WindowStartupLocation="CenterScreen">
+    <Grid  Width="1200" Height="600">
+        <Button Click="Button_Click"  Content="Thickness动画" Margin="10,40,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></Button>
+        <Button Click="Button_Click_1"  Content="Canvas动画"  Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button Click="Button_Click_2"  Content="Color动画"  Margin="10,80,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock x:Name="msg"  FontSize="20" Text=""   Margin="147,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBlock>
+        <TextBlock x:Name="msg1"  FontSize="20" Text="Canvas区域"   Canvas.Top="4" Margin="147,37,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBlock>
+        <Canvas Width="400" Height="400" Background="Gray" Margin="147,0,0,0" HorizontalAlignment="Left">
+            <Rectangle Width="40" Height="40" x:Name="rec1" Fill="Red" Canvas.Left="174" Canvas.Top="110"></Rectangle>
+        </Canvas>
+        <Border Width="400" Height="400" Background="Gray" Margin="677,0,0,0" HorizontalAlignment="Left">
+            <Rectangle Width="40" Height="40" x:Name="rec2" Fill="Red" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="40,60"/>
+        </Border>
+        <TextBlock x:Name="msg1_Copy" Height="30" Width="200"  FontSize="20" Text="Margin区域" Margin="677,37,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+
+    </Grid>
+</Window>

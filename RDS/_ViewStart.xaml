@@ -1,0 +1,13 @@
+﻿<ay:AyWindow x:Class="RDS._ViewStart"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ay="http://www.ayjs.net/2020" TitleBarHeight="48"
+        xmlns:local="clr-namespace:RDS"  Title="{Binding MainTitle}"  Width="1400" Height="800"
+       WindowStartupLocation="CenterScreen" mc:Ignorable="d">
+    <Grid >
+        <Frame NavigationUIVisibility="Hidden" x:Name="frame" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="1920" Height="1080"
+       Source="pack://application:,,,/RDS;component/Views/Index/IndexView.xaml"/>
+    </Grid>
+</ay:AyWindow>

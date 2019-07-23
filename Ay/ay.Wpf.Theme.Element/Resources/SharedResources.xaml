@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    xmlns:s="clr-namespace:System;assembly=mscorlib" 
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    
+  <sys:Double x:Key="DisabledOpacity">0.5</sys:Double>
+    <sys:Double x:Key="ScrollViewerWH">14.00</sys:Double>
+    <sys:Double x:Key="ScrollBarRadius">1.00</sys:Double>
+    
+</ResourceDictionary>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <bgFolder value="Content/Background/" ></bgFolder>
+  <skinBg value="默认.jpg" ></skinBg>
+  <skinColorBg value="www.ayjs.net" use="0"></skinColorBg>
+  <themeMode value="img"/>
+  <Gaosi value="24"/><!--最大值0-255，只支持xp以上，不包括xp系统-->
+  <USMGaosi value="0"/><!--最大值0-100,用于锐化图片，暂时没用-->
+  <RecOpa1 value="0.3"/>
+  <RecOpa2 value="0.3"/>
+  <RecOpa3 value="1"/>
+  <RecOpa4 value="1"/>
+  <skinSwitchAnimation value="2"></skinSwitchAnimation>
+  
+  <config1 value="1"/>
+  <config2 value=""/>
+  <config3 value=""/>
+  <config4 value=""/>
+  <config5 value=""/>
+  <config6 value=""/>
+  <config7 value=""/>
+  <config8 value=""/>
+  <config9 value=""/>
+  <config10 value=""/>
+  
+ 
+</Application>

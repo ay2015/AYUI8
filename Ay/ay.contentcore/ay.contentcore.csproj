@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9444F98C-30B1-4074-BA00-E942EDD729B2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ay.contentcore</RootNamespace>
+    <AssemblyName>ay.contentcore</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SharedCode\AssemblyInfos.cs" />
+    <Compile Include="SharedCode\color\AyColorHelper.cs" />
+    <Compile Include="SharedCode\color\ColorService.cs" />
+    <Compile Include="SharedCode\color\HlsColor.cs" />
+    <Compile Include="SharedCode\color\HsvColor.cs" />
+    <Compile Include="SharedCode\ContentManager.cs" />
+    <Compile Include="SharedCode\font\AyText.cs" />
+    <Compile Include="SharedCode\font\UI\AvailableColors.cs" />
+    <Compile Include="SharedCode\font\UI\FontConvertExt.cs" />
+    <Compile Include="SharedCode\font\UI\FontFamilyDialogPicker.cs" />
+    <Compile Include="SharedCode\font\UI\ColorFontFamilyDialog.xaml.cs">
+      <DependentUpon>ColorFontFamilyDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SharedCode\font\UI\ColorFontFamilyChooser.xaml.cs">
+      <DependentUpon>ColorFontFamilyChooser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SharedCode\font\UI\ColorFontChooser.xaml.cs">
+      <DependentUpon>ColorFontChooser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SharedCode\font\UI\ColorFontDialog.xaml.cs">
+      <DependentUpon>ColorFontDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SharedCode\font\UI\ColorPicker.xaml.cs">
+      <DependentUpon>ColorPicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SharedCode\font\UI\ColorPickerViewModel.cs" />
+    <Compile Include="SharedCode\font\UI\FontColor.cs" />
+    <Compile Include="SharedCode\font\UI\FontInfo.cs" />
+    <Compile Include="SharedCode\icon\AyIconAll.cs" />
+    <Compile Include="SharedCode\icon\AyIconAllType.cs" />
+    <Compile Include="SharedCode\icon\AyImage.cs" />
+    <Compile Include="SharedCode\icon\AyPath.cs" />
+    <Compile Include="SharedCode\icon\AyStrokeLabel.cs" />
+    <Compile Include="SharedCode\icon\FontIcon\AyFontAweSomeEnum.cs" />
+    <Compile Include="SharedCode\icon\FontIcon\Ext.cs" />
+    <Compile Include="SharedCode\icon\FontIcon\FontAweSomeHelper.cs" />
+    <Compile Include="SharedCode\icon\GifAnimation\AnimationCache.cs" />
+    <Compile Include="SharedCode\icon\GifAnimation\AyGifControl.cs" />
+    <Compile Include="SharedCode\icon\GifAnimation\Decoding\GifApplicationExtension.cs" />
+    <Compile Include="SharedCode\icon\GifAnimation\Decoding\GifBlock.cs" />
+    <Compile Include="SharedCode\icon\GifAnimation\Decoding\GifBlockKind.cs" />
+    <Compile Include="SharedCode\icon\GifAnimation\Decoding\GifColor.cs" />
+    <Compile Include="SharedCode\icon\GifAnimation\Decoding\GifCommentExtension.cs" />
+    <Compile Include="SharedCode\icon\GifAnimation\Decoding\GifDecoderException.cs" />
+    <Compile Include="SharedCode\icon\GifAnimation\Decoding\GifExtension.cs" />
+    <Compile Include="SharedCode\icon\GifAnimation\Decoding\GifFile.cs" />
+    <Compile Include="SharedCode\icon\GifAnimation\Decoding\GifFrame.cs" />
+    <Compile Include="SharedCode\icon\GifAnimation\Decoding\GifGraphicControlExtension.cs" />
+    <Compile Include="SharedCode\icon\GifAnimation\Decoding\GifHeader.cs" />
+    <Compile Include="SharedCode\icon\GifAnimation\Decoding\GifHelpers.cs" />
+    <Compile Include="SharedCode\icon\GifAnimation\Decoding\GifImageData.cs" />
+    <Compile Include="SharedCode\icon\GifAnimation\Decoding\GifImageDescriptor.cs" />
+    <Compile Include="SharedCode\icon\GifAnimation\Decoding\GifLogicalScreenDescriptor.cs" />
+    <Compile Include="SharedCode\icon\GifAnimation\Decoding\GifPlainTextExtension.cs" />
+    <Compile Include="SharedCode\icon\GifAnimation\Decoding\GifTrailer.cs" />
+    <Compile Include="SharedCode\icon\GifAnimation\ImageAnimationController.cs" />
+    <Compile Include="SharedCode\icon\GifAnimation\ImageBehavior.cs" />
+    <Compile Include="SharedCode\icon\HexToBrush.cs" />
+    <Compile Include="SharedCode\icon\IIconSupport.cs" />
+    <Compile Include="SharedCode\icon\PathIcon.cs" />
+    <Compile Include="SharedCode\lang\AyLangComboBox.cs" />
+    <Compile Include="SharedCode\DesignDevSupport.cs" />
+    <Compile Include="SharedCode\lang\DicItem.cs" />
+    <Compile Include="SharedCode\lang\ISaveSupport.cs" />
+    <Compile Include="SharedCode\lang\LangService.cs" />
+    <Compile Include="SharedCode\lang\WpfDesign.cs" />
+    <Compile Include="SharedCode\ui\AyCommon.cs" />
+    <Compile Include="SharedCode\ui\Base\AlignmentService.cs" />
+    <Compile Include="SharedCode\ui\Base\AyTypeConvertAndIf.cs" />
+    <Compile Include="SharedCode\ui\Base\ComparisonBinding.cs" />
+    <Compile Include="SharedCode\ui\Base\FocusService.cs" />
+    <Compile Include="SharedCode\ui\Base\GridService.cs" />
+    <Compile Include="SharedCode\ui\Base\GuidNameExtension.cs" />
+    <Compile Include="SharedCode\ui\Base\ImageResources.cs" />
+    <Compile Include="SharedCode\ui\Base\MagicString.cs" />
+    <Compile Include="SharedCode\ui\Base\RandomExtension.cs" />
+    <Compile Include="SharedCode\ui\Base\TextBlockService.cs" />
+    <Compile Include="SharedCode\ui\Base\UIChildFinder.cs" />
+    <Compile Include="SharedCode\ui\Base\WpfTreeHelper.cs" />
+    <Compile Include="SharedCode\ui\Behavior\AdornerContainer.cs" />
+    <Compile Include="SharedCode\ui\Behavior\CallMethodAction.cs" />
+    <Compile Include="SharedCode\ui\Behavior\ChangePropertyAction.cs" />
+    <Compile Include="SharedCode\ui\Behavior\ExtendedVisualStateManager.cs" />
+    <Compile Include="SharedCode\ui\Behavior\FluidMoveBehavior.cs" />
+    <Compile Include="SharedCode\ui\Behavior\FluidMoveBehaviorBase.cs" />
+    <Compile Include="SharedCode\ui\Behavior\FluidMoveScope.cs" />
+    <Compile Include="SharedCode\ui\Behavior\FluidMoveSetTagBehavior.cs" />
+    <Compile Include="SharedCode\ui\Behavior\GoToStateAction.cs" />
+    <Compile Include="SharedCode\ui\Behavior\LaunchUriOrFileAction.cs" />
+    <Compile Include="SharedCode\ui\Behavior\MouseDragElementBehavior.cs" />
+    <Compile Include="SharedCode\ui\Behavior\PropertyChangedTrigger.cs" />
+    <Compile Include="SharedCode\ui\Behavior\RemoveElementAction.cs" />
+    <Compile Include="SharedCode\ui\Behavior\TagType.cs" />
+    <Compile Include="SharedCode\ui\Behavior\TimerTrigger.cs" />
+    <Compile Include="SharedCode\ui\Behavior\TransitionEffect.cs" />
+    <Compile Include="SharedCode\ui\Behavior\TypeConverterHelper.cs" />
+    <Compile Include="SharedCode\ui\Behavior\VisualStateUtilities.cs" />
+    <Compile Include="SharedCode\ui\CONVERTERLIB\Calc\AgeConverter.cs" />
+    <Compile Include="SharedCode\ui\CONVERTERLIB\Calc\CornerRadiusToRadiusX.cs" />
+    <Compile Include="SharedCode\ui\CONVERTERLIB\Calc\DoubleExtCalcConverter.cs" />
+    <Compile Include="SharedCode\ui\CONVERTERLIB\Calc\DoubleReturnMaxValueConverter.cs" />
+    <Compile Include="SharedCode\ui\CONVERTERLIB\Calc\DoubleReturnMinValueConverter.cs" />
+    <Compile Include="SharedCode\ui\CONVERTERLIB\Calc\DoubleToRoundDoubleConverter.cs" />
+    <Compile Include="SharedCode\ui\CONVERTERLIB\Calc\DoubleToThicknessConverter.cs" />
+    <Compile Include="SharedCode\ui\CONVERTERLIB\Calc\LeftIndentConverter.cs" />
+    <Compile Include="SharedCode\ui\CONVERTERLIB\Calc\MathConverter.cs" />
+    <Compile Include="SharedCode\ui\CONVERTERLIB\Calc\RectVisualConverter.cs" />
+    <Compile Include="SharedCode\ui\CONVERTERLIB\Calc\ScaleToPercentConverter.cs" />
+    <Compile Include="SharedCode\ui\CONVERTERLIB\Calc\ThicknessMultipleMinusOneConverter.cs" />
+    <Compile Include="SharedCode\ui\CONVERTERLIB\Color\SolidColorBrushToColorConverter.cs" />
+    <Compile Include="SharedCode\ui\CONVERTERLIB\IfSet\BoolToValueConverter.cs" />
+    <Compile Include="SharedCode\ui\CONVERTERLIB\ShowHide\BooleanToVisbilityConverter.cs" />
+    <Compile Include="SharedCode\ui\CONVERTERLIB\ShowHide\DoubleZeroToVisibilityConverter.cs" />
+    <Compile Include="SharedCode\ui\CONVERTERLIB\ShowHide\InverseBooleanConverter.cs" />
+    <Compile Include="SharedCode\ui\CONVERTERLIB\ShowHide\StringToVisbilityConverter.cs" />
+    <Compile Include="SharedCode\ui\CONVERTERLIB\String\DateTimeToSmartStringConverter.cs" />
+    <Compile Include="SharedCode\ui\CONVERTERLIB\String\DateTimeToStringConverter.cs" />
+    <Compile Include="SharedCode\ui\CONVERTERLIB\String\DateToSmartStringConverter.cs" />
+    <Compile Include="SharedCode\ui\CONVERTERLIB\String\FileLengthFormat.cs" />
+    <Compile Include="SharedCode\ui\CONVERTERLIB\String\FileLengthFormatConverter.cs" />
+    <Compile Include="SharedCode\ui\CONVERTERLIB\String\FileNameConverter.cs" />
+    <Compile Include="SharedCode\ui\CONVERTERLIB\String\IfElseColorConverter.cs" />
+    <Compile Include="SharedCode\ui\CONVERTERLIB\String\IfElseConverter.cs" />
+    <Compile Include="SharedCode\ui\CONVERTERLIB\String\IfElseStringConverter.cs" />
+    <Compile Include="SharedCode\ui\CONVERTERLIB\String\SolidColorBrushToStringConverter.cs" />
+    <Compile Include="SharedCode\ui\CONVERTERLIB\ViewConvter\Image\ByteArrayToBitmapImageConverter.cs" />
+    <Compile Include="SharedCode\ui\CONVERTERLIB\ViewConvter\Image\ImageSourceConverter.cs" />
+    <Compile Include="SharedCode\ui\CONVERTERLIB\ViewConvter\Image\LocalImagePathStringToBitmapImageConverter.cs" />
+    <Compile Include="SharedCode\ui\System.Windows.Interactivity\AttachableCollection.cs" />
+    <Compile Include="SharedCode\ui\System.Windows.Interactivity\Behavior.cs" />
+    <Compile Include="SharedCode\ui\System.Windows.Interactivity\BehaviorCollection.cs" />
+    <Compile Include="SharedCode\ui\System.Windows.Interactivity\CustomPropertyValueEditor.cs" />
+    <Compile Include="SharedCode\ui\System.Windows.Interactivity\CustomPropertyValueEditorAttribute.cs" />
+    <Compile Include="SharedCode\ui\System.Windows.Interactivity\DefaultTriggerAttribute.cs" />
+    <Compile Include="SharedCode\ui\System.Windows.Interactivity\DependencyObjectHelper.cs" />
+    <Compile Include="SharedCode\ui\System.Windows.Interactivity\EventObserver.cs" />
+    <Compile Include="SharedCode\ui\System.Windows.Interactivity\EventTrigger.cs" />
+    <Compile Include="SharedCode\ui\System.Windows.Interactivity\EventTriggerBase.cs" />
+    <Compile Include="SharedCode\ui\System.Windows.Interactivity\IAttachedObject.cs" />
+    <Compile Include="SharedCode\ui\System.Windows.Interactivity\Interaction.cs" />
+    <Compile Include="SharedCode\ui\System.Windows.Interactivity\InvokeCommandAction.cs" />
+    <Compile Include="SharedCode\ui\System.Windows.Interactivity\NameResolvedEventArgs.cs" />
+    <Compile Include="SharedCode\ui\System.Windows.Interactivity\NameResolver.cs" />
+    <Compile Include="SharedCode\ui\System.Windows.Interactivity\PreviewInvokeEventArgs.cs" />
+    <Compile Include="SharedCode\ui\System.Windows.Interactivity\TargetedTriggerAction.cs" />
+    <Compile Include="SharedCode\ui\System.Windows.Interactivity\TriggerAction.cs" />
+    <Compile Include="SharedCode\ui\System.Windows.Interactivity\TriggerActionCollection.cs" />
+    <Compile Include="SharedCode\ui\System.Windows.Interactivity\TriggerBase.cs" />
+    <Compile Include="SharedCode\ui\System.Windows.Interactivity\TriggerCollection.cs" />
+    <Compile Include="SharedCode\ui\System.Windows.Interactivity\TypeConstraintAttribute.cs" />
+    <Compile Include="SharedCode\ui\TemplateBorder.cs" />
+    <Compile Include="SharedCode\ui\UIBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SharedCode\icon\FontIcon\FontAwesome.otf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="All.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SharedCode\font\ExplicitDefault.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SharedCode\font\ImplicitDefault.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SharedCode\font\Font.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SharedCode\font\UI\ColorFontFamilyDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SharedCode\font\UI\ColorFontFamilyChooser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SharedCode\font\UI\ColorFontChooser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SharedCode\font\UI\ColorFontDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SharedCode\font\UI\ColorPicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Ay内容库开发过程.md" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SharedCode\ui\CONVERTERLIB\转换器设计.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

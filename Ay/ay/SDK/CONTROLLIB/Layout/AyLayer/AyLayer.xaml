@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="ay.Controls.AyLayer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Background="{x:Null}"
+>
+    <Grid x:Name="layoutMain" Background="{x:Null}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Border  x:Name="body"  VerticalAlignment="Top"  HorizontalAlignment="Left" Visibility="Collapsed" >
+            <Grid x:Name="bodyConent">
+                <Grid.RowDefinitions>
+                    <RowDefinition  x:Name="d"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <ContentPresenter x:Name="userPresenter" Grid.Row="1"></ContentPresenter>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

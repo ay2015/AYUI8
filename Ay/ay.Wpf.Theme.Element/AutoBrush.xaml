@@ -1,0 +1,87 @@
+      
+                        <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib">
+
+	     <Color x:Key="colorprimary.color">#409EFF</Color>
+     <SolidColorBrush x:Key="colorprimary" Color="#409EFF"></SolidColorBrush>
+       <Color x:Key="colorsuccess.color">#67C23A</Color>
+     <SolidColorBrush x:Key="colorsuccess" Color="#67C23A"></SolidColorBrush>
+       <Color x:Key="colorwarning.color">#E6A23C</Color>
+     <SolidColorBrush x:Key="colorwarning" Color="#E6A23C"></SolidColorBrush>
+       <Color x:Key="colordanger.color">#F56C6C</Color>
+     <SolidColorBrush x:Key="colordanger" Color="#F56C6C"></SolidColorBrush>
+       <Color x:Key="colorinfo.color">#909399</Color>
+     <SolidColorBrush x:Key="colorinfo" Color="#909399"></SolidColorBrush>
+       <Color x:Key="colortextregular.color">#606266</Color>
+     <SolidColorBrush x:Key="colortextregular" Color="#606266"></SolidColorBrush>
+       <Color x:Key="colortextplaceholder.color">#C0C4CC</Color>
+     <SolidColorBrush x:Key="colortextplaceholder" Color="#C0C4CC"></SolidColorBrush>
+       <Color x:Key="colortextprimary.color">#303133</Color>
+     <SolidColorBrush x:Key="colortextprimary" Color="#303133"></SolidColorBrush>
+       <Color x:Key="colortextsecondary.color">#909399</Color>
+     <SolidColorBrush x:Key="colortextsecondary" Color="#909399"></SolidColorBrush>
+       <Color x:Key="bordercolorbase.color">#DCDFE6</Color>
+     <SolidColorBrush x:Key="bordercolorbase" Color="#DCDFE6"></SolidColorBrush>
+       <Color x:Key="bordercolorlight.color">#E4E7ED</Color>
+     <SolidColorBrush x:Key="bordercolorlight" Color="#E4E7ED"></SolidColorBrush>
+       <Color x:Key="bordercolorlighter.color">#EBEEF5</Color>
+     <SolidColorBrush x:Key="bordercolorlighter" Color="#EBEEF5"></SolidColorBrush>
+       <Color x:Key="bordercolorextralight.color">#F2F6FC</Color>
+     <SolidColorBrush x:Key="bordercolorextralight" Color="#F2F6FC"></SolidColorBrush>
+       <Color x:Key="colorwhite.color">#FFFFFF</Color>
+     <SolidColorBrush x:Key="colorwhite" Color="#FFFFFF"></SolidColorBrush>
+       <Color x:Key="colorblack.color">#000000</Color>
+     <SolidColorBrush x:Key="colorblack" Color="#000000"></SolidColorBrush>
+       <Color x:Key="backgroundcolorbase.color">#F5F7FA</Color>
+     <SolidColorBrush x:Key="backgroundcolorbase" Color="#F5F7FA"></SolidColorBrush>
+       <Color x:Key="colorprimary1.color">#FFD9ECFF</Color>
+     <SolidColorBrush x:Key="colorprimary1" Color="#FFD9ECFF"></SolidColorBrush>
+       <Color x:Key="colorprimary2.color">#FFEBF4FF</Color>
+     <SolidColorBrush x:Key="colorprimary2" Color="#FFEBF4FF"></SolidColorBrush>
+       <Color x:Key="colorprimary3.color">#FF65B0FF</Color>
+     <SolidColorBrush x:Key="colorprimary3" Color="#FF65B0FF"></SolidColorBrush>
+       <Color x:Key="colorprimary4.color">#FF398DE6</Color>
+     <SolidColorBrush x:Key="colorprimary4" Color="#FF398DE6"></SolidColorBrush>
+       <Color x:Key="colorprimary5.color">#FFC6E2FF</Color>
+     <SolidColorBrush x:Key="colorprimary5" Color="#FFC6E2FF"></SolidColorBrush>
+       <Color x:Key="colorsuccess1.color">#FFC1E6AE</Color>
+     <SolidColorBrush x:Key="colorsuccess1" Color="#FFC1E6AE"></SolidColorBrush>
+       <Color x:Key="colorsuccess2.color">#FFCBEBBC</Color>
+     <SolidColorBrush x:Key="colorsuccess2" Color="#FFCBEBBC"></SolidColorBrush>
+       <Color x:Key="colorsuccess3.color">#FF7CCC55</Color>
+     <SolidColorBrush x:Key="colorsuccess3" Color="#FF7CCC55"></SolidColorBrush>
+       <Color x:Key="colorsuccess4.color">#FF62914B</Color>
+     <SolidColorBrush x:Key="colorsuccess4" Color="#FF62914B"></SolidColorBrush>
+       <Color x:Key="colorsuccess5.color">#FFB5E29F</Color>
+     <SolidColorBrush x:Key="colorsuccess5" Color="#FFB5E29F"></SolidColorBrush>
+       <Color x:Key="colorwarning1.color">#FFF7E2C3</Color>
+     <SolidColorBrush x:Key="colorwarning1" Color="#FFF7E2C3"></SolidColorBrush>
+       <Color x:Key="colorwarning2.color">#FFF9EBD4</Color>
+     <SolidColorBrush x:Key="colorwarning2" Color="#FFF9EBD4"></SolidColorBrush>
+       <Color x:Key="colorwarning3.color">#FFEAB25D</Color>
+     <SolidColorBrush x:Key="colorwarning3" Color="#FFEAB25D"></SolidColorBrush>
+       <Color x:Key="colorwarning4.color">#FFC68F3C</Color>
+     <SolidColorBrush x:Key="colorwarning4" Color="#FFC68F3C"></SolidColorBrush>
+       <Color x:Key="colorwarning5.color">#FFF5DAB2</Color>
+     <SolidColorBrush x:Key="colorwarning5" Color="#FFF5DAB2"></SolidColorBrush>
+       <Color x:Key="colordanger1.color">#FFFEFBFB</Color>
+     <SolidColorBrush x:Key="colordanger1" Color="#FFFEFBFB"></SolidColorBrush>
+       <Color x:Key="colordanger2.color">#FFFEF0F0</Color>
+     <SolidColorBrush x:Key="colordanger2" Color="#FFFEF0F0"></SolidColorBrush>
+       <Color x:Key="colordanger3.color">#FFF78F8F</Color>
+     <SolidColorBrush x:Key="colordanger3" Color="#FFF78F8F"></SolidColorBrush>
+       <Color x:Key="colordanger4.color">#FFDD6464</Color>
+     <SolidColorBrush x:Key="colordanger4" Color="#FFDD6464"></SolidColorBrush>
+       <Color x:Key="colordanger5.color">#FFFDE9E9</Color>
+     <SolidColorBrush x:Key="colordanger5" Color="#FFFDE9E9"></SolidColorBrush>
+       <Color x:Key="colorinfo1.color">#FFDFE0E2</Color>
+     <SolidColorBrush x:Key="colorinfo1" Color="#FFDFE0E2"></SolidColorBrush>
+       <Color x:Key="colorinfo2.color">#FFE9EAEB</Color>
+     <SolidColorBrush x:Key="colorinfo2" Color="#FFE9EAEB"></SolidColorBrush>
+       <Color x:Key="colorinfo3.color">#FFA3A6AB</Color>
+     <SolidColorBrush x:Key="colorinfo3" Color="#FFA3A6AB"></SolidColorBrush>
+       <Color x:Key="colorinfo4.color">#FF848484</Color>
+     <SolidColorBrush x:Key="colorinfo4" Color="#FF848484"></SolidColorBrush>
+       <Color x:Key="colorinfo5.color">#FFD5D6D9</Color>
+     <SolidColorBrush x:Key="colorinfo5" Color="#FFD5D6D9"></SolidColorBrush>
+  </ResourceDictionary>
+	

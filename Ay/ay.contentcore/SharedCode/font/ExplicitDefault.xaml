@@ -1,0 +1,61 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"      
+                     xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    xmlns:ay="clr-namespace:ay.contentcore">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Font.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="CommonControlStyle" TargetType="Control">
+        <Setter Property="FontSize" Value="{DynamicResource NormalFontSize}" />
+        <Setter Property="FontFamily" Value="{DynamicResource NormalFontFamily}" />
+        <Setter Property="FontStyle" Value="{DynamicResource NormalFontStyle}" />
+        <Setter Property="FontWeight" Value="{DynamicResource NormalFontWeight}" />
+        <Setter Property="FontStretch" Value="{DynamicResource NormalFontStretch}" />
+        <Setter Property="TextBlock.FontSize" Value="{DynamicResource NormalFontSize}" />
+        <Setter Property="TextBlock.FontFamily" Value="{DynamicResource NormalFontFamily}"  />
+        <Setter Property="TextBlock.FontStyle" Value="{DynamicResource NormalFontStyle}" />
+        <Setter Property="TextBlock.FontWeight" Value="{DynamicResource NormalFontWeight}" />
+        <Setter Property="TextBlock.FontStretch" Value="{DynamicResource NormalFontStretch}" />
+        
+        <Setter Property="TextElement.FontSize" Value="{DynamicResource NormalFontSize}" />
+        <Setter Property="TextElement.FontFamily" Value="{DynamicResource NormalFontFamily}" />
+        <Setter Property="TextElement.FontStyle" Value="{DynamicResource NormalFontStyle}" />
+        <Setter Property="TextElement.FontWeight" Value="{DynamicResource NormalFontWeight}" />
+        <Setter Property="TextElement.FontStretch" Value="{DynamicResource NormalFontStretch}" />
+    </Style>
+
+    <Style x:Key="CommonTextBlockStyle" TargetType="ay:AyText">
+        <Setter Property="FontFamily"  Value="{DynamicResource NormalFontFamily}"  />
+        <Setter Property="FontSize" Value="{DynamicResource NormalFontSize}" />
+        <Setter Property="FontStyle" Value="{DynamicResource NormalFontStyle}" />
+        <Setter Property="FontWeight" Value="{DynamicResource NormalFontWeight}" />
+        <Setter Property="FontStretch" Value="{DynamicResource NormalFontStretch}" />
+        <!--<Setter Property="LineHeight" Value="{DynamicResource NormalFontLineHeight}" />-->
+    </Style>
+    <Style x:Key="CommonTextBlockOnlyStyle" TargetType="ay:AyTextOnly">
+        <Setter Property="FontFamily"  Value="{DynamicResource NormalFontFamily}"  />
+        <Setter Property="FontSize" Value="{DynamicResource NormalFontSize}" />
+        <Setter Property="FontStyle" Value="{DynamicResource NormalFontStyle}" />
+        <Setter Property="FontWeight" Value="{DynamicResource NormalFontWeight}" />
+        <Setter Property="FontStretch" Value="{DynamicResource NormalFontStretch}" />
+        <!--<Setter Property="LineHeight" Value="{DynamicResource NormalFontLineHeight}" />-->
+    </Style>
+    <Style x:Key="ay:AyStrokeLabel" TargetType="ay:AyStrokeLabel">
+        <Setter Property="FontFamily"  Value="{DynamicResource NormalFontFamily}"  />
+        <Setter Property="FontSize" Value="{DynamicResource NormalFontSize}" />
+        <Setter Property="FontStyle" Value="{DynamicResource NormalFontStyle}" />
+        <Setter Property="FontWeight" Value="{DynamicResource NormalFontWeight}" />
+        <Setter Property="FontStretch" Value="{DynamicResource NormalFontStretch}" />
+    </Style>
+
+    <Style x:Key="AyTextStyle" TargetType="ay:AyText" BasedOn="{StaticResource CommonTextBlockStyle}">
+        <Setter Property="TextAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+    <Style x:Key="AyTextOnlyStyle" TargetType="ay:AyTextOnly" BasedOn="{StaticResource CommonTextBlockOnlyStyle}">
+        <Setter Property="TextAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+</ResourceDictionary>

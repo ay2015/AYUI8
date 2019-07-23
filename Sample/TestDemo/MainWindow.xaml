@@ -1,0 +1,15 @@
+﻿<Window x:Class="TestDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestDemo"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="DEMO控制面板" Height="800" Width="1400">
+    <WrapPanel HorizontalAlignment="Left">
+        <Button   Content="弹层Popup和动画" Click="Button1_Click"></Button>
+        <Button Content="内置转换器" Click="Button2_Click"></Button>
+        <Button Content="wpf自带控件" Click="Button5_Click"></Button>
+        <Button   Content="AY社区版主题" Click="Button_Click"></Button>
+    </WrapPanel>
+</Window>

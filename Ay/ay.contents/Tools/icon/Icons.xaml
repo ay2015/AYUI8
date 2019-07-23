@@ -1,0 +1,39 @@
+      
+                        <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib">
+	     <s:String x:Key="more_singleleft" >more_singleleft</s:String>
+       <s:String x:Key="more_singleright" >more_singleright</s:String>
+       <s:String x:Key="more_doubleleft" >more_doubleleft</s:String>
+       <s:String x:Key="more_doubleright" >more_doubleright</s:String>
+       <s:String x:Key="more_ay_yearLeft" >more_ay_yearLeft</s:String>
+       <s:String x:Key="more_ay_yearRight" >more_ay_yearRight</s:String>
+       <s:String x:Key="path_ay_yearClose" >path_ay_yearClose</s:String>
+       <s:String x:Key="more_ay_pickmonthicon" >more_ay_pickmonthicon</s:String>
+       <s:String x:Key="path_ay_msg_right" >path_ay_msg_right</s:String>
+       <s:String x:Key="path_ay_msg_warning" >path_ay_msg_warning</s:String>
+       <s:String x:Key="path_ay_msg_question" >path_ay_msg_question</s:String>
+       <s:String x:Key="path_ay_msg_error" >path_ay_msg_error</s:String>
+       <s:String x:Key="path_ay_msg_delete" >path_ay_msg_delete</s:String>
+       <s:String x:Key="path_ay_msg_info" >path_ay_msg_info</s:String>
+       <s:String x:Key="path_arrowl" >path_arrowl</s:String>
+       <s:String x:Key="path_arrowr" >path_arrowr</s:String>
+       <s:String x:Key="path_fileadd" >path_fileadd</s:String>
+       <s:String x:Key="path_fileopen" >path_fileopen</s:String>
+       <s:String x:Key="path_filesave" >path_filesave</s:String>
+       <s:String x:Key="path_tempswitch" >path_tempswitch</s:String>
+       <s:String x:Key="path_help" >path_help</s:String>
+       <s:String x:Key="more_test2" >more_test2</s:String>
+       <s:String x:Key="top_button_1" >top_button_1</s:String>
+       <s:String x:Key="top_button_2" >top_button_2</s:String>
+       <s:String x:Key="top_button_3" >top_button_3</s:String>
+       <s:String x:Key="path_element_search" >path_element_search</s:String>
+       <s:String x:Key="path_element_edit" >path_element_edit</s:String>
+       <s:String x:Key="path_element_right" >path_element_right</s:String>
+       <s:String x:Key="path_element_info" >path_element_info</s:String>
+       <s:String x:Key="path_element_star" >path_element_star</s:String>
+       <s:String x:Key="path_element_delete" >path_element_delete</s:String>
+       <s:String x:Key="more_element_edit" >more_element_edit</s:String>
+       <s:String x:Key="more_element_Int_Add" >more_element_Int_Add</s:String>
+       <s:String x:Key="path_element_Int_Minus" >path_element_Int_Minus</s:String>
+       <s:String x:Key="more_element_camera" >more_element_camera</s:String>
+  	</ResourceDictionary>
+	

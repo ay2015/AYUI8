@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D03EC572-26FA-42D3-91A7-87D9F49310C1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TestDemo</RootNamespace>
+    <AssemblyName>TestDemo</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Markup.Programming">
+      <HintPath>..\Lib\Markup.Programming.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Tests\主题编辑\ThemeEditUI.xaml.cs">
+      <DependentUpon>ThemeEditUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\主题编辑\TestAyWindowShell.xaml.cs">
+      <DependentUpon>TestAyWindowShell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\主题编辑\TestAyWindowSimple.xaml.cs">
+      <DependentUpon>TestAyWindowSimple.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\主题编辑\TestAyWindow.xaml.cs">
+      <DependentUpon>TestAyWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\主题编辑\TestsThemeEditWindow.xaml.cs">
+      <DependentUpon>TestsThemeEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\主题控制\TestsThemesWindow.xaml.cs">
+      <DependentUpon>TestsThemesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\内置转换器\TestsInnerConverterWindow.xaml.cs">
+      <DependentUpon>TestsInnerConverterWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\弹层Popup\TestsPopupWindow.xaml.cs">
+      <DependentUpon>TestsPopupWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\弹层Popup\Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Tests\主题编辑\ThemeEditUI.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tests\主题编辑\TestAyWindowShell.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tests\主题编辑\TestAyWindowSimple.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tests\主题编辑\TestAyWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="UIControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Tests\主题编辑\TestsThemeEditWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tests\主题控制\TestsThemesWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tests\内置转换器\TestsInnerConverterWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tests\弹层Popup\TestsPopupWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tests\弹层Popup\Window1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Ay\ay.contentcore\ay.contentcore.csproj">
+      <Project>{9444f98c-30b1-4074-ba00-e942edd729b2}</Project>
+      <Name>ay.contentcore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Ay\ay.contents\ay.contents.csproj">
+      <Project>{3800fe55-f547-4f26-b3d9-4b5dae850a1c}</Project>
+      <Name>ay.contents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Ay\Ay.Framework.DataCreaters\Ay.Framework.DataCreaters.csproj">
+      <Project>{727ca740-0978-43de-b8ff-b3df6549cdd3}</Project>
+      <Name>Ay.Framework.DataCreaters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Ay\ay.mvc\ay.mvc.csproj">
+      <Project>{74a5e186-43d4-450e-b314-f261fe0fffcb}</Project>
+      <Name>ay.mvc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Ay\ay.Wpf.Theme.Element\ay.Wpf.Theme.Element.csproj">
+      <Project>{05561601-995f-4c88-a3d3-3e6b699c77f2}</Project>
+      <Name>ay.Wpf.Theme.Element</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Ay\ay.Wpf.Theme\ay.Wpf.Theme.csproj">
+      <Project>{17a007cd-fea2-493a-b055-b7fde8740eae}</Project>
+      <Name>ay.Wpf.Theme</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Ay\ay\ay.csproj">
+      <Project>{43e5a788-cb73-4ea1-9077-75cb897724b9}</Project>
+      <Name>ay</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TestResource\TestsInnerConverterWindow_1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\application.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\Background\默认.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

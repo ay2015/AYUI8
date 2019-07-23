@@ -1,0 +1,132 @@
+﻿<UserControl x:Class="ay.Controls.AyCalendar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:lc="clr-namespace:ay.Controls"  Width="344" BorderBrush="{DynamicResource bordercolorbase}" 
+             xmlns:ay="http://www.ayjs.net/2020"
+             mc:Ignorable="d"
+             >
+
+    <Grid  x:Name="rootGrid" Background="{DynamicResource colorwhite}"
+          FocusService.ClickLostFocus="True">
+        <Border HorizontalAlignment="Stretch"   VerticalAlignment="Stretch"  BorderBrush="{Binding BorderBrush,RelativeSource={RelativeSource AncestorType={x:Type UserControl},Mode=FindAncestor}}" BorderThickness="1" Padding="5">
+            <Grid GridService.Rows="auto auto auto auto auto" >
+                <Border BorderThickness="0,0,0,1" BorderBrush="{DynamicResource bordercolorbase}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="45" Margin="0,0,0,10">
+                    <ay:AyText x:Name="DateShowInfo"
+                               VerticalAlignment="Center" FontSize="{DynamicResource H4}"
+                               HorizontalAlignment="Center"
+                              ></ay:AyText>
+                </Border>
+                
+                <Grid 
+                      x:Name="cdrTools"
+                      Grid.Row="1">
+                    
+                    <Grid  x:Name="gridCdrToolsBar"
+                          Margin="0,0,0,2"
+                          GridService.Columns="40 40 10 auto auto 10 40 40">
+                        <Button x:Name="PART_PreviousYearButton"                               
+                                                 Margin="0,0,0,0"
+                                                 ay:UIBase.Icon="{DynamicResource more_doubleleft}"
+                                                 ay:UIBase.IconHeight="14"
+                                                 ay:UIBase.IconWidth="14"
+                                                 Click="PART_PreviousYearButton_Click"
+                                                 ToolTip="{DynamicResource ay_Last1Year}"
+                                                 Style="{DynamicResource AyDateBoxCalendar.Icon}" />
+                        <Button x:Name="PART_PreviousMonthButton"                               
+                                                 ay:UIBase.Icon="{DynamicResource more_singleleft}" 
+                                                 ay:UIBase.IconHeight="14"
+                                                 ay:UIBase.IconWidth="14"             Grid.Column="1"
+                                                 Click="PART_NextMonthButton_Click"
+                                                 ToolTip="{DynamicResource ay_Last1Month}"
+                                                 Style="{DynamicResource AyDateBoxCalendar.Icon}" />
+
+                        <lc:AyDateBoxMonth 
+                                                Rule="required"
+                                                Grid.Column="3" Placeholder="{DynamicResource ay_MonthName}"
+                                                Year="{Binding Path=Text,ElementName=txt_Year}"
+                                                x:Name="txt_Month"
+                                            ></lc:AyDateBoxMonth>
+
+                        <lc:AyDateBoxYear Placeholder="{DynamicResource ay_YearName}" Rule="required" x:Name="txt_Year"   Text="" Grid.Column="4" Margin="10,0,0,0"></lc:AyDateBoxYear>
+
+
+                        <Button x:Name="PART_NextMonthButton"                               
+                                                 ay:UIBase.Icon="{DynamicResource more_singleright}"
+                                                 ay:UIBase.IconHeight="14"
+                                                 ay:UIBase.IconWidth="14"             Grid.Column="6"
+                                                 Click="PART_NextMonthButton_Click" 
+                                                 ToolTip="{DynamicResource ay_Next1Month}"
+                                                 Style="{DynamicResource AyDateBoxCalendar.Icon}" />
+                        
+                        <Button x:Name="PART_NextYearButton"                               
+                                                 ay:UIBase.Icon="{DynamicResource more_doubleright}"
+                                                 ay:UIBase.IconHeight="14"
+                                                 ay:UIBase.IconWidth="14"             Grid.Column="7"
+                                                 Click="PART_NextYearButton_Click"
+                                                 ToolTip="{DynamicResource ay_Next1Year}"
+                                                 Style="{DynamicResource AyDateBoxCalendar.Icon}" />
+
+                    </Grid>
+                </Grid>
+             
+                <Border Grid.Row="2"
+                        BorderThickness="1"
+                        x:Name="cdrContent">
+                    <Grid GridService.Rows="40 auto" x:Name="tt" GridService.Columns="auto *">
+                        <Grid  Grid.ColumnSpan="2"
+                               Grid.RowSpan="2" 
+                               x:Name="DateListGrid"
+                               Visibility="Visible">
+                            <lc:AyCalendarDateList x:Name="DateList"></lc:AyCalendarDateList>
+                        </Grid>
+                  
+                        <Grid Grid.Row="0" Grid.ColumnSpan="2" x:Name="yearMonthTitle" Visibility="Collapsed" Grid.RowSpan="2" VerticalAlignment="Top" Height="40">
+                            <ay:AyText x:Name="ksxzYearMonth" Text="{DynamicResource ay_QuickSelect}"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left" Margin="5,0,0,0"
+                                      ></ay:AyText>
+                        </Grid>
+                        <StackPanel Margin="0,6,0,0"
+                                    Grid.Row="1"
+                                    Grid.ColumnSpan="2"
+                                    x:Name="sp_YearMonthList" Visibility="Collapsed">
+                            
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <Grid x:Name="cdrTime"
+                      Margin="0,10"
+                      Grid.Row="3"
+                      Visibility="Collapsed">
+                    <lc:AyCalendarTime SelectMode="{Binding SelectMode,RelativeSource={RelativeSource AncestorType={x:Type UserControl},Mode=FindAncestor}}"
+                                          x:Name="act_time"></lc:AyCalendarTime>
+                </Grid>
+
+                <Grid x:Name="cdrButtons" Margin="0,5,0,0"
+                      Visibility="{Binding ExtButtonsVisibility,RelativeSource={RelativeSource AncestorType={x:Type UserControl},Mode=FindAncestor}}"
+                      Grid.Row="4">
+                    <StackPanel Orientation="Horizontal"  HorizontalAlignment="Right"
+                                                      VerticalAlignment="Center" >
+                        <Button    x:Name="btnClear" Click="btnClear_Click"  
+                                                      Visibility="{Binding IsShowClear,RelativeSource={RelativeSource AncestorType={x:Type UserControl},Mode=FindAncestor}}"
+                                                      Content="{DynamicResource share_clear}"   Style="{DynamicResource AyDateBoxCalendar.Button}"
+                                                      />
+                        <Button  
+                                                      x:Name="btnToday"  Style="{DynamicResource AyDateBoxCalendar.Button}"
+                                                      Content="{DynamicResource share_today}"
+                                                      Visibility="{Binding IsShowToday,RelativeSource={RelativeSource AncestorType={x:Type UserControl},Mode=FindAncestor}}"
+                                                      Click="btnToday_Click" />
+                        <Button         x:Name="btnOk"    Style="{DynamicResource AyDateBoxCalendar.Button}"
+                                                      Content="{DynamicResource share_ok}"
+                                                      Click="btnOk_Click"
+                                                 />
+                    </StackPanel>
+                </Grid>
+       
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

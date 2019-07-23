@@ -1,0 +1,26 @@
+﻿<Application x:Class="TestDemo.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:TestDemo"
+                     xmlns:ay="http://www.ayjs.net/2020" StartupUri="MainWindow.xaml">
+    <!--StartupUri="Tests/字体控制/TestsFontsWindow.xaml">-->
+    <!--StartupUri="Tests/内置转换器/TestsInnerConverterWindow.xaml">-->
+    <!--StartupUri="Tests/弹层Popup/TestsPopupWindow.xaml">-->
+    <!--StartupUri="Tests/表单/TestsFormWindow.xaml">-->
+
+    <Application.Resources>
+        <ResourceDictionary>
+        
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/ay.contentcore;component/All.xaml"/>
+                
+                <ResourceDictionary Source="pack://application:,,,/ay.contents;component/All.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/ay;component/All.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/ay.Wpf.Theme.Element;component/All.xaml"/>
+                
+            </ResourceDictionary.MergedDictionaries>
+            <!--设置一下项目输出目录，然后到Content的目录下-->
+            <ay:DesignDevSupport x:Key="design" ContentDirectory="E:\AYUI7\AY通用项目快速开发基础\Sample\TestDemo\bin\Debug\Content"/>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,1007 @@
+﻿<UserControl x:Class="TestDemo.ThemeEditUI"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:TestDemo" 
+             xmlns:ay="http://www.ayjs.net/2020"  xmlns:s="clr-namespace:System;assembly=mscorlib" mc:Ignorable="d" MaxWidth="1200" Height="9000" Width="1200" 
+             d:DesignHeight="1080" d:DesignWidth="1920">
+
+
+    <ScrollViewer  ScrollViewer.VerticalScrollBarVisibility="Auto" FocusVisualStyle="{x:Null}" x:Name="svRoot">
+        <Grid x:Name="root" Background="#FFFFFF">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="280"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical" Height="9000" Margin="0,54" >
+                <ay:AyText Text="Default Theme" FontSize="{DynamicResource H3}"/>
+                <ay:AyText Text="Color" FontSize="{DynamicResource H4}"  Margin="0,40,0,20"/>
+                <StackPanel  Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <Grid GridService.Rows="74 *" GridService.Columns="* *" Width="136" Height="114" >
+                            <Border x:Name="bd1" CornerRadius="3,3,0,0" Background="{DynamicResource colorprimary}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2">
+                                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
+                                    <ay:AyText Foreground="{DynamicResource colorwhite}" FontSize="14" Text="Primary"/>
+                                    <ay:AyText Foreground="{DynamicResource colorwhite}" Opacity="0.69" FontSize="12" Text="{Binding ElementName=bd1,Path=Background,Converter={SolidColorBrushToStringConverter}}"/>
+                                </StackPanel>
+                            </Border>
+                            <Border  CornerRadius="0,0,0,3" Background="{DynamicResource colorprimary1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="0" Grid.Row="1"/>
+                            <Border  CornerRadius="0,0,3,0" Background="{DynamicResource colorprimary2}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1"/>
+                        </Grid>
+                        <Grid GridService.Rows="74 *" GridService.Columns="* *" Width="136" Height="114" Margin="11,0,0,0">
+                            <Border x:Name="bd2" CornerRadius="3,3,0,0" Background="{DynamicResource colorsuccess}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2">
+                                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
+                                    <ay:AyText Foreground="{DynamicResource colorwhite}" FontSize="14" Text="Success"/>
+                                    <ay:AyText Foreground="{DynamicResource colorwhite}" Opacity="0.69" FontSize="12" Text="{Binding ElementName=bd2,Path=Background,Converter={SolidColorBrushToStringConverter}}"/>
+                                </StackPanel>
+                            </Border>
+                            <Border  CornerRadius="0,0,0,3" Background="{DynamicResource colorsuccess1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="0" Grid.Row="1"/>
+                            <Border  CornerRadius="0,0,3,0" Background="{DynamicResource colorsuccess2}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1"/>
+                        </Grid>
+
+                        <Grid GridService.Rows="74 *" GridService.Columns="* *" Width="136" Height="114" Margin="11,0,0,0">
+                            <Border x:Name="bd4" CornerRadius="3,3,0,0" Background="{DynamicResource colordanger}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2">
+                                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
+                                    <ay:AyText Foreground="{DynamicResource colorwhite}" FontSize="14" Text="Danger"/>
+                                    <ay:AyText Foreground="{DynamicResource colorwhite}" Opacity="0.69" FontSize="12" Text="{Binding ElementName=bd4,Path=Background,Converter={SolidColorBrushToStringConverter}}"/>
+                                </StackPanel>
+                            </Border>
+                            <Border  CornerRadius="0,0,0,3" Background="{DynamicResource colordanger1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="0" Grid.Row="1"/>
+                            <Border  CornerRadius="0,0,3,0" Background="{DynamicResource colordanger2}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1"/>
+                        </Grid>
+                        <Grid GridService.Rows="74 *" GridService.Columns="* *" Width="136" Height="114" Margin="11,0,0,0">
+                            <Border x:Name="bd5" CornerRadius="3,3,0,0" Background="{DynamicResource colorwarning}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2">
+                                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
+                                    <ay:AyText Foreground="{DynamicResource colorwhite}" FontSize="14" Text="Warning"/>
+                                    <ay:AyText Foreground="{DynamicResource colorwhite}" Opacity="0.69" FontSize="12" Text="{Binding ElementName=bd5,Path=Background,Converter={SolidColorBrushToStringConverter}}"/>
+                                </StackPanel>
+                            </Border>
+                            <Border  CornerRadius="0,0,0,3" Background="{DynamicResource colorwarning1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="0" Grid.Row="1"/>
+                            <Border  CornerRadius="0,0,3,0" Background="{DynamicResource colorwarning2}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1"/>
+                        </Grid>
+                        <Grid GridService.Rows="74 *" GridService.Columns="* *" Width="136" Height="114" Margin="11,0,0,0">
+                            <Border x:Name="bd3" CornerRadius="3,3,0,0" Background="{DynamicResource colorinfo}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2">
+                                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
+                                    <ay:AyText Foreground="{DynamicResource colorwhite}" FontSize="14" Text="Info"/>
+                                    <ay:AyText Foreground="{DynamicResource colorwhite}" Opacity="0.69" FontSize="12" Text="{Binding ElementName=bd3,Path=Background,Converter={SolidColorBrushToStringConverter}}"/>
+                                </StackPanel>
+                            </Border>
+                            <Border  CornerRadius="0,0,0,3" Background="{DynamicResource colorinfo1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="0" Grid.Row="1"/>
+                            <Border  CornerRadius="0,0,3,0" Background="{DynamicResource colorinfo2}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1"/>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,11,0,0">
+                        <Border  Width="136" Height="74" x:Name="bd21" CornerRadius="3" Background="{DynamicResource colortextprimary}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
+                                <ay:AyText Foreground="{DynamicResource colorwhite}" FontSize="14" Text="Primary Text"/>
+                                <ay:AyText Foreground="{DynamicResource colorwhite}" Opacity="0.69" FontSize="12" Text="{Binding ElementName=bd21,Path=Background,Converter={SolidColorBrushToStringConverter}}"/>
+                            </StackPanel>
+                        </Border>
+                        <Border  Width="136" Height="74" x:Name="bd22" Margin="11,0,0,0" CornerRadius="3" Background="{DynamicResource colortextregular}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
+                                <ay:AyText Foreground="{DynamicResource colorwhite}" FontSize="14" Text="Regular Text"/>
+                                <ay:AyText Foreground="{DynamicResource colorwhite}" Opacity="0.69" FontSize="12" Text="{Binding ElementName=bd22,Path=Background,Converter={SolidColorBrushToStringConverter}}"/>
+                            </StackPanel>
+                        </Border>
+                        <Border  Width="136" Height="74" x:Name="bd23" Margin="11,0,0,0" CornerRadius="3" Background="{DynamicResource colortextsecondary}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
+                                <ay:AyText Foreground="{DynamicResource colorwhite}" FontSize="14" Text="Regular Text"/>
+                                <ay:AyText Foreground="{DynamicResource colorwhite}" Opacity="0.69" FontSize="12" Text="{Binding ElementName=bd23,Path=Background,Converter={SolidColorBrushToStringConverter}}"/>
+                            </StackPanel>
+                        </Border>
+                        <Border  Width="136" Height="74" x:Name="bd24" Margin="11,0,0,0" CornerRadius="3" Background="{DynamicResource colortextplaceholder}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
+                                <ay:AyText Foreground="{DynamicResource colorwhite}" FontSize="14" Text="Placeholder"/>
+                                <ay:AyText Foreground="{DynamicResource colorwhite}" Opacity="0.69" FontSize="12" Text="{Binding ElementName=bd24,Path=Background,Converter={SolidColorBrushToStringConverter}}"/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,11,0,0">
+                        <Border  Width="136" Height="74" x:Name="bd31" CornerRadius="3" Background="{DynamicResource bordercolorbase}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
+                                <ay:AyText  FontSize="14" Text="Border Base"/>
+                                <ay:AyText  Opacity="0.69" FontSize="12" Text="{Binding ElementName=bd31,Path=Background,Converter={SolidColorBrushToStringConverter}}"/>
+                            </StackPanel>
+                        </Border>
+                        <Border  Width="136" Height="74" x:Name="bd32" Margin="11,0,0,0" CornerRadius="3" Background="{DynamicResource bordercolorlight}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
+                                <ay:AyText  FontSize="14" Text="Border Light"/>
+                                <ay:AyText  Opacity="0.69" FontSize="12" Text="{Binding ElementName=bd32,Path=Background,Converter={SolidColorBrushToStringConverter}}"/>
+                            </StackPanel>
+                        </Border>
+                        <Border  Width="136" Height="74" x:Name="bd33" Margin="11,0,0,0" CornerRadius="3" Background="{DynamicResource bordercolorlighter}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
+                                <ay:AyText  FontSize="14" Text="Border Lighter"/>
+                                <ay:AyText  Opacity="0.69" FontSize="12" Text="{Binding ElementName=bd33,Path=Background,Converter={SolidColorBrushToStringConverter}}"/>
+                            </StackPanel>
+                        </Border>
+                        <Border  Width="136" Height="74" x:Name="bd34" Margin="11,0,0,0" CornerRadius="3" Background="{DynamicResource bordercolorextralight}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
+                                <ay:AyText  FontSize="14" Text="Border Extralight"/>
+                                <ay:AyText  Opacity="0.69" FontSize="12" Text="{Binding ElementName=bd34,Path=Background,Converter={SolidColorBrushToStringConverter}}"/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,11,0,0">
+                        <Border  Width="136" Height="74" x:Name="bd41" CornerRadius="3" Background="{DynamicResource colorblack}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
+                                <ay:AyText Foreground="{DynamicResource colorwhite}" FontSize="14" Text="Background B"/>
+                                <ay:AyText Foreground="{DynamicResource colorwhite}" Opacity="0.69" FontSize="12" Text="{Binding ElementName=bd41,Path=Background,Converter={SolidColorBrushToStringConverter}}"/>
+                            </StackPanel>
+                        </Border>
+                        <Border BorderThickness="1" BorderBrush="#EEEEEE" Width="136" Height="74" x:Name="bd42" Margin="11,0,0,0" CornerRadius="3" Background="{DynamicResource colorwhite}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
+                                <ay:AyText  FontSize="14" Text="Background W"/>
+                                <ay:AyText  Opacity="0.69" FontSize="12" Text="{Binding ElementName=bd42,Path=Background,Converter={SolidColorBrushToStringConverter}}"/>
+                            </StackPanel>
+                        </Border>
+                        <Border BorderBrush="#fcc3c3" BorderThickness="1" Width="136" Height="74" x:Name="bd43" Margin="11,0,0,0" CornerRadius="3" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                            <Grid>
+                                <Line X1="136" Y1="0" X2="0" Y2="74" Stroke="#Fcc3c3"/>
+                                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0">
+                                    <ay:AyText  FontSize="14" Text="Background"/>
+                                    <ay:AyText  Opacity="0.69" FontSize="12" Text="Transparent"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+
+                    </StackPanel>
+                </StackPanel>
+                <ay:AyText Text="Typography" FontSize="{DynamicResource H4}"  Margin="0,40,0,20"/>
+                <StackPanel  Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical">
+                        <ay:AyText Margin="0,0,0,15" Text="Heading1" FontSize="20" AlignmentService.Alignment="l c"/>
+                        <ay:AyText Margin="0,0,0,15" Text="Heading2" FontSize="18" AlignmentService.Alignment="l c"/>
+                        <ay:AyText Margin="0,0,0,15" Text="Heading3" FontSize="16" AlignmentService.Alignment="l c"/>
+                        <ay:AyText Margin="0,0,0,15" Text="Heading4" FontSize="14" AlignmentService.Alignment="l c"/>
+                        <ay:AyText Margin="0,0,0,15" Text="Heading5" FontSize="13" AlignmentService.Alignment="l c"/>
+                        <ay:AyText Margin="0,0,0,15" Text="Heading6" FontSize="12" AlignmentService.Alignment="l c"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="100,0,0,0" MaxWidth="300">
+                        <ay:AyText Margin="0,0,0,15" Text="Example body text" FontSize="18" AlignmentService.Alignment="l c"/>
+                        <ay:AyText Foreground="#5e6d82" TextWrapping="Wrap" FontSize="14" LineHeight="24" Text="With MySpace becoming more popular every day, there is the constant need to be different. There are millions of users. If MySpace layouts are chosen well, then you can enhance your profile a great deal."  AlignmentService.Alignment="l t"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical"   Margin="100,0,0,0" MaxWidth="290">
+                        <ay:AyText Margin="0,0,0,15" Text="Example small text" FontSize="18" AlignmentService.Alignment="l c"/>
+                        <ay:AyText Foreground="#5e6d82" TextWrapping="Wrap" FontSize="13" LineHeight="16" Text="Computers have become ubiquitous in almost every facet of our lives. At work, desk jockeys spend hours in front of their desktops, while delivery people scan bar codes with handhelds and workers in the field stay in touch with the central office via their notebooks. Computer hardware weaves itself through the fabric of our lives."  AlignmentService.Alignment="l t"/>
+
+                    </StackPanel>
+                </StackPanel>
+                <ay:AyText Text="Button" FontSize="{DynamicResource H4}"  Margin="0,40,0,20"/>
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" >
+                        <Button  Content="Default" Style="{DynamicResource Button.Default}" />
+                        <Button  Content="Primary" Style="{DynamicResource Button.Primary}"  Margin="10,0,0,0"/>
+                        <Button  Content="Success" Style="{DynamicResource Button.Success}" Margin="10,0,0,0"/>
+                        <Button  Content="Info" Style="{DynamicResource Button.Info}" Margin="10,0,0,0"/>
+                        <Button  Content="Warning" Style="{DynamicResource Button.Warning}" Margin="10,0,0,0"/>
+                        <Button  Content="Danger" Style="{DynamicResource Button.Danger}" Margin="10,0,0,0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <Button  Content="Plain" Style="{DynamicResource Button.Default.Flat}" />
+                        <Button  Content="Primary" Style="{DynamicResource Button.Primary.Flat}"  Margin="10,0,0,0"/>
+                        <Button  Content="Success" Style="{DynamicResource Button.Success.Flat}" Margin="10,0,0,0"/>
+                        <Button  Content="Info" Style="{DynamicResource Button.Info.Flat}" Margin="10,0,0,0"/>
+                        <Button  Content="Warning" Style="{DynamicResource Button.Warning.Flat}" Margin="10,0,0,0"/>
+                        <Button  Content="Danger" Style="{DynamicResource Button.Danger.Flat}" Margin="10,0,0,0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <Button  Content="Default" Style="{DynamicResource Button.Default.Round}" />
+                        <Button  Content="Primary" Style="{DynamicResource Button.Primary.Round}"  Margin="10,0,0,0"/>
+                        <Button  Content="Success" Style="{DynamicResource Button.Success.Round}" Margin="10,0,0,0"/>
+                        <Button  Content="Info" Style="{DynamicResource Button.Info.Round}" Margin="10,0,0,0"/>
+                        <Button  Content="Warning" Style="{DynamicResource Button.Warning.Round}" Margin="10,0,0,0"/>
+                        <Button  Content="Danger" Style="{DynamicResource Button.Danger.Round}" Margin="10,0,0,0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <Button  Style="{DynamicResource Button.Default.Ellipse}" ></Button>
+                        <Button  Style="{DynamicResource Button.Primary.Ellipse}"  Margin="10,0,0,0"/>
+                        <Button  Style="{DynamicResource Button.Success.Ellipse}" Margin="10,0,0,0"/>
+                        <Button  Style="{DynamicResource Button.Info.Ellipse}" Margin="10,0,0,0"/>
+                        <Button  Style="{DynamicResource Button.Warning.Ellipse}" Margin="10,0,0,0"/>
+                        <Button     Style="{DynamicResource Button.Danger.Ellipse}" Margin="10,0,0,0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,14">
+                        <ay:AyText Text="(默认)带横线:" Margin="0,0,10,0"/>
+                        <Button  Content="Default" Style="{DynamicResource Button.Default.LinkText}" />
+                        <Button  Content="Primary" Style="{DynamicResource Button.Primary.LinkText}"  Margin="10,0,0,0"/>
+                        <Button  Content="Success" Style="{DynamicResource Button.Success.LinkText}" Margin="10,0,0,0"/>
+                        <Button  Content="Info" Style="{DynamicResource Button.Info.LinkText}" Margin="10,0,0,0"/>
+                        <Button  Content="Warning" Style="{DynamicResource Button.Warning.LinkText}" Margin="10,0,0,0"/>
+                        <Button  Content="Danger" Style="{DynamicResource Button.Danger.LinkText}" Margin="10,0,0,0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,14">
+                        <ay:AyText Text="不带横线:" Margin="0,0,10,0"/>
+                        <Button ay:UIBase.HasUnderLine="False" Content="Default" Style="{DynamicResource Button.Default.LinkText}" />
+                        <Button ay:UIBase.HasUnderLine="False" Content="Primary" Style="{DynamicResource Button.Primary.LinkText}"  Margin="10,0,0,0"/>
+                        <Button ay:UIBase.HasUnderLine="False" Content="Success" Style="{DynamicResource Button.Success.LinkText}" Margin="10,0,0,0"/>
+                        <Button ay:UIBase.HasUnderLine="False" Content="Info" Style="{DynamicResource Button.Info.LinkText}" Margin="10,0,0,0"/>
+                        <Button ay:UIBase.HasUnderLine="False" Content="Warning" Style="{DynamicResource Button.Warning.LinkText}" Margin="10,0,0,0"/>
+                        <Button ay:UIBase.HasUnderLine="False" Content="Danger" Style="{DynamicResource Button.Danger.LinkText}" Margin="10,0,0,0"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <Button  Content="Default" Style="{DynamicResource Button.Default}" />
+                        <Button  Content="Medium" Style="{DynamicResource Button.Default}" Margin="10,0,0,0" Padding="19,10" VerticalAlignment="Center"/>
+                        <Button  Content="Small" Style="{DynamicResource Button.Default}" Margin="10,0,0,0"
+                                 FontSize="{DynamicResource SmallFontSize}"  Padding="16,8" ay:UIBase.CornerRadius="3" VerticalAlignment="Center"/>
+                        <Button Content="Mini" Margin="10,0,0,0"  Style="{DynamicResource Button.Default}" 
+                                Padding="16,6" FontSize="{DynamicResource SmallFontSize}"  ay:UIBase.CornerRadius="3" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </StackPanel>
+                <ay:AyText Text="标记" FontSize="{DynamicResource H4}"  Margin="0,40,0,20"/>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <ContentControl Content="设计中" Style="{DynamicResource Tag.Default.Round}"/>
+                    <ContentControl Content="未开始" Style="{DynamicResource Tag.Primary.Round}"  Margin="10,0,0,0"/>
+                    <ContentControl Content="已完成" Style="{DynamicResource Tag.Success.Round}"  Margin="10,0,0,0"/>
+                    <ContentControl Content="一周内" Style="{DynamicResource Tag.Info.Round}"  Margin="10,0,0,0"/>
+                    <ContentControl Content="进行中" Style="{DynamicResource Tag.Warning.Round}"  Margin="10,0,0,0"/>
+                    <ContentControl Content="任务异常" Style="{DynamicResource Tag.Danger.Round}"  Margin="10,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <ContentControl Content="设计中" Style="{DynamicResource Tag.Default.Square}"/>
+                    <ContentControl Content="未开始" Style="{DynamicResource Tag.Primary.Square}"  Margin="10,0,0,0"/>
+                    <ContentControl Content="已完成" Style="{DynamicResource Tag.Success.Square}"  Margin="10,0,0,0"/>
+                    <ContentControl Content="一周内" Style="{DynamicResource Tag.Info.Square}"  Margin="10,0,0,0"/>
+                    <ContentControl Content="进行中" Style="{DynamicResource Tag.Warning.Square}"  Margin="10,0,0,0"/>
+                    <ContentControl Content="任务异常" Style="{DynamicResource Tag.Danger.Square}"  Margin="10,0,0,0"/>
+                </StackPanel>
+                <ay:AyText Text="Radio" FontSize="{DynamicResource H4}"  Margin="0,40,0,20"/>
+                <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <RadioButton  Content="Option A" />
+                        <RadioButton  Content="Option B"  Margin="28,0,0,0" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <RadioButton  Content="合肥" Style="{DynamicResource RadioButton.Group}"  ay:UIBase.CornerRadius="4,0,0,4" Panel.ZIndex="10"/>
+                        <RadioButton  Content="北京" Style="{DynamicResource RadioButton.Group}" Margin="-1,0,0,0" Panel.ZIndex="9"/>
+                        <RadioButton  Content="上海" Style="{DynamicResource RadioButton.Group}" Margin="-1,0,0,0" Panel.ZIndex="8"/>
+                        <RadioButton  Content="Hong Kong" Style="{DynamicResource RadioButton.Group}" Margin="-1,0,0,0" ay:UIBase.CornerRadius="0,4,4,0" Panel.ZIndex="7"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <RadioButton  Content="Option A" Style="{DynamicResource RadioButton.Square}"/>
+                        <RadioButton  Content="Option B" Style="{DynamicResource RadioButton.Square}" Margin="28,0,0,0" />
+                    </StackPanel>
+
+                </StackPanel>
+                <ay:AyText Text="Checkbox" FontSize="{DynamicResource H4}"  Margin="0,40,0,20"/>
+                <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <CheckBox  Content="Option 1" />
+                        <CheckBox  Content="Option 2"  Margin="28,0,0,0" VerticalAlignment="Center"/>
+                        <CheckBox  Content="三态CheckBox"  Margin="28,0,0,0" VerticalAlignment="Center" IsThreeState="True"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <CheckBox  Content="天津" Style="{DynamicResource CheckBox.Group}"  ay:UIBase.CornerRadius="4,0,0,4" Panel.ZIndex="10"/>
+                        <CheckBox  Content="南京" Style="{DynamicResource CheckBox.Group}" Margin="-1,0,0,0" Panel.ZIndex="9"/>
+                        <CheckBox  Content="内蒙古" Style="{DynamicResource CheckBox.Group}" Margin="-1,0,0,0" Panel.ZIndex="8"/>
+                        <CheckBox  Content="东京" Style="{DynamicResource CheckBox.Group}" Margin="-1,0,0,0" ay:UIBase.CornerRadius="0,4,4,0" Panel.ZIndex="7"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <CheckBox  Content="Option 1" Style="{DynamicResource CheckBox.Square}"/>
+                        <CheckBox  Content="Option 2" Style="{DynamicResource CheckBox.Square}" Margin="28,0,0,0" />
+                        <CheckBox  Content="三态CheckBox" Style="{DynamicResource CheckBox.Square}" IsThreeState="True" Margin="28,0,0,0" />
+                    </StackPanel>
+
+                </StackPanel>
+                <ay:AyText Text="Input [尝试Tab和方向键]" FontSize="{DynamicResource H4}"  Margin="0,40,0,20"/>
+                <StackPanel Orientation="Vertical" Margin="0,10,0,0" KeyboardNavigation.TabNavigation="Cycle">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                        <ay:AyTextBoxBase   HorizontalAlignment="Left" AutoMoveFocus="True"/>
+                        <ay:AyTextBoxBase   HorizontalAlignment="Left" Margin="10,0,0,0" AutoMoveFocus="True"/>
+                        <ay:AyTextBoxBase   HorizontalAlignment="Left" Margin="10,0,0,0" AutoMoveFocus="True" Text="Click Me"  AutoSelected="OnFocus"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <ay:AyTextBoxBase   HorizontalAlignment="Left" AutoMoveFocus="True"/>
+                        <ay:AyTextBoxBase   HorizontalAlignment="Left" Margin="10,0,0,0" AutoMoveFocus="True"/>
+                        <ay:AyTextBoxBase   HorizontalAlignment="Left" Margin="10,0,0,0" AutoMoveFocus="True" Text="单击自动全选"  AutoSelected="OnFocus"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <ay:AyTextBox Placeholder="请输入"   HorizontalAlignment="Left" AutoMoveFocus="True"/>
+                        <ay:AyTextBox Placeholder="Please Input"   HorizontalAlignment="Left" Margin="10,0,0,0" AutoMoveFocus="True" Text="测试Test"/>
+                        <ay:AyTextBox Placeholder="Please Input"   HorizontalAlignment="Left" Margin="10,0,0,0" AutoMoveFocus="True" Text="焦点时水印不保留" IsKeepPlaceholder="false"/>
+                        <ay:AyTextBox   HorizontalAlignment="Left" Margin="10,0,0,0" AutoMoveFocus="True" Text="自动全选,自定义水印" AutoSelected="OnFocus">
+                            <ay:AyTextBox.PlaceholderTemplate>
+                                <DataTemplate>
+                                    <Button Content="自定义水印" Style="{DynamicResource Button.Primary.Flat}"   Padding="16,6" FontSize="{DynamicResource SmallFontSize}"  ay:UIBase.CornerRadius="3" VerticalAlignment="Center"/>
+                                </DataTemplate>
+                            </ay:AyTextBox.PlaceholderTemplate>
+                        </ay:AyTextBox>
+                    </StackPanel>
+                </StackPanel>
+                <ay:AyText Text="掩码 Input" FontSize="{DynamicResource H4}"  Margin="0,40,0,20"/>
+                <StackPanel Orientation="Vertical" Margin="0,10,0,0" KeyboardNavigation.TabNavigation="Cycle">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                        <ay:MaskedTextBox x:Name="mtxt1"   HorizontalAlignment="Left" AutoMoveFocus="True"  Mask="(000)-00000000" ToolTip="输入手机号" ValueDataType="{x:Type s:String}"/>
+                        <Button Content="获得文本" Margin="10,0,0,0" x:Name="btnGet1" Click="BtnGet1_Click"/>
+                        <ay:MaskedTextBox   x:Name="mtxt2"  HorizontalAlignment="Left" 
+                                  
+                                            Margin="10,0,0,0" Mask="000-00000000-0000"  AutoMoveFocus="True" IncludeLiteralsInValue="False" IncludePromptInValue="True" ValueDataType="{x:Type s:String}"/>
+                        <Button Content="获得文本" Margin="10,0,0,0" x:Name="btnGet2" Click="BtnGet2_Click"/>
+                        <Button Content="获得值(不包含掩码符号)" Margin="10,0,0,0" x:Name="btnGet3" Click="BtnGet3_Click"/>
+                    </StackPanel>
+                </StackPanel>
+      
+                <ay:AyText Text="Input Number" FontSize="{DynamicResource H4}"  Margin="0,40,0,20"/>
+                <StackPanel Orientation="Vertical" Margin="0,10,0,0" KeyboardNavigation.TabNavigation="Cycle">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                        <ay:AyText Text="Int(不显示按钮):" Margin="0,0,10,0" />
+                        <ay:AyFormInput  Placeholder="Int"  IsIntegerBox="True" AutoSelected="OnFocus"  IsShowAddMinusButton="False"/>
+                        <ay:AyText Text="Double:" Margin="10,0,10,0"/>
+                        <ay:AyFormInput  Placeholder="Double" IsNumberBox="True" AutoSelected="OnFocus"/>
+                        <ay:AyText Text="保留2位:" Margin="10,0,10,0"/>
+                        <ay:AyFormInput  Placeholder="Double" IsNumberBox="True" FormatNumber="F2" AutoSelected="OnFocus"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <ay:AyText Text="Int Per Add 10" Margin="0,0,10,0" />
+                        <ay:AyFormInput  Placeholder="Int" IsIntegerBox="True" Increment="10" AutoSelected="OnFocus"/>
+                        <ay:AyText Text="Max 100 Min 0:" Margin="10,0,10,0"/>
+                        <ay:AyFormInput  Placeholder="Double" IsNumberBox="True" AutoSelected="OnFocus" MinValue="0" MaxValue="100"/>
+                        <ay:AyText Text="Password:" Margin="10,0,10,0"/>
+                        <ay:AyFormInput IsPasswordBox="True"   Placeholder="Your Password" InputMethod.IsInputMethodEnabled="False" AutoSelected="OnFocus"/>
+                    </StackPanel>
+
+                </StackPanel>
+                <ay:AyText Text="Input Area" FontSize="{DynamicResource H4}"  Margin="0,40,0,20"/>
+                <StackPanel Orientation="Vertical" Margin="0,10,0,0" KeyboardNavigation.TabNavigation="Cycle">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                        <ay:AyText Text="正常" Width="80" Margin="0,0,10,0" VerticalAlignment="Top"/>
+                        <ay:AyFormInput IsMultiply="True" Placeholder="请输入"   Width="640" Height="80" ay:UIBase.PlaceholderVerticalAlignment="Top"/>
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <ay:AyText Text="换行水印"  Width="80" Margin="0,0,10,0" VerticalAlignment="Top"/>
+                        <ay:AyFormInput IsMultiply="True" Width="640" Height="160" Placeholder="详细描述您的出错情况，有助于我们快速定位并解决问题。比如:&#x0a;1.您使用AYUI的什么功能出现错误?&#x0a;2.出现异常后,是否有错误提示信息?&#x0a;3.这种错误提示是否可以反复出现?">
+
+                        </ay:AyFormInput>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <ay:AyText Text="自定义水印"  Width="80" Margin="0,0,10,0" VerticalAlignment="Top"/>
+                        <ay:AyFormInput IsMultiply="True" Width="640"   Height="160" 
+                                        ay:UIBase.PlaceholderMargin="12"
+                                        ay:UIBase.PlaceholderVerticalAlignment="Stretch" ay:UIBase.PlaceholderHorizontalAlignment="Stretch"
+                                        >
+                            <ay:AyTextBox.PlaceholderTemplate>
+                                <DataTemplate>
+                                    <Border Margin="0" Background="{DynamicResource backgroundcolorbase}" BorderBrush="{DynamicResource bordercolorbase}" CornerRadius="4" BorderThickness="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <ay:AyIconAll Width="48" Height="48" Icon="{DynamicResource path_element_info}" Foreground="{DynamicResource colortextprimary}"/>
+                                            <ay:AyText Text="在这里留下你的第一句话吧" FontSize="18" Margin="0,10,0,0" HorizontalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Border>
+                                </DataTemplate>
+                            </ay:AyTextBox.PlaceholderTemplate>
+                        </ay:AyFormInput>
+                    </StackPanel>
+                </StackPanel>
+                <ay:AyText Text="Input Post ToolTip" FontSize="{DynamicResource H4}"  Margin="0,40,0,20"/>
+                <StackPanel Orientation="Vertical" Margin="0,10,0,0" KeyboardNavigation.TabNavigation="Cycle">
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <ay:AyText Text="身份证:" Margin="0,0,10,0"/>
+                        <ay:AyFormInput MaskExpression="#### #### #### ###%" Width="400" Placeholder="ID Card"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <ay:AyText Text="手机号:" Margin="0,0,10,0"/>
+                        <ay:AyFormInput MaskExpression="#(3)-#(8)" Width="200" Placeholder="Tel" />
+                        <ay:AyText Text="GUID格式:" Margin="10,0,10,0"/>
+                        <ay:AyFormInput MaskExpression="%(8)-%(4)-%(4)-%(4)-%(12)" Width="400" InputMethod.IsInputMethodEnabled="False" />
+                    </StackPanel>
+                </StackPanel>
+
+                <ay:AyText Text="ComboBox" FontSize="{DynamicResource H4}"  Margin="0,40,0,20"/>
+                <StackPanel Orientation="Vertical" Margin="0,10,0,0" KeyboardNavigation.TabNavigation="Cycle" >
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <ay:AyText Text="默认不可编辑:"  />
+                        <ComboBox Margin="10,0,0,0" >
+                            <ComboBoxItem Content="Option1"/>
+                            <ComboBoxItem Content="Option2"/>
+                            <ComboBoxItem Content="Option3"/>
+                            <ComboBoxItem Content="Option4"/>
+                            <ComboBoxItem Content="Option5"/>
+                        </ComboBox>
+                        <ay:AyText Text="可编辑:"  Margin="10,0,0,0" />
+                        <ComboBox Margin="10,0,0,0" IsEditable="True">
+                            <ComboBoxItem Content="Option1"/>
+                            <ComboBoxItem Content="Option2"/>
+                            <ComboBoxItem Content="Option3"/>
+                            <ComboBoxItem Content="Option4"/>
+                            <ComboBoxItem Content="Option5 Option6 Option7 Option8 Option15 Option16 Option17 Option18"/>
+                        </ComboBox>
+                    </StackPanel>
+                </StackPanel>
+
+                <ay:AyText Text="AyComboBox 水印 左右侧内容 行为" FontSize="{DynamicResource H4}"  Margin="0,40,0,20"/>
+                <StackPanel Orientation="Vertical" Margin="0,10,0,0" KeyboardNavigation.TabNavigation="Cycle" >
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <ay:AyText Text="默认不可编辑:"  />
+                        <ay:AyComboBox Margin="10,0,0,0"  Placeholder="请选择">
+                            <ComboBoxItem Content="AyOption1"/>
+                            <ComboBoxItem Content="AyOption2"/>
+                            <ComboBoxItem Content="AyOption3"/>
+                            <ComboBoxItem Content="AyOption4"/>
+                            <ComboBoxItem Content="AyOption5"/>
+                        </ay:AyComboBox>
+                        <ay:AyText Text="可编辑,选择完失去焦点:"  Margin="10,0,0,0"/>
+                        <ay:AyComboBox Margin="10,0,0,0"  Placeholder="请选择" IsEditable="True"  AfterSelectBehavior="UnSelectAll">
+                            <ComboBoxItem Content="AyOption1"/>
+                            <ComboBoxItem Content="AyOption2"/>
+                            <ComboBoxItem Content="AyOption3"/>
+                            <ComboBoxItem Content="AyOption4"/>
+                            <ComboBoxItem Content="AyOption5 Option6 Option7 Option8 Option15 Option16"/>
+                        </ay:AyComboBox>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <ay:AyText Text="(Backspace键或Left键到最左侧展开):"  Margin="0,0,0,0"/>
+                        <ay:AyComboBox Margin="10,0,0,0" Placeholder="请选择"  IsEditable="True">
+                            <ComboBoxItem Content="AyOption1"/>
+                            <ComboBoxItem Content="AyOption2"/>
+                            <ComboBoxItem Content="AyOption3"/>
+                            <ComboBoxItem Content="AyOption4"/>
+                            <ComboBoxItem Content="AyOption5"/>
+                        </ay:AyComboBox>
+                    </StackPanel>
+                </StackPanel>
+                <ay:AyText Text="xaml级别验证(可自定义规则,可定义错误模板)" FontSize="{DynamicResource H4}"  Margin="0,40,0,20"/>
+                <StackPanel Orientation="Vertical" Margin="0,10,0,0" KeyboardNavigation.TabNavigation="Cycle" x:Name="spForm">
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <ay:AyFormInput ay:AyForm.Form="{Binding ElementName=spForm}"
+                                         MaskExpression="###-########"
+                                         Placeholder="手机号,必填"
+                                         Rule="required;tel"
+                                          />
+                        <ay:AyFormInput ay:AyForm.Form="{Binding ElementName=spForm}"
+                                      Placeholder="必填"
+                                         Rule="required"
+                                         Margin="10,0,0,0"
+                                        />
+                        <ay:AyFormInput Rule="num[@ge 1,@le 100]" ay:AyForm.Form="{Binding ElementName=spForm}"
+                                         Placeholder="0到100之间整数"      Width="240"              
+                                         MaxValue="100"   Margin="10,0,0,0"
+                                         MinValue="1"
+                                         IsIntegerBox="True"
+                                          />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <ay:AyFormInput  ay:AyForm.Form="{Binding ElementName=spForm}"
+                                         Placeholder="邮箱,必填"
+                                         Rule="required;email"
+                                          />
+                        <ay:AyFormInput  ay:AyForm.Form="{Binding ElementName=spForm}"
+                                         Placeholder="身份证,必填"
+                                         Rule="required;IDCard" Margin="10,0,0,0"
+                                          />
+                        <ay:AyFormInput ay:AyForm.Form="{Binding ElementName=spForm}"
+                                         Placeholder="Ip地址,非必填"
+                                         Rule="required;Ip" Margin="10,0,0,0"
+                                          />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <ay:AyText Text="第一项无效:"  />
+                        <ay:AyComboBox Margin="10,0,0,0"  Placeholder="请选择" IsFirstItemInvalid="True"  ay:AyForm.Form="{Binding ElementName=spForm}">
+                            <ComboBoxItem Content="无效项"/>
+                            <ComboBoxItem Content="AyOption2"/>
+                            <ComboBoxItem Content="AyOption3"/>
+                            <ComboBoxItem Content="AyOption4"/>
+                            <ComboBoxItem Content="AyOption5"/>
+                        </ay:AyComboBox>
+                        <ay:AyText Text="不在列表无效:"  Margin="10,0,0,0"/>
+                        <ay:AyComboBox Margin="10,0,0,0"  Placeholder="请选择"  Rule="required"  IsEditable="True" IsTextMustInDropDown="True" ay:AyForm.Form="{Binding ElementName=spForm}">
+                            <ComboBoxItem Content="无效项"/>
+                            <ComboBoxItem Content="AyOption2"/>
+                            <ComboBoxItem Content="AyOption3"/>
+                            <ComboBoxItem Content="AyOption4"/>
+                            <ComboBoxItem Content="AyOption5"/>
+                        </ay:AyComboBox>
+                        <ay:AyText Text="必须选择一个:"  Margin="10,0,0,0"/>
+                        <ay:AyComboBox Margin="10,0,0,0"  Placeholder="请选择" IsFirstItemInvalid="True"  SelectedIndex="0" ay:AyForm.Form="{Binding ElementName=spForm}">
+                            <ComboBoxItem Content="==请选择=="/>
+                            <ComboBoxItem Content="AyOption2"/>
+                            <ComboBoxItem Content="AyOption3"/>
+                            <ComboBoxItem Content="AyOption4"/>
+                            <ComboBoxItem Content="AyOption5"/>
+                        </ay:AyComboBox>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <ay:AyFormInput Width="300"
+                            Rule="num(?,4)[@ge 0]" ay:AyForm.Form="{Binding ElementName=spForm}"
+                                         Placeholder="整数位不限制,至多4位小数,必须大于0"
+                                          />
+                        <Button Style="{DynamicResource Button.Primary}" Content="验证" Margin="10,0,0,0">
+                            <ay:Interaction.Triggers>
+                                <ay:EventTrigger EventName="Click">
+                                    <ay:AyFormSubmit Form="{Binding ElementName=spForm}"
+                                                     />
+                                </ay:EventTrigger>
+                            </ay:Interaction.Triggers>
+                        </Button>
+                        <Button Style="{DynamicResource Button.Primary}" Margin="10,0,0,0" Content="高亮">
+                            <ay:Interaction.Triggers>
+                                <ay:EventTrigger EventName="Click">
+                                    <ay:AyFormHighlight Form="{Binding ElementName=spForm}"/>
+                                </ay:EventTrigger>
+                            </ay:Interaction.Triggers>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+
+                <ay:AyText Text="左右内容" FontSize="{DynamicResource H4}"  Margin="0,40,0,20"/>
+                <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                    <ay:AyText Text="自适应宽(文本):"  />
+                    <ay:AyFormInput Margin="0,10,0,0" Width="540" Placeholder=""  AlignmentService.Alignment="l c">
+                        <ay:AyFormInput.LeftContent>
+                            <ContentControl Style="{DynamicResource View.Text.Left}"  Content="我是文本：" ></ContentControl>
+                        </ay:AyFormInput.LeftContent>
+                        <ay:AyFormInput.RightContent >
+                            <ContentControl Style="{DynamicResource View.Text.Right}" Content="Go" ></ContentControl>
+                        </ay:AyFormInput.RightContent>
+                    </ay:AyFormInput>
+
+                    <ay:AyComboBox IsEditable="False" Margin="0,10,0,0" Width="540"  AlignmentService.Alignment="l c"  Placeholder="您的站点"  Rule="required"  IsTextMustInDropDown="True" >
+                        <ay:AyComboBox.LeftContent>
+                            <ContentControl Style="{DynamicResource View.Text.Left}"  Content="选择您的http站点：" ></ContentControl>
+                        </ay:AyComboBox.LeftContent>
+                        <ay:AyComboBox.RightContent >
+                            <ContentControl Style="{DynamicResource View.Text.Right}" Content="前往站点" ></ContentControl>
+                        </ay:AyComboBox.RightContent>
+                        <ComboBoxItem Content="无效项"/>
+                        <ComboBoxItem Content="http://www.ayjs.net"/>
+                        <ComboBoxItem Content="http://www.wpfui.com"/>
+                        <ComboBoxItem Content="http://www.baidu.com"/>
+                        <ComboBoxItem Content="http://www.cnblogs.com/aaronyang"/>
+                    </ay:AyComboBox>
+
+                    <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                        <ay:AyText Text="固定宽(文本):"  />
+                        <ay:AyFormInput Margin="0,10,0,0" Width="540" Placeholder="" AlignmentService.Alignment="l c">
+                            <ay:AyFormInput.LeftContent>
+                                <ContentControl Style="{DynamicResource View.Text.Left}"  Content="我是文本："  ay:UIBase.IconWidth="80"></ContentControl>
+                            </ay:AyFormInput.LeftContent>
+                            <ay:AyFormInput.RightContent >
+                                <ContentControl Style="{DynamicResource View.Text.Right}" Content="Go" ay:UIBase.IconWidth="80" ></ContentControl>
+                            </ay:AyFormInput.RightContent>
+                        </ay:AyFormInput>
+
+                        <ay:AyComboBox IsEditable="False" Margin="0,10,0,0" Width="540"  AlignmentService.Alignment="l c"  Placeholder="您的站点"  >
+                            <ay:AyComboBox.LeftContent>
+                                <ContentControl Style="{DynamicResource View.Text.Left}"  Content="选择您的http站点：" ay:UIBase.IconWidth="80" ToolTip="选择您的http站点："></ContentControl>
+                            </ay:AyComboBox.LeftContent>
+                            <ay:AyComboBox.RightContent >
+                                <ContentControl Style="{DynamicResource View.Text.Right}" Content="前往站点" ay:UIBase.IconWidth="80" ></ContentControl>
+                            </ay:AyComboBox.RightContent>
+                            <ComboBoxItem Content="无效项"/>
+                            <ComboBoxItem Content="http://www.ayjs.net"/>
+                            <ComboBoxItem Content="http://www.wpfui.com"/>
+                            <ComboBoxItem Content="http://www.baidu.com"/>
+                            <ComboBoxItem Content="http://www.cnblogs.com/aaronyang"/>
+                        </ay:AyComboBox>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                        <ay:AyText Text="固定宽(文本按钮):"  />
+                        <ay:AyFormInput Margin="0,10,0,0" Width="540" Placeholder="" AlignmentService.Alignment="l c" x:Name="txtFolderPath">
+                            <ay:AyFormInput.LeftContent>
+                                <ContentControl Style="{DynamicResource View.Text.Left}"  Content="保存位置"  ay:UIBase.IconWidth="80"></ContentControl>
+                            </ay:AyFormInput.LeftContent>
+                            <ay:AyFormInput.RightContent >
+                                <Button Style="{DynamicResource View.TextButton.Right}" Content="选择..." ay:UIBase.IconWidth="80" >
+                                    <ay:Interaction.Triggers>
+                                        <ay:EventTrigger EventName="Click" >
+                                            <ay:AyFolderPicker Target="{Binding ElementName=txtFolderPath}"/>
+                                        </ay:EventTrigger>
+                                    </ay:Interaction.Triggers>
+                                </Button>
+                            </ay:AyFormInput.RightContent>
+                        </ay:AyFormInput>
+
+                        <ay:AyComboBox x:Name="cboURLS" IsEditable="False" Margin="0,10,0,0" Width="540"  AlignmentService.Alignment="l c"  Placeholder="您的站点"  >
+                            <ay:AyComboBox.LeftContent>
+                                <ContentControl Style="{DynamicResource View.Text.Left}"  Content="您的http站点：" ay:UIBase.IconWidth="80" ToolTip="您的http站点："></ContentControl>
+                            </ay:AyComboBox.LeftContent>
+                            <ay:AyComboBox.RightContent >
+                                <Button Style="{DynamicResource View.TextButton.Right}" Content="前往站点" ay:UIBase.IconWidth="80" x:Name="btnGoURI" Click="BtnGoURI_Click"></Button>
+                            </ay:AyComboBox.RightContent>
+                            <ComboBoxItem Content="无效项"/>
+                            <ComboBoxItem Content="http://www.ayjs.net"/>
+                            <ComboBoxItem Content="http://www.wpfui.com"/>
+                            <ComboBoxItem Content="http://www.baidu.com"/>
+                            <ComboBoxItem Content="http://www.cnblogs.com/aaronyang"/>
+                        </ay:AyComboBox>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                        <ay:AyText Text="100%宽(文本):"  />
+                        <ay:AyFormInput Margin="0,10,0,0" ay:UIBase.UIStretch="HorizonStretch" Placeholder="输入..." >
+                            <ay:AyFormInput.LeftContent>
+                                <ContentControl Style="{DynamicResource View.Text.Left}"  Content="邮箱："  ay:UIBase.IconWidth="80"></ContentControl>
+                            </ay:AyFormInput.LeftContent>
+                            <ay:AyFormInput.RightContent>
+                                <ContentControl Style="{DynamicResource View.Text.Right}"  Content="@qq.com"  ay:UIBase.IconWidth="80"></ContentControl>
+                            </ay:AyFormInput.RightContent>
+                        </ay:AyFormInput>
+
+                    </StackPanel>
+                    <ay:AyText Text="自适应宽(图标):" Margin="0,10,0,0" />
+                    <ay:AyFormInput Margin="0,10,0,0" Width="540" Placeholder="" AlignmentService.Alignment="l c">
+                        <ay:AyFormInput.LeftContent>
+                            <ContentControl Style="{DynamicResource View.Icon.Left}"  ay:UIBase.Icon="{DynamicResource path_element_star}"></ContentControl>
+                        </ay:AyFormInput.LeftContent>
+
+                    </ay:AyFormInput>
+
+                    <ay:AyComboBox IsEditable="True" Margin="0,10,0,0" Width="540"  AlignmentService.Alignment="l c"  Placeholder="可以编辑" >
+                        <ay:AyComboBox.LeftContent>
+                            <ContentControl Style="{DynamicResource View.Icon.Left}" ay:UIBase.Icon="{DynamicResource path_element_star}"></ContentControl>
+                        </ay:AyComboBox.LeftContent>
+                        <ay:AyComboBox.RightContent >
+                            <ContentControl Style="{DynamicResource View.Icon.Right}" ay:UIBase.Icon="{DynamicResource path_element_edit}"></ContentControl>
+                        </ay:AyComboBox.RightContent>
+                        <ComboBoxItem Content="无效项"/>
+                        <ComboBoxItem Content="http://www.ayjs.net"/>
+                        <ComboBoxItem Content="http://www.wpfui.com"/>
+                        <ComboBoxItem Content="http://www.baidu.com"/>
+                        <ComboBoxItem Content="http://www.cnblogs.com/aaronyang"/>
+                    </ay:AyComboBox>
+
+                    <ay:AyText Text="自适应宽(图标按钮):" Margin="0,10,0,0" />
+                    <ay:AyComboBox IsEditable="True" Margin="0,10,0,0" Width="540"  AlignmentService.Alignment="l c"  Placeholder="可以编辑"  >
+                        <ay:AyComboBox.LeftContent>
+                            <Button Style="{DynamicResource View.IconButton.Left}" ay:UIBase.Icon="{DynamicResource path_element_star}" Click="Button_Click_1"></Button>
+                        </ay:AyComboBox.LeftContent>
+                        <ay:AyComboBox.RightContent >
+                            <Button Style="{DynamicResource View.IconButton.Right}" ay:UIBase.Icon="{DynamicResource path_element_edit}" Click="Button_Click"></Button>
+                        </ay:AyComboBox.RightContent>
+                        <ComboBoxItem Content="无效项"/>
+                        <ComboBoxItem Content="http://www.ayjs.net"/>
+                        <ComboBoxItem Content="http://www.wpfui.com"/>
+                        <ComboBoxItem Content="http://www.baidu.com"/>
+                        <ComboBoxItem Content="http://www.cnblogs.com/aaronyang"/>
+                    </ay:AyComboBox>
+
+                    <ay:AyText Text="自适应宽(自定义内容):"  Margin="0,10,0,0"/>
+                    <ay:AyComboBox IsEditable="True" Margin="0,10,0,0" Width="540"  AlignmentService.Alignment="l c"  Placeholder="可你这以编辑"  >
+                        <ay:AyComboBox.LeftContent>
+                            <ContentControl Style="{DynamicResource View.Content.Left}" >
+                                <CheckBox Content="选择"/>
+                            </ContentControl>
+                        </ay:AyComboBox.LeftContent>
+                        <ay:AyComboBox.RightContent >
+                            <ContentControl Style="{DynamicResource View.Content.Right}" >
+                                <RadioButton Content="测试"/>
+                            </ContentControl>
+                        </ay:AyComboBox.RightContent>
+                        <ComboBoxItem Content="无效项"/>
+                        <ComboBoxItem Content="http://www.ayjs.net"/>
+                        <ComboBoxItem Content="http://www.wpfui.com"/>
+                        <ComboBoxItem Content="http://www.baidu.com"/>
+                        <ComboBoxItem Content="http://www.cnblogs.com/aaronyang"/>
+                    </ay:AyComboBox>
+                    <ay:AyFormInput Margin="0,10,0,0" Width="540" Placeholder="" AlignmentService.Alignment="l c" x:Name="txtOrderNumber">
+                        <ay:AyFormInput.LeftContent>
+                            <ay:TemplateBorder Style="{DynamicResource BorderStyle}" CornerRadius="4,0,0,4" BorderThickness="0,0,1,0">
+                                <ay:AyComboBox IsTabStop="False"  BorderThickness="0"  Width="120" HorizontalContentAlignment="Center"  AlignmentService.Alignment="s s"  Placeholder="请选择"  >
+                                    <ComboBoxItem Content="餐厅名"/>
+                                    <ComboBoxItem Content="订单号"/>
+                                    <ComboBoxItem Content="用户电话"/>
+                                </ay:AyComboBox>
+                            </ay:TemplateBorder>
+                        </ay:AyFormInput.LeftContent>
+                        <ay:AyFormInput.RightContent >
+                            <Button Style="{DynamicResource View.IconButton.Right}" ay:UIBase.Icon="{DynamicResource path_element_search}" x:Name="btnSearchOrderNumber" Click="BtnSearchOrder_Click">
+                            </Button>
+                        </ay:AyFormInput.RightContent>
+                    </ay:AyFormInput>
+                    <ay:AyText Text="无背景色(多个自定义内容):"  Margin="0,10,0,0"/>
+                    <ay:AyFormInput Margin="0,10,0,0" Width="540"  AlignmentService.Alignment="l c"  Placeholder="可你这以编辑"  >
+                        <ay:AyFormInput.LeftContent>
+                            <ContentControl Style="{DynamicResource View.Content.Left}" >
+                                <CheckBox Content="选择"/>
+                            </ContentControl>
+                        </ay:AyFormInput.LeftContent>
+                        <ay:AyFormInput.RightContent >
+                            <StackPanel Orientation="Horizontal">
+                                <Button Style="{DynamicResource View.IconButton.Right}" Padding="10,0" Background="Transparent" ay:UIBase.Icon="more_element_camera" BorderThickness="0">
+                                </Button>
+                                <Button Style="{DynamicResource View.IconButton.Right}" Padding="10,0" Background="Transparent" ay:UIBase.Icon="{DynamicResource  path_element_right}" BorderThickness="0">
+                                </Button>
+                            </StackPanel>
+                        </ay:AyFormInput.RightContent>
+                    </ay:AyFormInput>
+                </StackPanel>
+                <ay:AyText Text="Date DateTime Time Calendar"  Margin="0,10,0,0"/>
+                <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                    <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Left">
+                        <ay:AyDateBoxYear />
+                        <ay:AyDateBoxMonth  Margin="10,0,0,0"/>
+                        <ay:AyDateBoxDay Margin="10,0,0,0" />
+                        <ay:AyDateBoxHour  Margin="10,0,0,0"/>
+                        <ay:AyDateBoxMinute Margin="10,0,0,0"/>
+                        <ay:AyDateBoxSecond Margin="10,0,0,0"/>
+                    </StackPanel>
+                    <!--<ay:AyDateBoxCalendar  Margin="0,10,0,0"
+                                        DateRule="minDate:'2016-09-10',maxDate:'2017-12-20'"></ay:AyDateBoxCalendar>-->
+                </StackPanel>
+
+                <StackPanel HorizontalAlignment="Left"
+                    Margin="0,10,0,0">
+                    <StackPanel Orientation="Horizontal" >
+                        <CheckBox x:Name="cbButtonsVisibility"
+                          IsChecked="True">整体按钮组是否可见</CheckBox>
+                        <CheckBox x:Name="cbClearsVisibility" Margin="10,0,0,0"
+                          IsChecked="True">清空是否可见</CheckBox>
+                        <CheckBox x:Name="cbTodayVisibility" Margin="10,0,0,0"
+                          IsChecked="True">今天是否可见</CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <ay:AyCalendar HorizontalAlignment="Center"
+                                    VerticalAlignment="Top"
+                                    IsShowClear="{Binding IsChecked,ElementName=cbClearsVisibility,Converter={BooleanToVisbilityConverter}}"
+                                    IsShowToday="{Binding IsChecked,ElementName=cbTodayVisibility,Converter={BooleanToVisbilityConverter}}"
+                                    ExtButtonsVisibility="{Binding ElementName=cbButtonsVisibility,Path=IsChecked,Converter={BooleanToVisbilityConverter}}"
+                                    SelectMode="DateTime"></ay:AyCalendar>
+                        <ay:AyCalendar HorizontalAlignment="Center"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Top"
+                                    IsShowClear="{Binding IsChecked,ElementName=cbClearsVisibility,Converter={BooleanToVisbilityConverter}}"
+                                    IsShowToday="{Binding IsChecked,ElementName=cbTodayVisibility,Converter={BooleanToVisbilityConverter}}"
+                                    ExtButtonsVisibility="{Binding ElementName=cbButtonsVisibility,Path=IsChecked,Converter={BooleanToVisbilityConverter}}"
+                                    SelectMode="OnlySelectDate"></ay:AyCalendar>
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+
+                        <ay:AyCalendar HorizontalAlignment="Center"
+                                    VerticalAlignment="Top"
+                                                       IsShowClear="{Binding IsChecked,ElementName=cbClearsVisibility,Converter={BooleanToVisbilityConverter}}"
+                                    IsShowToday="{Binding IsChecked,ElementName=cbTodayVisibility,Converter={BooleanToVisbilityConverter}}"
+                                    ExtButtonsVisibility="{Binding ElementName=cbButtonsVisibility,Path=IsChecked,Converter={BooleanToVisbilityConverter}}"
+                                    SelectMode="YearMonth"></ay:AyCalendar>
+                        <ay:AyCalendar HorizontalAlignment="Center"
+                                    Margin="10,0,0,0"
+                                                    IsShowClear="{Binding IsChecked,ElementName=cbClearsVisibility,Converter={BooleanToVisbilityConverter}}"
+                                    IsShowToday="{Binding IsChecked,ElementName=cbTodayVisibility,Converter={BooleanToVisbilityConverter}}"
+                                    ExtButtonsVisibility="{Binding ElementName=cbButtonsVisibility,Path=IsChecked,Converter={BooleanToVisbilityConverter}}"
+                                    VerticalAlignment="Top"
+                                    SelectMode="HM"></ay:AyCalendar>
+                    </StackPanel>
+                </StackPanel>
+                <ay:AyText Text="日期 (http://www.ayjs.net/post/694.html)" FontSize="{DynamicResource H4}"  Margin="0,40,0,20"/>
+                <StackPanel Orientation="Vertical" >
+                    <StackPanel Orientation="Horizontal" x:Name="spdate">
+                        <ay:AyText Text="AY日期表达式:" Margin="0,0,10,0" HorizontalAlignment="Right" VerticalAlignment="Center"></ay:AyText>
+                        <ay:AyFormInput            
+                                 Width="600" Margin="0,0,10,0" 
+                                 x:Name="cusDateRule"
+                                 Text="{Binding DateRule,ElementName=dbc,Mode=OneWay}"
+                                 VerticalAlignment="Center"></ay:AyFormInput>
+                        <Button 
+                    VerticalAlignment="Center"
+                    x:Name="btnApplyDateRule"
+                    Click="btnApplyDateRule_Click">应用</Button>
+                        <Button 
+                    VerticalAlignment="Center"
+                    x:Name="btnTestDate1"
+                    Click="BtnTestDate1_Click">显示周</Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <ay:AyDateBoxCalendar   x:Name="dbc" HorizontalAlignment="Left" Width="240"  ay:AyForm.Form="{Binding ElementName=spdate}"
+                                        DateRule="doubleCalendar:true,dateFmt:'yyyy-MM-dd HH:mm:ss',minDate:'2018-01-01 00:00:00',maxDate:'2019-12-31 23:59:59'"></ay:AyDateBoxCalendar>
+                        <Button Style="{DynamicResource Button.Primary}" Content="验证日期" Margin="10,0,0,0">
+                            <ay:Interaction.Triggers>
+                                <ay:EventTrigger EventName="Click">
+                                    <ay:AyFormSubmit Form="{Binding ElementName=spdate}"
+                                                     />
+                                </ay:EventTrigger>
+                            </ay:Interaction.Triggers>
+                        </Button>
+                        <Button Style="{DynamicResource Button.Primary}" Content="改变图标" Margin="10,0,0,0" Click="Button_Click_2">
+                        </Button>
+                    </StackPanel>
+
+                </StackPanel>
+                <ay:AyText Text="Table" FontSize="{DynamicResource H4}"  Margin="0,40,0,20"/>
+                <ay:AyTableView x:Name="tableView" Grid.Row="1" 
+                                BorderThickness="1"  Margin="0,10,0,0" HasCheckBoxColumn="True" CellNavigation="false" OrderBySupport="false"    
+                              SelectionMode="Multiple"   HasIndexColumn="false" MaxHeight="800" 
+        IsBusy="False" PercentWidthSupport="True"    
+                >
+                    <ay:AyTableView.Resources>
+                        <IfElseStringConverter x:Key="sexFormatter" Formatter='0|1:男,2:女,3:不男不女#未知'></IfElseStringConverter>
+                    </ay:AyTableView.Resources>
+                    <ay:AyTableViewColumn PercentWidth="0.2" Title="姓名" Field="Name"  HorizontalContentAlignment="Center"     VerticalContentAlignment="Center"></ay:AyTableViewColumn>
+                    <ay:AyTableViewColumn Title="性别"  PercentWidth="0.2" 
+                                    HorizontalContentAlignment="Center"  
+                                    VerticalContentAlignment="Center"
+                                    >
+                        <ay:AyTableViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <ay:AyText HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                   Text="{Binding Sex,Converter={StaticResource sexFormatter},Mode=TwoWay}" >
+                                </ay:AyText>
+                            </DataTemplate>
+                        </ay:AyTableViewColumn.CellTemplate>
+                    </ay:AyTableViewColumn>
+                    <ay:AyTableViewColumn Title="电话"  CellMargin="8,0" HeaderMargin="8,0" HorizontalAlignment="Left"  PercentWidth="140" 
+                                    HorizontalContentAlignment="Left"     VerticalContentAlignment="Center" 
+                                    Field="Telphone" />
+                    <ay:AyTableViewColumn Title="地址"   PercentWidth="400"  CellMargin="8,0" HeaderMargin="8,0" 
+                                  HorizontalAlignment="Left"  MaxResizeColumnWidth="400"
+                                  HorizontalContentAlignment="Left" CellTextWrapping="NoWrap" CellCharacterEllipsis="CharacterEllipsis"
+                                    Field="Address" />
+
+                </ay:AyTableView>
+                <ay:AyText Text="AYSplitView" FontSize="{DynamicResource H4}"  Margin="0,40,0,20"/>
+                <StackPanel Orientation="Vertical" >
+                    <StackPanel Orientation="Horizontal">
+                        <Button Style="{DynamicResource Button.Default.Flat}" Content="控制开关" ay:AySplitViewService.ToggleMenu="{Binding ElementName=asvDemoSplitView}"/>
+                        <ComboBox  SelectedItem="{Binding DisplayMode, ElementName=asvDemoSplitView, Mode=TwoWay}" Margin="10,0,0,0">
+                            <ay:SplitViewDisplayMode>Inline</ay:SplitViewDisplayMode>
+                            <ay:SplitViewDisplayMode>Overlay</ay:SplitViewDisplayMode>
+                            <ay:SplitViewDisplayMode>CompactInline</ay:SplitViewDisplayMode>
+                            <ay:SplitViewDisplayMode>CompactOverlay</ay:SplitViewDisplayMode>
+                        </ComboBox>
+
+                        <ComboBox  SelectedItem="{Binding PanePlacement, ElementName=asvDemoSplitView, Mode=TwoWay}" Margin="10,0,0,0">
+                            <ay:SplitViewPanePlacement>Left</ay:SplitViewPanePlacement>
+                            <ay:SplitViewPanePlacement>Right</ay:SplitViewPanePlacement>
+                            <ay:SplitViewPanePlacement>Top</ay:SplitViewPanePlacement>
+                            <ay:SplitViewPanePlacement>Bottom</ay:SplitViewPanePlacement>
+                        </ComboBox>
+                    </StackPanel>
+                    <ay:AySplitView  Margin="0,10,0,0"  x:Name="asvDemoSplitView"  DisplayMode="Inline"  OpenMillisecondTime="120" OpenPaneLength="200" HorizontalAlignment="Stretch" Height="300" BorderBrush="{DynamicResource bordercolorbase}" Background="{DynamicResource colorwhite}">
+                            <ay:AySplitView.Pane>
+                            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="200">
+                                
+                                <ay:TemplateBorder CornerRadius="0" Background="{DynamicResource bordercolorbase}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                <ay:AyText Text="菜单" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </ay:TemplateBorder>
+                            </Grid>
+                        </ay:AySplitView.Pane>
+                        <ay:TemplateBorder CornerRadius="0"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{DynamicResource colorprimary4}">
+                            <ay:AyText Text="主体内容" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </ay:TemplateBorder>
+                        </ay:AySplitView>
+                   
+                </StackPanel>
+                <ay:AyText Text="CheckBoxList RadioBoxList" FontSize="{DynamicResource H4}"  Margin="0,40,0,20"/>
+                <StackPanel HorizontalAlignment="Left"
+                    VerticalAlignment="Center" Margin="0,10,0,0"
+                    x:Name="gd">
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox x:Name="cbCheckAll" Content="全选" 
+                          IsChecked="{Binding IsSelectAllChecked,ElementName=cbl_0}"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Left">
+                            <ay:Interaction.Triggers>
+                                <ay:EventTrigger EventName="Click">
+                                    <ay:CallMethodAction MethodName="CheckAll"
+                                                 TargetObject="{Binding ElementName=cbl_0}" />
+                                </ay:EventTrigger>
+                            </ay:Interaction.Triggers>
+                        </CheckBox>
+
+                        <ay:AyText x:Name="lb" Margin="10,0,0,0"
+                       VerticalAlignment="Center">选择1个你喜欢的运动：</ay:AyText>
+                        <ay:AyCheckBoxList MaxWidth="600"
+                                        x:Name="cbl_0"
+                                        Rule="required"
+                                        ItemsSource="{Binding sports0}"
+                                        SelectedValue="{Binding TestCheckBoxValue}"
+                                        ay:AyForm.Form="{Binding ElementName=gd}"
+                                        PanelType="StackPanel_H"></ay:AyCheckBoxList>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                        Margin="0,10,0,0">
+                        <ay:AyText VerticalAlignment="Top">运动（测试滚动条）</ay:AyText>
+                        <ay:AyCheckBoxList MaxWidth="600"
+                                        x:Name="cbl_1"
+                                        Rule="required"
+                                        ItemsSource="{Binding sports}"
+                                        ay:AyForm.Form="{Binding ElementName=gd}"
+                                        PanelType="WrapPanel_H"></ay:AyCheckBoxList>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal"
+                        Margin="0,10,0,0">
+                        <ay:AyText x:Name="lb1"
+                       VerticalAlignment="Center">组1</ay:AyText>
+                        <ay:AyRadioBoxList MaxWidth="600"
+                                        x:Name="rdo_1"
+                                        ItemsSource="{Binding sports2}"
+                                        SelectedValue="{Binding LoveSports}"
+                                        Rule="required"
+                                        ay:AyForm.Form="{Binding ElementName=gd}"
+                                        PanelType="StackPanel_H"></ay:AyRadioBoxList>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                        Margin="0,10,0,0">
+                        <ay:AyText x:Name="lb2"
+                       VerticalAlignment="Center">组2</ay:AyText>
+                        <ay:AyRadioBoxList MaxWidth="600"
+                                        Rule="required"
+                                        ItemsSource="{Binding sports3}"
+                                        ay:AyForm.Form="{Binding ElementName=gd}"
+                                        x:Name="rdo_2"
+                                        PanelType="StackPanel_H"></ay:AyRadioBoxList>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal"
+                        Margin="0,10,0,0">
+                        <Button  
+                                          Content="提交"
+                                          Style="{DynamicResource Button.Primary}">
+                            <ay:Interaction.Triggers>
+                                <ay:EventTrigger EventName="Click">
+                                    <ay:AyFormSubmit Form="{Binding ElementName=gd}"/>
+                                </ay:EventTrigger>
+                            </ay:Interaction.Triggers>
+                        </Button>
+
+                        <Button  Margin="10,0,0,0"
+                                          Content="高亮"
+                                          Style="{DynamicResource Button.Default}">
+                            <ay:Interaction.Triggers>
+                                <ay:EventTrigger EventName="Click">
+                                    <ay:AyFormHighlight Form="{Binding ElementName=gd}" />
+                                </ay:EventTrigger>
+                            </ay:Interaction.Triggers>
+                        </Button>
+
+
+
+                    </StackPanel>
+                </StackPanel>
+                <ay:AyText Text="MessageBox" FontSize="{DynamicResource H4}"  Margin="0,40,0,20"/>
+                <StackPanel Orientation="Horizontal"
+                        Margin="0,10,0,0">
+                    <Button  x:Name="openMessageBox" Click="openMessageBox_Click" >居中弹出个消息框</Button>
+                    <ay:AyComboBox HorizontalAlignment="Left"  VerticalAlignment="Center" Width="180"    Height="38"  x:Name="cboMsgType"  Margin="10,0" Grid.Column="1">
+                        <ComboBoxItem Content="信息" IsSelected="True"/>
+                        <ComboBoxItem Content="警告" />
+                        <ComboBoxItem Content="错误" />
+                        <ComboBoxItem Content="异常" />
+                        <ComboBoxItem Content="疑问" />
+                        <ComboBoxItem Content="删除" />
+                        <ComboBoxItem Content="ok" />
+                        <ComboBoxItem Content="疑问确认取消" />
+                        <ComboBoxItem Content="长文本内容" />
+                        <ComboBoxItem Content="DIY的弹窗"/>
+                    </ay:AyComboBox>
+                    <Button  x:Name="openIconMessageBox" Click="openIconMessageBox_Click" VerticalAlignment="Center"  Content="弹出自定义图标消息框" Grid.Column="2"/>
+
+                    <Button x:Name="openPromt" Click="openPromt_Click" VerticalAlignment="Center"  >promt弹窗</Button>
+                </StackPanel>
+                <ay:AyText Text="Tree" FontSize="{DynamicResource H4}"  Margin="0,40,0,20"/>
+                <StackPanel Orientation="Horizontal"
+                        Margin="0,10,0,0">
+                    <ay:AyTreeView  x:Name="tvAuthTree"  TreeViewAnimationIsOpen="True" AyTreeMode="CheckBoxText" Width="300" Height="600" HorizontalAlignment="Left">
+                        <ay:AyTreeView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <VirtualizingStackPanel />
+                            </ItemsPanelTemplate>
+                        </ay:AyTreeView.ItemsPanel>
+                    </ay:AyTreeView>
+                    <ay:AyTreeView  x:Name="tvAuthTree2" ItemsSource="{Binding ElementName=tvAuthTree,Path=ItemsSource}"  TreeViewAnimationIsOpen="True" AyTreeMode="IconText" Width="300" Height="600" HorizontalAlignment="Left" Margin="10,0,0,0">
+                        <ay:AyTreeView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <VirtualizingStackPanel />
+                            </ItemsPanelTemplate>
+                        </ay:AyTreeView.ItemsPanel>
+                    </ay:AyTreeView>
+                </StackPanel>
+            </StackPanel>
+            <Border Grid.Column="1" Background="{DynamicResource backgroundcolorbase}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Grid>
+
+                </Grid>
+            </Border>
+        </Grid>
+    </ScrollViewer>
+
+</UserControl>

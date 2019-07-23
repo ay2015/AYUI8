@@ -1,0 +1,16 @@
+﻿<Page x:Class="RDS.Views.IndexView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"     
+      xmlns:controller="clr-namespace:RDS.Controllers"
+      xmlns:md="clr-namespace:RDS.Models"
+	  xmlns:ay="http://www.ayjs.net/2020"
+      xmlns:local="clr-namespace:RDS.Views"
+      mc:Ignorable="d"
+      d:DesignHeight="600"
+      d:DesignWidth="1200">
+    <Grid>
+      
+    </Grid>
+</Page>

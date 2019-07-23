@@ -1,0 +1,103 @@
+﻿ <#@ output extension=".cs" #>
+ <#@ template language="cs"  hostspecific="True"#>
+    <#@ include file="../Code/MultiOutput.tt" #>
+   <#@ assembly name="System.Core" #>
+   <#@ assembly name="System.Xml" #>
+      <#@ assembly name="System.Xml.Linq" #>
+      <#@ import namespace="System.Linq" #>
+   <#@ import namespace="System.Collections.Generic" #>
+   <#@ import namespace="System.IO" #>
+   <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib">
+	<#
+	   string templateDirectory = System.IO.Path.GetDirectoryName(Host.TemplateFile);
+  string up1Directory = System.IO.Path.GetDirectoryName(templateDirectory);
+    string up2Directory = System.IO.Path.GetDirectoryName(up1Directory);
+	    string ad = System.IO.Path.Combine(up2Directory,"Content/Lang");
+
+        var files = System.IO.Directory.GetFiles(ad, "*.aylang", System.IO.SearchOption.AllDirectories);
+        foreach (var filePath in files)
+        {
+		       var file = File.Open(filePath, FileMode.Open);
+	          List<string> txt = new List<string>();
+	         LoadTextData(file, txt);
+			   file.Close();
+            file.Dispose();
+            string fileName = System.IO.Path.GetFileNameWithoutExtension(filePath) + "_";
+            foreach (var item in txt)
+            {
+                string[] resultString =System.Text.RegularExpressions.Regex.Split(item,  " :: ",System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+           
+                string _Key = resultString[0].Trim('\"');
+                  string _TargetValue = resultString[1].Replace("\\r\\n", Environment.NewLine).Trim('\"');
+                  string _NamePrex = fileName;
+				  string _KeyName=_NamePrex+ _Key;
+  #>
+     <s:String x:Key="<#= _KeyName #>"  xml:space="preserve"><#= _TargetValue #></s:String>
+  <# 
+    }
+    }
+	#>
+</ResourceDictionary>
+	<#
+	  SaveOutput("Langs.xaml");
+	  	#>
+<#
+  var className = System.IO.Path.GetFileNameWithoutExtension(Host.TemplateFile);
+  var namespaceName = "rds.contents";
+#>namespace <#=namespaceName#> 
+{
+	public class <#= className#> 
+	{
+		<#
+
+
+        foreach (var filePath in files)
+        {
+		       var file = File.Open(filePath, FileMode.Open);
+	          List<string> txt = new List<string>();
+	         LoadTextData(file, txt);
+			   file.Close();
+            file.Dispose();
+            string fileName = System.IO.Path.GetFileNameWithoutExtension(filePath) + "_";
+            foreach (var item in txt)
+            {
+                string[] resultString =System.Text.RegularExpressions.Regex.Split(item,  " :: ",System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+           
+                string _Key = resultString[0].Trim('\"');
+                  string _TargetValue = resultString[1].Trim('\"');
+                  string _NamePrex = fileName;
+				  string _KeyName=_NamePrex+ _Key;
+  #> 
+       ///<summary>
+       ///<#=_TargetValue#>
+	   ///</summary>
+        public const string <#= _KeyName #> =@"<#= _KeyName #>";
+  <# 
+    }}
+	#>
+
+	}
+}
+
+
+<#+ public void LoadTextData(FileStream file, List<string> txt)
+        {
+            using (var stream = new StreamReader(file))
+            {
+                while (!stream.EndOfStream)
+                {
+                    string a = stream.ReadLine();
+                    if (string.IsNullOrEmpty(a))
+                    {
+                        continue;
+                    }
+                    if (!a.Contains( " :: "))
+                    {
+                        continue;
+                    }
+                    txt.Add(a);
+                }
+            }
+        }
+		#>
+

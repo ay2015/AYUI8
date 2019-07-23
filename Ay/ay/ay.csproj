@@ -1,0 +1,588 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{43E5A788-CB73-4EA1-9077-75CB897724B9}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <RootNamespace>ay.SDK.CONTROLLIB</RootNamespace>
+    <AssemblyName>ay</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'x86|AnyCPU'">
+    <OutputPath>bin\x86\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>x86</PlatformTarget>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SDK\CONTROLLIB\Action\AyKeyboardPicker.cs" />
+    <Compile Include="SDK\CONTROLLIB\Action\AyFilePicker.cs" />
+    <Compile Include="SDK\CONTROLLIB\Action\AyFolderPicker.cs" />
+    <Compile Include="SDK\CONTROLLIB\Action\AyFormHighlight.cs" />
+    <Compile Include="SDK\CONTROLLIB\Action\AyFormSubmit.cs" />
+    <Compile Include="SDK\CONTROLLIB\Action\Info\SystemHelper.cs" />
+    <Compile Include="SDK\CONTROLLIB\Action\ScrollToControlAction.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\AyImageButton.cs" />
+    <Compile Include="SDK\CONTROLLIB\Action\AyToolTipSetter.cs" />
+    <Compile Include="SDK\CONTROLLIB\Feedback\Info\AyMessageBoxImage.cs" />
+    <Compile Include="SDK\CONTROLLIB\Feedback\AyToolTip.cs" />
+    <Compile Include="SDK\CONTROLLIB\Feedback\AyMessageBox.xaml.cs">
+      <DependentUpon>AyMessageBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SDK\CONTROLLIB\Feedback\Info\LinkModel.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\AyItemsControlAll.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\Info\AyPanelAllPanelType.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\EventArgs\AyBoxListEventArgs.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\Info\AyCheckBoxListItemModel.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\AyCheckBoxList.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\AyFormInput.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\AyPanelAll.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\AyRadioBoxList.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\DateBox\AyCalendarService.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\DateBox\AyDatePickerDateTimeModel.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\DateBox\AyDatePickerItem.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\DateBox\AyDatePickerSelectMode.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\DateBox\AyDatePickerTimeSelectModel.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\DateBox\AyFirstOfWeekDictionary.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\DateBox\DayInfo.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\DateBox\EventArgs\AyDatePickEventArgs.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\DateBox\UI\AyCalendar.xaml.cs">
+      <DependentUpon>AyCalendar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SDK\CONTROLLIB\Input\DateBox\UI\AyCalendarDateList.xaml.cs">
+      <DependentUpon>AyCalendarDateList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SDK\CONTROLLIB\Input\DateBox\UI\AyCalendarTime.xaml.cs">
+      <DependentUpon>AyCalendarTime.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SDK\CONTROLLIB\Input\DateBox\UI\AyDateBoxCalendar.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\DateBox\UI\AyDateBoxDay.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\DateBox\UI\AyDateBoxHour.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\DateBox\UI\AyDateBoxMinute.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\DateBox\UI\AyDateBoxMonth.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\DateBox\UI\AyDateBoxSecond.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\DateBox\UI\AyDateBoxYear.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\DateBox\YearStrick.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\EventArgs\MaskedTextBox\AutoCompletingMaskEventArgs.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\EventArgs\MaskedTextBox\QueryTextFromValueEventArgs.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\EventArgs\MaskedTextBox\QueryValueFromTextEventArgs.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\EventArgs\TokenTextBox\InvalidValueEventArgs.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\EventArgs\TokenTextBox\QueryItemFromTextEventArgs.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\EventArgs\TokenTextBox\QuerySuggestItemForTextEventArgs.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\EventArgs\TokenTextBox\QueryTextFromItemEventArgs.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\Info\IAyCheckedItem.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\Info\MaskedTextBox\CachedTextInfo.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\Info\AutoSelectedBehavior.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\EventArgs\QueryMoveFocusEventArgs.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\AyTextBoxBase.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\AyTextBox.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\Info\MaskedTextBox\InsertKeyMode.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\Info\MaskedTextBox\MaskFormat.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\Info\TokenTextBox\SegmentInfo.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\Info\TokenTextBox\TextSegmentInfo.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\Info\TokenTextBox\TokenSegmentInfo.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\Validate\AyFormCollection.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\Tree\Info\AuthTreeViewItemModel.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\Tree\Info\AyTreeViewItemModel.cs" />
+    <Compile Include="SDK\CONTROLLIB\Layout\AyLayer\AyLayer.xaml.cs">
+      <DependentUpon>AyLayer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SDK\CONTROLLIB\Layout\AyLayer\AyLayerOptions.cs" />
+    <Compile Include="SDK\CONTROLLIB\Layout\AyLayer\DragInCanvasBehavior.cs" />
+    <Compile Include="SDK\CONTROLLIB\Layout\AyLayer\DragInGridBehavior.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\AySplitView\AySplitView.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\AySplitView\AySplitViewService.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\AySplitView\SplitViewDisplayMode.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\AyTableView\AyTableView.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\AyTableView\Cell\AyTableViewCell.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\AyTableView\Cell\AyTableViewCellCollection.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\AyTableView\Cell\AyTableViewCellsPanel.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\AyTableView\Cell\AyTableViewCellsPresenter.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\AyTableView\Head\AyTableViewColumn.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\AyTableView\Head\AyTableViewColumnHeader.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\AyTableView\Head\AyTableViewHeaderPanel.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\AyTableView\Head\AyTableViewHeaderPresenter.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\AyTableView\Head\AyTableViewHeaderSubPanel.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\AyTableView\Head\AyTableViewHeaderThumb.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\AyTableView\Head\TableViewColumnCollection.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\AyTableView\Help\AyTableViewEvents.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\AyTableView\Help\AyTableViewSelectionMode.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\AyTableView\Help\AyTableViewSelector.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\AyTableView\Help\AyTableViewUtils.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\AyTableView\Row\AyTableViewRowsPanel.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\AyTableView\Row\AyTableViewRowsPresenter.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\AyTableView\Row\RowOldNewValue.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\Tree\Info\TreeViewHelper.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\Tree\TreeModel\Data\TreeViewItemCatalogData.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\Tree\TreeModel\Data\TreeViewItemData.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\Tree\TreeModel\UI\ITreeViewItemUI.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\Tree\TreeModel\UI\TreeViewItemCatalogUI.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\Tree\TreeModel\UI\TreeViewItemLeafUI.cs" />
+    <Compile Include="SDK\CONTROLLIB\Layout\AlignableWrapPanel.cs" />
+    <Compile Include="SDK\CONTROLLIB\Layout\AyFishEyePanel.cs" />
+    <Compile Include="SDK\CONTROLLIB\Layout\AyWrapPanel.cs" />
+    <Compile Include="SDK\CONTROLLIB\Layout\AyWrapPanelFill.cs" />
+    <Compile Include="SDK\CONTROLLIB\Layout\StackPanelPadding.cs" />
+    <Compile Include="SDK\CONTROLLIB\Layout\Window\AyWindow.cs" />
+    <Compile Include="SDK\CONTROLLIB\Layout\Window\AyWindowShell.cs" />
+    <Compile Include="SDK\CONTROLLIB\Layout\Window\AyWindowSimple.cs" />
+    <Compile Include="SDK\CONTROLLIB\Layout\Window\AyWindowBase.cs" />
+    <Compile Include="SDK\CONTROLLIB\Layout\ScrollViewerHide.cs" />
+    <Compile Include="Config\AyWindowShellConfigSetting.cs" />
+    <Compile Include="SDK\CONTROLLIB\Layout\Window\AyWinformHost.cs" />
+    <Compile Include="SDK\CONTROLLIB\Layout\Window\ElementMoveMode.cs" />
+    <Compile Include="SDK\CONTROLLIB\Primitive\EventAtgs\ItemSelectionChangedEventArgs.cs" />
+    <Compile Include="SDK\CONTROLLIB\Primitive\Popup\AyPopupContentAdorner.cs" />
+    <Compile Include="SDK\CONTROLLIB\Primitive\Selector\Selector.cs" />
+    <Compile Include="SDK\CONTROLLIB\Primitive\Selector\SelectorItem.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\Validate\AyForm.cs" />
+    <Compile Include="SDK\CONTROLLIB\Render\AyGaosiBackgroundLayer.xaml.cs">
+      <DependentUpon>AyGaosiBackgroundLayer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SDK\CONTROLLIB\Render\AyMaskView.cs" />
+    <Compile Include="SDK\CONTROLLIB\Render\AyTransition.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\Tree\AyTreeView.cs" />
+    <Compile Include="SDK\CONTROLLIB\Render\Load\CirclePointRingLoading.cs" />
+    <Compile Include="SDK\CONTROLLIB\Render\Load\FiveColumnLoading.cs" />
+    <Compile Include="SDK\CONTROLLIB\Render\Load\GridLoading.cs" />
+    <Compile Include="SDK\CONTROLLIB\Render\Load\HorizontalPoingLoading.cs" />
+    <Compile Include="SDK\CONTROLLIB\Render\Load\IconLoading.cs" />
+    <Compile Include="SDK\CONTROLLIB\Render\Load\OnePointLoading.cs" />
+    <Compile Include="SDK\CONTROLLIB\Render\Load\RadnerLoading.cs" />
+    <Compile Include="SDK\CONTROLLIB\Render\Load\ThreePoingLoading.cs" />
+    <Compile Include="SDK\CONTROLLIB\Render\Load\TwoPointLoading.cs" />
+    <Compile Include="SDK\CONTROLLIB\Select\AutoSelection\AutoScroller.cs" />
+    <Compile Include="SDK\CONTROLLIB\Select\AutoSelection\ItemsControlSelector.cs" />
+    <Compile Include="SDK\CONTROLLIB\Select\AutoSelection\EventArgs\OffsetChangedEventArgs.cs" />
+    <Compile Include="SDK\CONTROLLIB\Select\AutoSelection\SelectionAdorner.cs" />
+    <Compile Include="SDK\CONTROLLIB\Select\AyComboBox.cs" />
+    <Compile Include="SDK\CONTROLLIB\Select\Info\ComboAfterSelectBehavior.cs" />
+    <Compile Include="SDK\CONTROLLIB\Util\AYUI.cs" />
+    <Compile Include="SDK\CONTROLLIB\Util\ValueChangeHelper.cs" />
+    <Compile Include="SDK\CONTROLLIB\Util\ChangeTypeHelper.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\MaskedTextBox.cs" />
+    <Compile Include="SDK\CONTROLLIB\Layout\RadialPanel.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\UIAutomation\ButtonAutomationPeer.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\UIAutomation\ComboBoxAutomationPeer.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\UIAutomation\GenericAutomationPeer.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\UIAutomation\ItemsControlAutomationPeer.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\UIAutomation\ListBoxAutomationPeer.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\UIAutomation\PanelAutomationPeer.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\UIAutomation\ProgressBarAutomationPeer.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\UIAutomation\SliderAutomationPeer.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\UIAutomation\TabControlAutomationPeer.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\UIAutomation\TabItemAutomationPeer.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\UIAutomation\TextBoxAutomationPeer.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\UIAutomation\WindowAutomationPeer.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\ValueRangeTextBox.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Checksums\Adler32.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Checksums\CRC32.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Checksums\IChecksum.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Checksums\StrangeCRC.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Core\FileSystemScanner.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Core\INameTransform.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Core\IScanFilter.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Core\NameFilter.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Core\PathFilter.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Core\StreamUtils.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Core\WindowsPathUtils.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Encryption\PkzipClassic.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Encryption\ZipAESStream.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Encryption\ZipAESTransform.cs" />
+    <Compile Include="SDK\FUNC\ayzip\SharpZipBaseException.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Zip\Compression\Deflater.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Zip\Compression\DeflaterConstants.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Zip\Compression\DeflaterEngine.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Zip\Compression\DeflaterHuffman.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Zip\Compression\DeflaterPending.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Zip\Compression\Inflater.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Zip\Compression\InflaterDynHeader.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Zip\Compression\InflaterHuffmanTree.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Zip\Compression\PendingBuffer.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Zip\Compression\Streams\DeflaterOutputStream.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Zip\Compression\Streams\InflaterInputStream.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Zip\Compression\Streams\OutputWindow.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Zip\Compression\Streams\StreamManipulator.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Zip\FastZip.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Zip\IEntryFactory.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Zip\WindowsNameTransform.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Zip\ZipConstants.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Zip\ZipEntry.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Zip\ZipEntryFactory.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Zip\ZipException.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Zip\ZipExtraData.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Zip\ZipFile.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Zip\ZipHelperStream.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Zip\ZipInputStream.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Zip\ZipNameTransform.cs" />
+    <Compile Include="SDK\FUNC\ayzip\Zip\ZipOutputStream.cs" />
+    <Compile Include="SDK\FUNC\FuncFactory\AyFuncConfig.cs" />
+    <Compile Include="SDK\FUNC\FuncFactory\Base\AyFuncBase.cs" />
+    <Compile Include="SDK\FUNC\FuncFactory\Base\AyVersion.cs" />
+    <Compile Include="SDK\FUNC\FuncFactory\Base\AyZipProgressReport.cs" />
+    <Compile Include="SDK\FUNC\FuncFactory\Base\SystemWindowInScreenStatus.cs" />
+    <Compile Include="SDK\FUNC\FuncFactory\Funcs\AyFuncAyui.cs" />
+    <Compile Include="SDK\FUNC\FuncFactory\Funcs\AyFuncBitmapWithWpf.cs" />
+    <Compile Include="SDK\FUNC\FuncFactory\Funcs\AyFuncFileExtRegister.cs" />
+    <Compile Include="SDK\FUNC\FuncFactory\Funcs\AyFuncFtp.cs" />
+    <Compile Include="SDK\FUNC\FuncFactory\Funcs\AyFuncHttp.cs" />
+    <Compile Include="SDK\FUNC\FuncFactory\Funcs\AyFuncICSharpCode.cs" />
+    <Compile Include="SDK\FUNC\FuncFactory\Funcs\AyFuncImage.cs" />
+    <Compile Include="SDK\FUNC\FuncFactory\Funcs\AyFuncIO.cs" />
+    <Compile Include="SDK\FUNC\FuncFactory\Funcs\AyFuncLogDebugOutputTxtFile.cs" />
+    <Compile Include="SDK\FUNC\FuncFactory\Funcs\AyFuncManagementObject.cs" />
+    <Compile Include="SDK\FUNC\FuncFactory\Funcs\AyFuncMultiplyScreenRecord.cs" />
+    <Compile Include="SDK\FUNC\FuncFactory\Funcs\AyFuncRegisterTable.cs" />
+    <Compile Include="SDK\FUNC\FuncFactory\Funcs\AyFuncSecrity.cs" />
+    <Compile Include="SDK\FUNC\FuncFactory\Funcs\AyFuncSystem.cs" />
+    <Compile Include="SDK\CONTROLLIB\Primitive\Popup\AyInputPopup.cs" />
+    <Compile Include="SDK\CONTROLLIB\Primitive\Popup\AyBigPopup.cs" />
+    <Compile Include="SDK\CONTROLLIB\Primitive\Popup\AyPopup.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Base\AyAnimateBaseIn.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Base\AyAnimateBase.cs" />
+    <Compile Include="Config\AyInternalGlobalConfig.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Base\AyAnimateBaseOut.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Base\ClrBinding.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Base\IAyAnimateProperty.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Base\INameRegister.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Base\NameRegister.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Base\NameRegisterExt.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Help\AyAniType.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\In\AyAniJello.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\In\AyAniPulse.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\In\AyAniRotateIn.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\In\AyAniRubberBand.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\In\AyAniShake.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\In\AyAniSwing.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\In\AyAniTada.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\In\AyAniWobble.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\In\Bounce\AyAniBounceIn.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\In\Bounce\AyAniBounceInDown.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\In\Bounce\AyAniBounceInLeft.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\In\Bounce\AyAniBounceInRight.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\In\Bounce\AyAniBounceInUp.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\In\AyAniFlash.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Out\AyAniHinge.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\In\Slide\AyAniSlideInDown.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\In\Slide\AyAniSlideInLeft.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\In\Slide\AyAniSlideInRight.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\In\Slide\AyAniSlideInUp.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\In\Zoom\AyAniZoomBounceIn.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\In\Zoom\AyAniZoomIn.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\In\Zoom\AyAniZoomInDown.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\In\Zoom\AyAniZoomInLeft.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\In\Zoom\AyAniZoomInRight.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\In\Zoom\AyAniZoomInUp.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Out\AyAniRotateOut.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Out\Bounce\AyAniBounceOut.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Out\Bounce\AyAniBounceOutDown.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Out\Bounce\AyAniBounceOutLeft.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Out\Bounce\AyAniBounceOutRight.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Out\Bounce\AyAniBounceOutUp.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Out\Slide\AyAniSlideOutDown.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Out\Slide\AyAniSlideOutLeft.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Out\Slide\AyAniSlideOutRight.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Out\Slide\AyAniSlideOutUp.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Out\Zoom\AyAniZoomBounceOut.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Out\Zoom\AyAniZoomOut.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Out\Zoom\AyAniZoomOutDown.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Out\Zoom\AyAniZoomOutLeft.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Out\Zoom\AyAniZoomOutRight.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Out\Zoom\AyAniZoomOutUp.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\In\AyAniBounce.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Base\IAyAnimateLifecycle.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Base\Transform\AyAniRotate.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Base\Transform\AyAniScale.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Base\Transform\AyAniTranslate.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Type\AyAniCanvas.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Type\AyAniColor.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Type\AyAniDouble.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Type\AyAniInt64.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Type\AyAniIntDecimal.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Type\AyAnimateTypeBase.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Type\AyAniPoint.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Type\AyAniQuaternion.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Type\AyAniSize.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Type\AyAniThickness.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Type\AyAniVector.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Type\AyAniVector3D.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Type\GridLengthAnimation.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Type\LinearMatrixAnimation.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Base\AyAnimateService.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Implements\Type\xaml\ColorStoryBoard.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Pad\AyAnimateDelayTreeItem.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Pad\AyAnimateTreePad.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Pad\AyAnimateTreeBase.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Pad\AyAnimateTreeItem.cs" />
+    <Compile Include="SDK\HELPER\AnimateCode\Pad\IAyAnimateTreePad.cs" />
+    <Compile Include="SDK\HELPER\AyExpression\AyExpression.cs" />
+    <Compile Include="SDK\HELPER\AyExpression\AyExpressionConverter.cs" />
+    <Compile Include="SDK\HELPER\AyExpression\AyExpressionExtendMethod.cs" />
+    <Compile Include="SDK\HELPER\AyExpression\AyForms\AyFormBase.cs" />
+    <Compile Include="SDK\HELPER\AyExpression\AyForms\AyFormErrorTemplate.cs" />
+    <Compile Include="SDK\HELPER\AyExpression\AyForms\AyFormIDCardValidator.cs" />
+    <Compile Include="SDK\HELPER\AyExpression\AyForms\AyFormLengthValidator.cs" />
+    <Compile Include="SDK\HELPER\AyExpression\AyForms\AyFormNumValidator.cs" />
+    <Compile Include="SDK\HELPER\AyExpression\AyForms\AyFormResult.cs" />
+    <Compile Include="SDK\HELPER\AyExpression\AyForms\AyFormSimpleValidator.cs" />
+    <Compile Include="SDK\HELPER\AyExpression\AyForms\AyFormValidator.cs" />
+    <Compile Include="SDK\HELPER\AyExpression\AyForms\AyFormValidatorTypes.cs" />
+    <Compile Include="SDK\HELPER\AyExpression\AyForms\DateExpression\AyDatePickerHelper.cs" />
+    <Compile Include="SDK\HELPER\AyExpression\AyForms\DateExpression\AyDateRuleJsonToObjects.cs" />
+    <Compile Include="SDK\HELPER\AyExpression\AyForms\DateExpression\AyDateStrictExpression.cs" />
+    <Compile Include="SDK\HELPER\AyExpression\AyForms\DateExpression\AyDCDateExpression.cs" />
+    <Compile Include="SDK\HELPER\Utils\Effect.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\AyDuijiaoRotateTransition.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\AyTransitionGetter.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\ClothTransition.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\Core\ActionOnDispose.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\Core\BotUtil.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\Core\Changeable.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\Core\CollectionExtensions.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\Core\CompositionHelpers.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\Core\CompositionTargetRenderingListening.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\Core\Contract.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\Core\FilteredObservableEnumerable.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\Core\FuncEnumerable.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\Core\GeoHelper.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\Core\InstanceFactory.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\Core\ObservableCollectionPlus.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\Core\PropertyChangeWatcher.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\Core\SortedObservableEnumerable.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\Core\WeakEnumerable.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\Core\WrappedLock.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\DoorTransition.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\ExplosionTransition.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\FadeTransition.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\FlipTransition.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\LinearGradientBrushAnimationBase.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\PageTransition.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\RotateTransition.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\ScanMianSingleTransition.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\StoryboardTransition.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\Transition.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\Transition3D.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\TransitionPresenter.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\TransitionSelector.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\TranslateTransition.cs" />
+    <Compile Include="SDK\ThreeLib\Transitions\TwoWayTransitionSelector.cs" />
+    <Compile Include="SDK\HELPER\Utils\AyExtension.cs" />
+    <Compile Include="SDK\HELPER\Utils\AyJsonUtility.cs" />
+    <Compile Include="SDK\HELPER\Utils\ItemsControlExtensions.cs" />
+    <Compile Include="SDK\ThreeLib\NotifyIcon\RoutedEventHelper.cs" />
+    <Compile Include="SDK\HELPER\Utils\RunCmd.cs" />
+    <Compile Include="SDK\HELPER\Utils\SolidColorBrushConverter.cs" />
+    <Compile Include="SDK\HELPER\Utils\SortHelper.cs" />
+    <Compile Include="SDK\HELPER\Utils\TimeSolution.cs" />
+    <Compile Include="SDK\HELPER\Utils\WpfTypeUtilities.cs" />
+    <Compile Include="SDK\INTERFACE\ControlGUID.cs" />
+    <Compile Include="SDK\INTERFACE\IAyControl.cs" />
+    <Compile Include="SDK\INTERFACE\IInputControlBase.cs" />
+    <Compile Include="SDK\MARKUP\DynamicXamlLoader.cs" />
+    <Compile Include="SDK\MARKUP\ResponsiveSupport\AyVisualState.cs" />
+    <Compile Include="SDK\MARKUP\ResponsiveSupport\AyVisualStateGroup.cs" />
+    <Compile Include="SDK\MARKUP\ResponsiveSupport\AyVisualStateGroupCollection.cs" />
+    <Compile Include="SDK\MARKUP\ResponsiveSupport\AyVisualStateManager.cs" />
+    <Compile Include="SDK\MARKUP\ResponsiveSupport\DataSetter.cs" />
+    <Compile Include="SDK\MARKUP\ResponsiveSupport\IDataSetter.cs" />
+    <Compile Include="SDK\MARKUP\ResponsiveSupport\ResourceSetter.cs" />
+    <Compile Include="SDK\ThreeLib\Microsoft.Windows.Shell\JumpItem.cs" />
+    <Compile Include="SDK\ThreeLib\Microsoft.Windows.Shell\JumpList.cs" />
+    <Compile Include="SDK\ThreeLib\Microsoft.Windows.Shell\JumpPath.cs" />
+    <Compile Include="SDK\ThreeLib\Microsoft.Windows.Shell\JumpTask.cs" />
+    <Compile Include="SDK\ThreeLib\Microsoft.Windows.Shell\standard.net\Debug.cs" />
+    <Compile Include="SDK\ThreeLib\Microsoft.Windows.Shell\standard.net\DoubleUtil.cs" />
+    <Compile Include="SDK\ThreeLib\Microsoft.Windows.Shell\standard.net\Utilities.cs" />
+    <Compile Include="SDK\ThreeLib\Microsoft.Windows.Shell\standard.net\Verify.cs" />
+    <Compile Include="SDK\ThreeLib\Microsoft.Windows.Shell\standard.net\Windows\ComGuids.cs" />
+    <Compile Include="SDK\ThreeLib\Microsoft.Windows.Shell\standard.net\Windows\ErrorCodes.cs" />
+    <Compile Include="SDK\ThreeLib\Microsoft.Windows.Shell\standard.net\Windows\NativeMethods.cs" />
+    <Compile Include="SDK\ThreeLib\Microsoft.Windows.Shell\standard.net\Windows\ShellProvider.cs" />
+    <Compile Include="SDK\ThreeLib\Microsoft.Windows.Shell\standard.net\Windows\StreamHelper.cs" />
+    <Compile Include="SDK\ThreeLib\Microsoft.Windows.Shell\standard.net\Windows\Utilities.Windows.cs" />
+    <Compile Include="SDK\ThreeLib\Microsoft.Windows.Shell\standard.net\Wpf\DpiHelper.cs" />
+    <Compile Include="SDK\ThreeLib\Microsoft.Windows.Shell\standard.net\Wpf\MessageWindow.cs" />
+    <Compile Include="SDK\ThreeLib\Microsoft.Windows.Shell\standard.net\Wpf\Utilities.Wpf.cs" />
+    <Compile Include="SDK\ThreeLib\Microsoft.Windows.Shell\SystemCommands.cs" />
+    <Compile Include="SDK\ThreeLib\Microsoft.Windows.Shell\SystemParameters2.cs" />
+    <Compile Include="SDK\ThreeLib\Microsoft.Windows.Shell\TaskbarItemInfo.cs" />
+    <Compile Include="SDK\ThreeLib\Microsoft.Windows.Shell\ThumbButtonInfo.cs" />
+    <Compile Include="SDK\ThreeLib\Microsoft.Windows.Shell\ThumbButtonInfoCollection.cs" />
+    <Compile Include="SDK\ThreeLib\Microsoft.Windows.Shell\WindowChrome.cs" />
+    <Compile Include="SDK\ThreeLib\Microsoft.Windows.Shell\WindowChromeWorker.cs" />
+    <Compile Include="SDK\ThreeLib\NotifyIcon\BalloonIcon.cs" />
+    <Compile Include="SDK\ThreeLib\NotifyIcon\Interop\BalloonFlags.cs" />
+    <Compile Include="SDK\ThreeLib\NotifyIcon\Interop\IconDataMembers.cs" />
+    <Compile Include="SDK\ThreeLib\NotifyIcon\Interop\IconState.cs" />
+    <Compile Include="SDK\ThreeLib\NotifyIcon\Interop\MouseEvent.cs" />
+    <Compile Include="SDK\ThreeLib\NotifyIcon\Interop\NotifyCommand.cs" />
+    <Compile Include="SDK\ThreeLib\NotifyIcon\Interop\NotifyIconData.cs" />
+    <Compile Include="SDK\ThreeLib\NotifyIcon\Interop\NotifyIconVersion.cs" />
+    <Compile Include="SDK\ThreeLib\NotifyIcon\Interop\Point.cs" />
+    <Compile Include="SDK\ThreeLib\NotifyIcon\Interop\SystemInfo.cs" />
+    <Compile Include="SDK\ThreeLib\NotifyIcon\Interop\TrayInfo.cs" />
+    <Compile Include="SDK\ThreeLib\NotifyIcon\Interop\WinApi.cs" />
+    <Compile Include="SDK\ThreeLib\NotifyIcon\Interop\WindowClass.cs" />
+    <Compile Include="SDK\ThreeLib\NotifyIcon\Interop\WindowMessageSink.cs" />
+    <Compile Include="SDK\ThreeLib\NotifyIcon\PopupActivationMode.cs" />
+    <Compile Include="SDK\ThreeLib\NotifyIcon\TaskbarIcon.cs" />
+    <Compile Include="SDK\ThreeLib\NotifyIcon\TaskbarIcon.Declarations.cs" />
+    <Compile Include="SDK\ThreeLib\NotifyIcon\Util.cs" />
+    <Compile Include="Themes\UIGeneric.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SDK\CONTROLLIB\Select\Color\Implementation\" />
+    <Folder Include="SDK\CONTROLLIB\Select\Color\Themes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SDK\CONTROLLIB\CONTROLLIB说明.md" />
+    <None Include="SDK\HELPER\AnimateCode\动画系统.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SDK\HELPER\Utils\Utils说明.md" />
+    <None Include="开发过程.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="All.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SDK\CONTROLLIB\Feedback\AyMessageBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SDK\CONTROLLIB\Input\DateBox\UI\AyCalendar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="SDK\CONTROLLIB\Input\DateBox\UI\AyCalendarDateList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="SDK\CONTROLLIB\Input\DateBox\UI\AyCalendarTime.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="SDK\CONTROLLIB\Layout\AyLayer\AyLayer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SDK\CONTROLLIB\Render\AyGaosiBackgroundLayer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Common.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ay.contentcore\ay.contentcore.csproj">
+      <Project>{9444f98c-30b1-4074-ba00-e942edd729b2}</Project>
+      <Name>ay.contentcore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ay.contents\ay.contents.csproj">
+      <Project>{3800fe55-f547-4f26-b3d9-4b5dae850a1c}</Project>
+      <Name>ay.contents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ay.mvc\ay.mvc.csproj">
+      <Project>{74a5e186-43d4-450e-b314-f261fe0fffcb}</Project>
+      <Name>ay.mvc</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Themes\star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Config\application.xml">
+      <SubType>Designer</SubType>
+    </Resource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

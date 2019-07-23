@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"       
+                                        xmlns:ay="clr-namespace:ay.contentcore"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="ExplicitDefault.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+
+
+    <Style TargetType="{x:Type ay:AyText}" BasedOn="{StaticResource AyTextStyle}" />
+    <Style TargetType="{x:Type ay:AyTextOnly}" BasedOn="{StaticResource AyTextOnlyStyle}" />
+    <Style TargetType="{x:Type Control}" BasedOn="{StaticResource CommonControlStyle}" />
+</ResourceDictionary>

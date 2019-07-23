@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7458471B-885F-4026-ACBB-D8A60369487A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>RDS</RootNamespace>
+    <AssemblyName>RDS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\Lib\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\Lib\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="Controllers\ViewStartController.cs" />
+    <Compile Include="Models\IndexModel.cs" />
+    <Compile Include="Models\Shared\DictConverter.cs" />
+    <Compile Include="Models\Shared\LoginContext.cs" />
+    <Compile Include="Models\Shared\SelectLists.cs" />
+    <Compile Include="Models\ViewStartModel.cs" />
+    <Compile Include="Views\Index\IndexView.xaml.cs">
+      <DependentUpon>IndexView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="_ViewStart.xaml.cs">
+      <DependentUpon>_ViewStart.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Shared\AppBase.cs" />
+    <Compile Include="Models\Shared\DataFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Content\section.designer.windsor.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\section.windsor.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ay\ay.contentcore\ay.contentcore.csproj">
+      <Project>{9444f98c-30b1-4074-ba00-e942edd729b2}</Project>
+      <Name>ay.contentcore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ay\ay.contents\ay.contents.csproj">
+      <Project>{3800fe55-f547-4f26-b3d9-4b5dae850a1c}</Project>
+      <Name>ay.contents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ay\Ay.Framework.DataCreaters\Ay.Framework.DataCreaters.csproj">
+      <Project>{727ca740-0978-43de-b8ff-b3df6549cdd3}</Project>
+      <Name>Ay.Framework.DataCreaters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ay\ay.mvc\ay.mvc.csproj">
+      <Project>{74a5e186-43d4-450e-b314-f261fe0fffcb}</Project>
+      <Name>ay.mvc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ay\ay.Wpf.Theme.Element\ay.Wpf.Theme.Element.csproj">
+      <Project>{05561601-995f-4c88-a3d3-3e6b699c77f2}</Project>
+      <Name>ay.Wpf.Theme.Element</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ay\ay.Wpf.Theme\ay.Wpf.Theme.csproj">
+      <Project>{17a007cd-fea2-493a-b055-b7fde8740eae}</Project>
+      <Name>ay.Wpf.Theme</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ay\ay\ay.csproj">
+      <Project>{43e5a788-cb73-4ea1-9077-75cb897724b9}</Project>
+      <Name>ay</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RDS.Adapter\RDS.Adapter.csproj">
+      <Project>{917e0817-967e-40e0-88c3-87b30a862952}</Project>
+      <Name>RDS.Adapter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RDS.Adpater.Design\RDS.Adapter.Design.csproj">
+      <Project>{15cf03c7-bb8a-4f8b-8c41-b2fb5494fe14}</Project>
+      <Name>RDS.Adapter.Design</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\rds.contents\rds.contents.csproj">
+      <Project>{d31129a1-2481-44d5-87eb-b4db5c60c03b}</Project>
+      <Name>rds.contents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RDS.IAdapter\RDS.IAdapter.csproj">
+      <Project>{B22D11FB-9FA9-42DA-AE7E-90AD748ABAB8}</Project>
+      <Name>RDS.IAdapter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RDS.Models.UI\RDS.Models.UI.csproj">
+      <Project>{8f45295e-1e22-4878-bb6b-27da71ff1819}</Project>
+      <Name>RDS.Models.UI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\Index\IndexView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="_ViewStart.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Shared\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

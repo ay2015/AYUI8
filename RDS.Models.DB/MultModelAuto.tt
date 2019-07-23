@@ -1,0 +1,93 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#"  #>
+<#@ output extension="/" #>
+<#@ assembly name="System.Core"#>
+<#@ import namespace="System"#>
+<#@ import namespace="System.Collections.Generic"#>
+<#@ include file="Code/DBSchema.ttinclude"#>
+<#@ include file="Code/MultiDocument.ttinclude"#>
+<#@ include file="EF.Utility.CS.ttinclude"#>
+
+<# var manager = new Manager(Host, GenerationEnvironment, true) { OutputPath = Path.GetDirectoryName(Host.TemplateFile)}; #>
+<#
+    var dbSchema=DBSchemaFactory.GetDBSchema();
+	List<string> tableList=dbSchema.GetTablesList();
+	foreach(string tableName in tableList)
+	{
+		manager.StartBlock(tableName+".cs");
+		Table table=dbSchema.GetTableMetadata(tableName);
+#>
+using System;
+using System.Collections.Generic;
+using System.Text;
+using Dapper.Contrib.Extensions;
+
+<#    CodeGenerationTools code = new CodeGenerationTools(this);
+		string namespaceName = code.VsNamespaceSuggestion();
+#>
+namespace <#=namespaceName#>
+{
+	[Serializable]
+	[Table("<#=tableName#>")]
+	public class <#=tableName#>
+	{
+		#region Constructor
+		public <#=tableName#>() { }
+
+		public <#=tableName#>(<#=table.ColumnTypeNames#>)
+		{
+<#
+		foreach(Column c in table.Columns)
+		{
+#>
+			this.<#="_"+c.LowerColumnName#> = <#=c.LowerColumnName#>;
+<#
+		}
+#>
+		}
+		#endregion
+
+		#region Attributes
+<#
+		foreach(Column c in table.Columns)
+		{
+			string gecolumnname=GeneratorHelper.GetQuesMarkByType(c.TypeName);
+				if(gecolumnname=="String"){
+					gecolumnname="string";
+				}
+				string cLowerColumnName="_"+c.LowerColumnName;
+#>
+		private <#=gecolumnname#> <#=cLowerColumnName#>;
+
+<# 
+	  if(c.UpColumnName == "Id" && gecolumnname=="string")
+	  {
+ #>	
+ [ExplicitKey]
+<# 
+		}else   if(c.UpColumnName == "Id" && gecolumnname=="Int32")
+	  {
+ #>
+  [Dapper.Contrib.Extensions.Key]
+ <# 
+	  }
+ #>
+		public <#=gecolumnname#> <#=c.UpColumnName#>
+		{
+			get { return <#=cLowerColumnName#>; }
+			set { <#=cLowerColumnName#> = value; }
+		}
+<#
+		}
+#>
+		#endregion
+
+	
+	}
+}
+<#
+		manager.EndBlock();
+	}
+	dbSchema.Dispose();
+
+	manager.Process(true);
+#>

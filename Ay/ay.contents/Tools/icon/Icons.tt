@@ -1,0 +1,130 @@
+﻿ <#@ output extension=".cs" #>
+ <#@ template language="cs"  hostspecific="True"#>
+    <#@ include file="../Code/MultiOutput.tt" #>
+   <#@ assembly name="System.Core" #>
+   <#@ assembly name="System.Xml" #>
+      <#@ assembly name="System.Xml.Linq" #>
+      <#@ import namespace="System.Linq" #>
+   <#@ import namespace="System.Collections.Generic" #>
+   <#@ import namespace="System.IO" #>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib">
+	<#
+      foreach (string name in this.GetNames())   
+      {
+  #>
+     <s:String x:Key="<#= name #>" ><#= name #></s:String>
+  <# 
+    }
+	#>
+	<#
+		 string templateDirectory = System.IO.Path.GetDirectoryName(Host.TemplateFile);
+  string up1Directory = System.IO.Path.GetDirectoryName(templateDirectory);
+    string up2Directory = System.IO.Path.GetDirectoryName(up1Directory);
+	    string absolutePath = System.IO.Path.Combine(up2Directory,"Content/Icon");
+   	    var _ad= absolutePath+"/Image";
+        var files = System.IO.Directory.GetFiles(_ad, "*.*", System.IO.SearchOption.AllDirectories).Where(file => file.ToLower().EndsWith("png") || file.ToLower().EndsWith("jpg") || file.ToLower().EndsWith("bmp") || file.ToLower().EndsWith("jpeg")).OrderByDescending(x => x);
+        foreach (var item in files)
+        {
+			    	 var _ad0= System.IO.Path.GetFileName(item);
+					      	 var _ad01=System.IO.Path.GetFileNameWithoutExtension(System.IO.Path.GetDirectoryName(item));
+					 	 var _ad1= "Image_"+_ad01+"_"+System.IO.Path.GetFileNameWithoutExtension(item)+"_"+ System.IO.Path.GetExtension(item).TrimStart('.');
+						
+						var _a1= "/ay.contents;component/Content/Icon/Image/"+_ad01+"/"+_ad0;
+  #>
+   <s:String x:Key="<#= _ad1 #>" ><#= _a1 #></s:String>
+     <# 
+    }
+	#>
+</ResourceDictionary>
+	<#
+	  SaveOutput("Icons.xaml");
+	  	#>
+   <#
+  var className = System.IO.Path.GetFileNameWithoutExtension(Host.TemplateFile);
+  var namespaceName = "ay.contents";
+#>
+namespace <#=namespaceName#> 
+{
+	public partial class <#= className#> 
+	{
+		<#
+      foreach (string name in this.GetNames())   
+      {
+  #>
+        public const string <#= name #> =@"<#= name #>";
+  <# 
+    }
+	#>
+
+	}
+
+
+
+
+public partial  class <#= className#> 
+	{
+		<#
+	
+        foreach (var item in files)
+        {
+			    	 var _ad0= System.IO.Path.GetFileName(item);
+					      	 var _ad01=System.IO.Path.GetFileNameWithoutExtension(System.IO.Path.GetDirectoryName(item));
+					 	 var _ad1= "Image_"+_ad01+"_"+System.IO.Path.GetFileNameWithoutExtension(item)+"_"+ System.IO.Path.GetExtension(item).TrimStart('.');
+						
+						var _a1= "/ay.contents;component/Content/Icon/Image/"+_ad01+"/"+_ad0;
+  #>
+        public const string <#= _ad1 #> =@"<#= _a1 #>";
+  <# 
+    }
+	#>
+
+	}
+}
+
+ <#+
+     public List<string> GetNames()
+     {
+          List<string> result = new List<string>();
+		   string templateDirectory = System.IO.Path.GetDirectoryName(Host.TemplateFile);
+  string up1Directory = System.IO.Path.GetDirectoryName(templateDirectory);
+    string up2Directory = System.IO.Path.GetDirectoryName(up1Directory);
+	    string absolutePath = System.IO.Path.Combine(up2Directory,"Content/Icon");
+   	 var _ad= absolutePath+"/Path";
+
+        var files = System.IO.Directory.GetFiles(_ad, "*.ayicon", System.IO.SearchOption.TopDirectoryOnly);
+        foreach (var item in files)
+        {
+			
+             XmlDocument doc = new XmlDocument();
+            doc.Load(item);
+			            XmlNode node = doc.SelectSingleNode("Application");
+            XmlNodeList childs = node.ChildNodes;
+            foreach (XmlNode ass in childs)
+            {
+                result.Add(ass.Name);
+            }
+        }
+       
+         return result;
+     }
+	   public List<string> GetFileNames()
+     {
+          List<string> result = new List<string>();
+		   string templateDirectory = System.IO.Path.GetDirectoryName(Host.TemplateFile);
+  string up1Directory = System.IO.Path.GetDirectoryName(templateDirectory);
+    string up2Directory = System.IO.Path.GetDirectoryName(up1Directory);
+	    string absolutePath = System.IO.Path.Combine(up2Directory,"Content/Icon");
+   	 	 var _ad= absolutePath+"/Path";
+
+        var files = System.IO.Directory.GetFiles(_ad, "*.ayicon", System.IO.SearchOption.TopDirectoryOnly);
+        foreach (var item in files)
+        {
+			    	 var _ad0= System.IO.Path.GetFileName(item);
+		result.Add("/ay.contents;component/Content/Icon/Path/"+_ad0);
+      
+        }
+       
+         return result;
+     }
+
+ #>

@@ -1,0 +1,36 @@
+﻿<local:ElementStylesBase x:Class="ay.Wpf.Theme.Element.ImplicitStyles"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                             xmlns:ay="http://www.ayjs.net/2020"
+                       xmlns:local="clr-namespace:ay.Wpf.Theme.Element">
+
+    <Style TargetType="{x:Type ay:TemplateBorder}" BasedOn="{StaticResource BorderStyle}" />
+    <Style TargetType="{x:Type ay:AyTooltip}" BasedOn="{StaticResource AyTooltipTyle}" />
+    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource Button.Primary}" />
+    <Style TargetType="{x:Type RadioButton}" BasedOn="{StaticResource RadioButtonStyle}" />
+    <Style TargetType="{x:Type ScrollViewer}" BasedOn="{StaticResource ScrollViewerStyle}" />
+    <Style TargetType="{x:Type ay:ScrollViewerHide}" BasedOn="{StaticResource ScrollViewerHideStyle}" />
+    <Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource CheckBoxStyle}" />
+    <Style TargetType="{x:Type ay:AyTextBoxBase}" BasedOn="{StaticResource TextBoxBaseStyle}" />
+    <Style TargetType="{x:Type ay:AyTextBox}" BasedOn="{StaticResource TextBoxStyle}" />
+    <Style TargetType="{x:Type ay:MaskedTextBox}" BasedOn="{StaticResource TextBoxBaseStyle}" />
+    <Style TargetType="{x:Type ay:AyRadioBoxList}" BasedOn="{StaticResource AyRadioBoxListStyle}" />
+    <Style TargetType="{x:Type ay:AyCheckBoxList}" BasedOn="{StaticResource AyCheckBoxListStyle}" />
+    <Style x:Key="{x:Type ay:AyPopupContentAdorner}" TargetType="{x:Type ay:AyPopupContentAdorner}" BasedOn="{StaticResource AyPopupContentAdornerStyle}" />
+    <Style x:Key="{x:Type ay:AyFormInput}" TargetType="{x:Type ay:AyFormInput}" BasedOn="{StaticResource AyFormInputStyle}"/>
+    <Style x:Key="{x:Type ay:AyDateBoxYear}" TargetType="{x:Type ay:AyDateBoxYear}" BasedOn="{StaticResource AyDateBoxYearStyle}"/>
+    <Style x:Key="{x:Type ay:AyDateBoxMonth}" TargetType="{x:Type ay:AyDateBoxMonth}" BasedOn="{StaticResource AyDateBoxMonthStyle}"/>
+    <Style x:Key="{x:Type ay:AyDateBoxDay}" TargetType="{x:Type ay:AyDateBoxDay}" BasedOn="{StaticResource AyDateBoxDayStyle}"/>
+    <Style x:Key="{x:Type ay:AyDateBoxHour}" TargetType="{x:Type ay:AyDateBoxHour}" BasedOn="{StaticResource AyDateBoxHourStyle}"/>
+    <Style x:Key="{x:Type ay:AyDateBoxMinute}" TargetType="{x:Type ay:AyDateBoxMinute}" BasedOn="{StaticResource AyDateBoxMinuteStyle}"/>
+    <Style x:Key="{x:Type ay:AyDateBoxSecond}" TargetType="{x:Type ay:AyDateBoxSecond}" BasedOn="{StaticResource AyDateBoxSecondStyle}"/>
+    <Style x:Key="{x:Type ay:AyMaskView}" TargetType="{x:Type ay:AyMaskView}" BasedOn="{StaticResource ayAyMaskView}"/>
+    <Style x:Key="{x:Type ay:AyMaskTextView}" TargetType="{x:Type ay:AyMaskTextView}" BasedOn="{StaticResource ayAyMaskTextView}"/>
+    <Style x:Key="{x:Type ay:AyComboBox}" TargetType="{x:Type ay:AyComboBox}" BasedOn="{StaticResource AyComboBoxStyle}"/>
+    <Style x:Key="{x:Type ComboBox}" TargetType="{x:Type ComboBox}" BasedOn="{StaticResource ComboBoxStyle}"/>
+    <Style x:Key="{x:Type ay:AyLangComboBox}" TargetType="{x:Type ay:AyLangComboBox}" BasedOn="{StaticResource ComboBoxStyle}"/>
+
+    <Style x:Key="{x:Type ay:AyDateBoxCalendar}" TargetType="{x:Type ay:AyDateBoxCalendar}" BasedOn="{StaticResource AyFormInputStyle}"/>
+    <Style x:Key="{x:Type ay:AyTableView}" TargetType="{x:Type ay:AyTableView}" BasedOn="{StaticResource AyTableViewKeyDefault}"/>
+
+</local:ElementStylesBase>

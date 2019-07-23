@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="ay.Controls.AyGaosiBackgroundLayer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ay="clr-namespace:ay.Controls"         
+             mc:Ignorable="d" 
+             d:DesignHeight="698" d:DesignWidth="1098" Style="{DynamicResource NullUserControlStyle}" >
+
+    <Grid>
+        <ay:TransitionPresenter x:Name="tpMainImage"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  
+                                                 Content="{Binding BgData,RelativeSource={RelativeSource AncestorType={x:Type UserControl},Mode=FindAncestor}}" OpacityMask="Black" >
+            <ay:TransitionPresenter.Resources>
+                <DataTemplate DataType="{x:Type ay:AyTransitionPicture}">
+                    <Rectangle Fill="{Binding ImBrush,Mode=TwoWay}" StrokeThickness="{Binding StrokeThickness,Mode=TwoWay}" Stroke="{Binding Stroke,Mode=TwoWay}"  RadiusX="{Binding Radius}" RadiusY="{Binding Radius,Mode=TwoWay}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    </Rectangle>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type ay:AyTransitionColor}">
+                    <Border
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                    Background="{Binding Uri}" />
+                </DataTemplate>
+            </ay:TransitionPresenter.Resources>
+        </ay:TransitionPresenter>
+    </Grid>
+</UserControl>

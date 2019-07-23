@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" >
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="AutoBrush.xaml"/>
+        <ResourceDictionary Source="Resources/Controls/AllControlsResourceDictionary.xaml"/>
+        <ResourceDictionary Source="Resources/Controls/ImplicitStyles.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>
