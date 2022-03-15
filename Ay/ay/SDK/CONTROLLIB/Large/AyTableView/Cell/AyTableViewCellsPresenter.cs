@@ -396,8 +396,17 @@ namespace ay.Controls
             if (ParentTableView.SelectionMode == AyTableViewSelectionMode.Single || ParentTableView.SelectionMode == AyTableViewSelectionMode.RowTenSingle)
             {
                 ParentTableView.FocusedRowChanged(this);
+                if (ParentTableView.SelectedItem != null)
+                {
+                    var _1 = ParentTableView.SelectedItem as AyUIEntity;
+                    if (_1 != null)
+                    {
+                        _1.Selected = false;
+                    }
+                }
                 IsSelected = true;
 
+             
                 if (ParentTableView.SelectedItem != Item)
                 {
                     ParentTableView.SelectedItem = Item;

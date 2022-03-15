@@ -1,4 +1,4 @@
-﻿using ay.contentcore.Properties;
+﻿
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -51,7 +51,11 @@ namespace ay.contentcore
             {
                 return;
             }
-            var _curLang = Settings.Default.CurrentLang as string;
+            var _curLang = AyGlobalConfig.ACM["CurrentLang"];
+            if (_curLang == "")
+            {
+                _curLang = "zh-CN";
+            }
             Update();
             foreach (var item in Items)
             {
@@ -82,8 +86,10 @@ namespace ay.contentcore
             if (SelectedItem == null) return;
             var _1 = (SelectedItem as ComboBoxItem).Content as string;
             var _p = System.IO.Path.Combine(LangDir, _1);
-            Settings.Default.CurrentLang = _1;
-            Settings.Default.Save();
+            AyGlobalConfig.ACM["CurrentLang"] = _p;
+
+            //Settings.Default.CurrentLang = _1;
+            //Settings.Default.Save();
         }
         /// <summary>
         /// 保存并且应用
@@ -94,8 +100,9 @@ namespace ay.contentcore
             var _1 = (SelectedItem as ComboBoxItem).Content as string;
             var _p = System.IO.Path.Combine(LangDir, _1);
             LangService.UpdateLangage(Application.Current, _p);
-            Settings.Default.CurrentLang = _1;
-            Settings.Default.Save();
+            //Settings.Default.CurrentLang = _1;
+            //Settings.Default.Save();
+            AyGlobalConfig.ACM["CurrentLang"] = _p;
         }
 
         /// <summary>

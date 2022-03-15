@@ -737,6 +737,8 @@
                 Value="Center" />
         <Setter Property="VerticalContentAlignment"
                 Value="Center" />
+        <Setter Property="IsTabStop"
+                Value="false" />
         <Setter Property="Cursor"
                 Value="Hand" />
         <Setter Property="Template">
@@ -804,6 +806,9 @@
                         </Viewbox>
                     </Border>
                     <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused" Value="true">
+                            <Setter Property="Fill" TargetName="p" Value="#F56C6C" />
+                        </Trigger>
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter Property="Opacity" Value="0.5" />
                         </Trigger>
@@ -856,7 +861,7 @@
                             <Grid>
                                 <Grid Margin="{TemplateBinding AllContentMargin}">
                                     <AdornerDecorator>
-                                        <ContentPresenter />
+                                        <ContentPresenter x:Name="AllCP"/>
                                     </AdornerDecorator>
 
                                     <StackPanel Orientation="Horizontal" Margin="{TemplateBinding RightButtonGroupMargin}"
@@ -881,6 +886,9 @@
                                     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch"   x:Name="AyLayerAboveArea" >
                                     </Grid>
                                 </Border>
+
+      
+             
                                 <Rectangle  Visibility="Collapsed"  x:Name="AyWindowMaskArea"  RadiusX="{Binding Path=CornerRadius, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay,Converter={CornerRadiusToRadiusX}}" 
                           RadiusY="{Binding Path=CornerRadius, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay,Converter={CornerRadiusToRadiusX}}" 
                       Margin="-1" IsHitTestVisible="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">

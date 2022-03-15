@@ -38,7 +38,7 @@
                                                  ay:UIBase.Icon="{DynamicResource more_singleleft}" 
                                                  ay:UIBase.IconHeight="14"
                                                  ay:UIBase.IconWidth="14"             Grid.Column="1"
-                                                 Click="PART_NextMonthButton_Click"
+                                                 Click="PART_PreviousMonthButton_Click"
                                                  ToolTip="{DynamicResource ay_Last1Month}"
                                                  Style="{DynamicResource AyDateBoxCalendar.Icon}" />
 

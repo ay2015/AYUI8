@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -279,12 +281,12 @@ namespace ay.Controls
 
             if (DateRuleObjects.doubleCalendar)
             {
-          
+
                 abm = new AyDateBoxMonth();
-                abm.Margin = new Thickness(0,0,10,0);
+                abm.Margin = new Thickness(0, 0, 10, 0);
                 abm.Rule = "required";
-        
-               
+
+
                 Grid.SetColumn(abm, 11);
                 gridCdrToolsBar.Children.Add(abm);
 
@@ -1229,7 +1231,53 @@ namespace ay.Controls
             }
 
         }
+        //public const int HORZRES = 8;
+        //public const int VERTRES = 10;
+        //public const int LOGPIXELSX = 88;
+        //public const int LOGPIXELSY = 90;
+        //public const int DESKTOPVERTRES = 117;
+        //public const int DESKTOPHORZRES = 118;
+        //enum DeviceCap
+        //{
+        //    VERTRES = 10,
+        //    PHYSICALWIDTH = 110,
+        //    SCALINGFACTORX = 114,
+        //    DESKTOPVERTRES = 117,
+        //}
+ 
+        ////[DllImport("user32.dll")]
+        ////public static extern IntPtr GetDC(IntPtr ptr);
+        //[DllImport("gdi32.dll")]
+        //public static extern int GetDeviceCaps(
+        //    IntPtr hdc, // handle to DC
+        //    int nIndex // index of capability
+        //);
+        //[DllImport("user32.dll", EntryPoint = "ReleaseDC")]
+        //public static extern IntPtr ReleaseDC(IntPtr hWnd, IntPtr hDc);
+        //[DllImport("user32.dll")]
+        //public static extern IntPtr GetDesktopWindow();
 
+        //public static float GetSreenScale()
+        //{
+        //    var hdc = GetDC(GetDesktopWindow());
+        //    int nWidth = GetDeviceCaps(hdc, DESKTOPHORZRES);
+        //    ReleaseDC(IntPtr.Zero, hdc);
+        //    float f_Scale = (float)nWidth / (float)System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
+        //    return 1 / f_Scale;
+        //}
+        //private static double GetSreenScale()
+        //{
+
+        //    var g = System.Drawing.Graphics.FromHwnd(IntPtr.Zero);
+        //    IntPtr desktop = g.GetHdc();
+        //    var physicalScreenHeight = GetDeviceCaps(desktop, (int)DeviceCap.DESKTOPVERTRES);
+
+        //    var screenScalingFactor =
+        //        (double)physicalScreenHeight / System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height;
+        //    //SystemParameters.PrimaryScreenHeight;
+
+        //    return screenScalingFactor;
+        //}
         private void SetList(int year, int month, int SelectedDay)
         {
             DateList.DateRuleObjects = DateRuleObjects;
@@ -1312,26 +1360,27 @@ namespace ay.Controls
                     Width = CalcRootGridWidth();
                     if (DateRuleObjects.doubleCalendar)
                     {
-                            GridService.SetColumns(gridCdrToolsBar, "40 40 10 1* 1* 10 40 40 40 40 10 1* 1* 10 40 40");
+                        GridService.SetColumns(gridCdrToolsBar, "40 40 10 1* 1* 10 40 40 40 40 10 1* 1* 10 40 40");
                     }
-                    else {
+                    else
+                    {
                         GridService.SetColumns(gridCdrToolsBar, "40 40 10 1* 1* 10 40 40");
                     }
-                  
+
                 }
                 else
                 {
                     Width = CalcRootGridWidth();
                     if (DateRuleObjects.doubleCalendar)
                     {
-                    GridService.SetColumns(gridCdrToolsBar, "40 40 10 auto auto 10 40 40 40 40 10 auto auto 10 40 40");
-                }
+                        GridService.SetColumns(gridCdrToolsBar, "40 40 10 auto auto 10 40 40 40 40 10 auto auto 10 40 40");
+                    }
                     else
                     {
                         GridService.SetColumns(gridCdrToolsBar, "40 40 10 auto auto 10 40 40");
                     }
 
-         
+
                 }
 
 
@@ -1341,13 +1390,34 @@ namespace ay.Controls
         public double CalcRootGridWidth()
         {
             double rg = 0;
+            //var a = GetSreenScale();
+            var dpiXProperty = typeof(SystemParameters).GetProperty("DpiX", BindingFlags.NonPublic | BindingFlags.Static);
+
+            //var dpiYProperty = typeof(SystemParameters).GetProperty("Dpi", BindingFlags.NonPublic | BindingFlags.Static);
+
+
+
+            var dpiX = (int)dpiXProperty.GetValue(null, null);
+            var b = 344;
+            //var dpiY = (int)dpiYProperty.GetValue(null, null);
+            if (dpiX > 96)
+            {
+                b += 10;
+            }
+            else if (dpiX > 120)
+            {
+                b += 20;
+            }
+
             if (DateRuleObjects.isShowWeek)
             {
-                rg = 344+ay.Utils.UIGeneric.DayWidth.Value;
+              
+      
+                rg = b + ay.Utils.UIGeneric.DayWidth.Value;
             }
             else
             {
-                rg = 344;
+                rg = b;
             }
             if (DateRuleObjects.doubleCalendar)
             {

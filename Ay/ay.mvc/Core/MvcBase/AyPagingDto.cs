@@ -105,6 +105,16 @@ public class AyPagingResult<T> where T:class
         get { return _PageSize; }
         set { Set(ref _PageSize, value); }
     }
+    private int _PageTotal;
+
+    /// <summary>
+    /// 总页数
+    /// </summary>
+    public int PageTotal
+    {
+        get { return _PageTotal; }
+        set { Set(ref _PageTotal, value); }
+    }
 
 }
 /// <summary>

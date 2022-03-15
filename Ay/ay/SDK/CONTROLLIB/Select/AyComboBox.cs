@@ -193,6 +193,16 @@ namespace ay.Controls
                     _isInAyLayer.DragTitleBarStart -= DragTitleBarWhen;
                 };
             }
+            this.KeyDown -= AyComboBox_KeyDown;
+            this.KeyDown += AyComboBox_KeyDown;
+        }
+
+        private void AyComboBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == System.Windows.Input.Key.Space)
+            {
+                IsDropDownOpen = !IsDropDownOpen;
+            }
         }
 
         private void AyComboBox_LostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)

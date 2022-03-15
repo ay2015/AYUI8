@@ -602,7 +602,7 @@ namespace Microsoft.Windows.Shell
             // to bring up the system menu.
             if (HT.CAPTION == (HT)wParam.ToInt32())
             {
-                SystemCommands.ShowSystemMenuPhysicalCoordinates(_window, new Point(Utility.GET_X_LPARAM(lParam), Utility.GET_Y_LPARAM(lParam)));
+                ay.Controls.SystemCommands.ShowSystemMenuPhysicalCoordinates(_window, new Point(Utility.GET_X_LPARAM(lParam), Utility.GET_Y_LPARAM(lParam)));
             }
             handled = false;
             return IntPtr.Zero;

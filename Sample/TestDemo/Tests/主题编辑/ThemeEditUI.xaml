@@ -323,7 +323,92 @@
                         <Button Content="获得值(不包含掩码符号)" Margin="10,0,0,0" x:Name="btnGet3" Click="BtnGet3_Click"/>
                     </StackPanel>
                 </StackPanel>
-      
+                <ay:AyText Text="标签补全 Input (输入城市名字)" FontSize="{DynamicResource H4}"  Margin="0,40,0,20"/>
+                <StackPanel Orientation="Vertical" Margin="0,10,0,0" KeyboardNavigation.TabNavigation="Cycle">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                        <ay:AyText Text="不允许无效值/允许重复" Margin="0,0,10,0"/>
+                        <ay:TokenTextBox x:Name="defaultTokenizedTextBox" 
+                                   Width="500" MinHeight="40" Height="auto" MaxHeight="200"
+                                   HorizontalAlignment="Left"
+                                   AllowInvalidValues="False"
+                                   TokenDelimiter=";"
+                                   TokenDisplayMemberPath="Text"
+                                   DisplayMemberPath="Text"
+                                  />
+                 
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <ay:AyText Text="允许无效值/允许重复" Margin="0,0,10,0"/>
+                        <ay:TokenTextBox x:Name="allowInVliadTokenTextBox" AllowInvalidValues="True"
+                                   Width="500" MinHeight="40" Height="auto" MaxHeight="200"
+                                   HorizontalAlignment="Left"
+                                   TokenDelimiter=";"
+                                   TokenDisplayMemberPath="Text"
+                                   DisplayMemberPath="Text"
+                                  />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <ay:AyText Text="必须有效/不允许重复" Margin="0,0,10,0"/>
+                        <ay:TokenTextBox x:Name="allowDuTokenTextBox" AllowInvalidValues="False"
+                                   Width="500" MinHeight="40" Height="auto" MaxHeight="200"  
+                                   HorizontalAlignment="Left" AllowDuplicateValues="False"
+                                   TokenDelimiter=";"
+                                   TokenDisplayMemberPath="Text"
+                                   DisplayMemberPath="Text"
+                                  />
+                        <Button Content="获得值" Margin="10,0,0,0" x:Name="btnGetTokenText" Click="BtnGetTokenText_Click"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <ay:AyText Text="必须有效/不允许重复/diy" Margin="0,0,10,0"/>
+                        <ay:TokenTextBox x:Name="ttxtDiy" AllowInvalidValues="True"
+                                   Width="500" MinHeight="40" Height="auto" MaxHeight="200" MaxDropDownHeight="300"
+                                   HorizontalAlignment="Left" AllowDuplicateValues="False"
+                                   TokenDelimiter="" SelectionBrush="{DynamicResource colorprimary1}"
+                                   TokenDisplayMemberPath="Text"
+                                  >
+                            <ay:TokenTextBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Padding="16,4" Height="38" >
+                                        <StackPanel Orientation="Horizontal" >
+                                            <ay:AyTextOnly  FontSize="{DynamicResource H4}" Text="{Binding Text}" FontWeight="Bold"/>
+                                            <ay:AyTextOnly Text="{Binding Value}" FontSize="{DynamicResource H4}"  
+                                Margin="5,0,0,0"/>
+                                        </StackPanel>
+                                    </Border>
+                                </DataTemplate>
+                            </ay:TokenTextBox.ItemTemplate>
+                            <ay:TokenTextBox.TokenItemTemplate>
+                                <DataTemplate>
+                                    <Border Padding="10,4,30,4" CornerRadius="4" BorderBrush="{DynamicResource colorprimary5}" Background="{DynamicResource colorprimary2}" BorderThickness="1">
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                                            <ay:AyText FontWeight="Bold" Text="{Binding Text}" FontSize="{DynamicResource MediumFontSize}" Foreground="{DynamicResource colorprimary}" VerticalAlignment="Bottom"/>
+                                            <ay:AyText Text="{Binding Value,StringFormat=[{0}]}" FontSize="{DynamicResource SmallFontSize}" Foreground="{DynamicResource colorprimary3}" Margin="5,0,0,0" VerticalAlignment="Bottom"/>
+                                        </StackPanel>
+                                    </Border>
+                                </DataTemplate>
+                            </ay:TokenTextBox.TokenItemTemplate>
+                            <ay:TokenTextBox.TokenItemContainerStyle>
+                                <Style TargetType="{x:Type ay:TokenItem}">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type ay:TokenItem}">
+                                                <Grid Margin="0,2">
+                                                    <ContentPresenter />
+                                                    <Button HorizontalAlignment="Right" Margin="0,0,6,0" Style="{DynamicResource Button.Primary.Flat}" Content="X" FontSize="10"
+                                      KeyboardNavigation.IsTabStop="False" ay:UIBase.CornerRadius="14" Width="16" Height="16" Padding="0" BorderThickness="0"
+                                      Click="OnDeleteToken"
+                                      ToolTip="删除">
+                                                    </Button>
+                                                </Grid>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ay:TokenTextBox.TokenItemContainerStyle>
+                        </ay:TokenTextBox>
+           
+                    </StackPanel>
+                </StackPanel>
                 <ay:AyText Text="Input Number" FontSize="{DynamicResource H4}"  Margin="0,40,0,20"/>
                 <StackPanel Orientation="Vertical" Margin="0,10,0,0" KeyboardNavigation.TabNavigation="Cycle">
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
@@ -855,19 +940,19 @@
                         </ComboBox>
                     </StackPanel>
                     <ay:AySplitView  Margin="0,10,0,0"  x:Name="asvDemoSplitView"  DisplayMode="Inline"  OpenMillisecondTime="120" OpenPaneLength="200" HorizontalAlignment="Stretch" Height="300" BorderBrush="{DynamicResource bordercolorbase}" Background="{DynamicResource colorwhite}">
-                            <ay:AySplitView.Pane>
+                        <ay:AySplitView.Pane>
                             <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="200">
-                                
+
                                 <ay:TemplateBorder CornerRadius="0" Background="{DynamicResource bordercolorbase}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                                <ay:AyText Text="菜单" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    <ay:AyText Text="菜单" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                 </ay:TemplateBorder>
                             </Grid>
                         </ay:AySplitView.Pane>
                         <ay:TemplateBorder CornerRadius="0"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{DynamicResource colorprimary4}">
                             <ay:AyText Text="主体内容" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </ay:TemplateBorder>
-                        </ay:AySplitView>
-                   
+                        </ay:TemplateBorder>
+                    </ay:AySplitView>
+
                 </StackPanel>
                 <ay:AyText Text="CheckBoxList RadioBoxList" FontSize="{DynamicResource H4}"  Margin="0,40,0,20"/>
                 <StackPanel HorizontalAlignment="Left"
@@ -1003,5 +1088,6 @@
             </Border>
         </Grid>
     </ScrollViewer>
+
 
 </UserControl>

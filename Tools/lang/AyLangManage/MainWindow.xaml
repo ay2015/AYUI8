@@ -1,0 +1,158 @@
+﻿<Window x:Class="AyLangManage.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AyLangManage"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="" Height="1000" Width="1400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical">
+
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="btnNewTemplateFile" Margin="10,0,0,0" Width="140" Height="30" VerticalAlignment="Center" Click="BtnNewTemplateFile_Click" Content="打开文件作为参考翻译">
+
+                </Button>
+                <Button x:Name="btnMatchFile" Margin="10,0,0,0" Width="140" Height="30" VerticalAlignment="Center" Click="BtnMatchFile_Click" Content="打开文件匹配你的翻译" ToolTip="该操作会和当前列表存在的key对的上的值，加载你的翻译列上">
+
+                </Button>
+                <TextBlock Margin="10,0,0,0"  Text="建议直接打开编辑一个语言包，然后另存为一个新的语言包，这样参考的翻译就是你正在编辑的翻译" VerticalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+          
+            <Button x:Name="btnSelectFile" Margin="10,0,0,0"  Width="80" Height="30" VerticalAlignment="Center" Click="BtnSelectFile_Click" Content="直接打开编辑">
+
+            </Button>
+            <Button x:Name="btnSaveFile" Margin="10,0,0,0" Width="50" Height="30" VerticalAlignment="Center" Click="btnSaveFile_Click" Content="保存">
+
+            </Button>
+            <Button x:Name="btnSaveAsFile" Margin="10,0,0,0" Width="60" Height="30" VerticalAlignment="Center" Click="btnSaveAsFile_Click" Content="另存为">
+
+            </Button>
+            <Button x:Name="btnResetFile" Margin="10,0,0,0" Width="60" Height="30" VerticalAlignment="Center" Click="btnResetFile_Click" Content="重置操作">
+
+            </Button>
+            <Button x:Name="btnOpenDir" Margin="10,0,0,0" Width="70" Height="30" VerticalAlignment="Center" Click="BtnOpenDir_Click" Content="打开文件夹">
+
+            </Button>
+
+            <CheckBox IsChecked="True" x:Name="btnShowSourceColumn" VerticalAlignment="Center" Checked="BtnShowSourceColumn_Checked" Unchecked="BtnShowSourceColumn_Unchecked">显示参考翻译列</CheckBox>
+
+            <Button Margin="10,0,0,0" Width="150" Height="30" VerticalAlignment="Center" Content="Ctrl+Enter/单击 取消焦点">
+
+            </Button>
+            <TextBlock Margin="10,0,0,0"  Text="按Delete键删除选中行" VerticalAlignment="Center"/>
+        </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                <Button x:Name="btnConvertAllFile" Margin="10,0,0,0" Width="90" Height="30" VerticalAlignment="Center" Click="BtnConvertAllFile_Click" Content="一键生成两文件">
+
+                </Button>
+                <Label x:Name="lblCreateStatus"  VerticalAlignment="Center" Content="（生成状态：等待）"/>
+                <Label VerticalAlignment="Center" Content="开发设置：资源字典包含路径文件名"/>
+                <TextBox x:Name="resouceDir" Width="100" Height="30" VerticalContentAlignment="Center" />
+                <Button x:Name="btnConvertResource" Margin="10,0,0,0" Width="120" Height="30" VerticalAlignment="Center" Click="BtnConvertResource_Click" Content="转换为资源字典文件">
+
+                </Button>
+                <Button x:Name="btnOpenResourceDir" Margin="10,0,0,0" Width="70" Height="30" VerticalAlignment="Center" Click="BtnOpenResourceDir_Click" Content="打开文件夹">
+
+                </Button>
+                <Label VerticalAlignment="Center" Content="C#类包含路径文件名"/>
+                <TextBox x:Name="resouceCsDir" Width="100" Height="30" VerticalContentAlignment="Center"/>
+                <Button x:Name="btnConvertCsResource" Margin="10,0,0,0" Width="90" Height="30" VerticalAlignment="Center" Click="BtnConvertCsResource_Click" Content="转换为C#文件">
+
+                </Button>
+                <Button x:Name="btnOpenCsResourceDir" Margin="10,0,0,0" Width="70" Height="30" VerticalAlignment="Center" Click="BtnOpenCsResourceDir_Click" Content="打开文件夹">
+
+                </Button>
+     
+            </StackPanel>
+            <TextBlock Margin="10,0,0,0"  Text="*生成的强类型文件中，资源key会自动加上前缀=文件名（不包含文件名后缀）+下划线开头的" VerticalAlignment="Center"/>
+        </StackPanel>
+        <DataGrid x:Name="dg" ItemsSource="{Binding}" Grid.Row="1" CanUserAddRows="True" CanUserDeleteRows="True"  IsReadOnly="False" AutoGenerateColumns="False" LoadingRow="DgSceneRecord_LoadingRow"
+                  SelectionMode="Extended" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinRowHeight="28" EnableColumnVirtualization="True"  CanUserReorderColumns="False"
+                  >
+            <DataGrid.RowStyle >
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Background" Value="White"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#F9F9F9"/>
+                        </Trigger>
+                        <!--<Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="WhiteSmoke"/>
+                            <Setter Property="Foreground" Value="Red"/>
+                        </Trigger>-->
+                    </Style.Triggers>
+                </Style>
+
+            </DataGrid.RowStyle>
+            <!--<DataGridTemplateColumn Width="60"
+                                        Header="序号"
+                                        IsReadOnly="True">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <TextBlock IsHitTestVisible="False" HorizontalAlignment="Center" Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGridRow}}, Path=Header}" />
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+                <DataGridTemplateColumn.CellEditingTemplate>
+                    <DataTemplate>
+                        <TextBlock IsHitTestVisible="False" HorizontalAlignment="Center" Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGridRow}}, Path=Header}" />
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellEditingTemplate>
+            </DataGridTemplateColumn>-->
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="资源键(必须唯一,变量方式命名)" Width="200" Binding="{Binding Key}">
+                    <DataGridTextColumn.EditingElementStyle>
+                        <Style TargetType="TextBox">
+                            <!--<Setter Property="AcceptsReturn" Value="True"/>-->
+                            <!--<Setter Property="AcceptsTab" Value="True"/>-->
+                            <Setter Property="Height" Value="auto"/>
+                        </Style>
+                    </DataGridTextColumn.EditingElementStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                            <Setter Property="Height" Value="auto"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+        
+                <DataGridTextColumn Header="你的翻译"  Width="*" Binding="{Binding TargetValue}">
+                    <DataGridTextColumn.EditingElementStyle>
+                        <Style TargetType="TextBox">
+                            <Setter Property="AcceptsReturn" Value="True"/>
+                            <Setter Property="AcceptsTab" Value="True"/>
+                            <Setter Property="Height" Value="auto"/>
+                        </Style>
+                    </DataGridTextColumn.EditingElementStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                            <Setter Property="Height" Value="auto"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="参考翻译" Width="*" Binding="{Binding SampleValue}">
+                    <DataGridTextColumn.EditingElementStyle>
+                        <Style TargetType="TextBox">
+                            <Setter Property="AcceptsReturn" Value="True"/>
+                            <Setter Property="AcceptsTab" Value="True"/>
+                            <Setter Property="Height" Value="auto"/>
+                        </Style>
+                    </DataGridTextColumn.EditingElementStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                            <Setter Property="Height" Value="auto"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

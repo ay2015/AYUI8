@@ -1,17 +1,21 @@
-﻿using ay.contentcore;
-using ay.FuncFactory;
+﻿using Ay.Framework.WPF.Controls;
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using Winform = System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Interactivity;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using i = System.Windows.Interactivity;
-using Winform = System.Windows.Forms;
-
-
+using ay.contentcore;
+using ay.FuncFactory;
 
 namespace ay.Controls
 {
@@ -66,6 +70,12 @@ namespace ay.Controls
 
         public static readonly DependencyProperty SelectFolderCapacityProperty = SelectFolderCapacityPropertyKey.DependencyProperty;
 
+        public object ObjectBind { get; set; }
+        protected override void OnAttached()
+        {
+            base.OnAttached();
+            ObjectBind = this.AssociatedObject;
+        }
 
         /// <summary>
         /// 选择后的所在驱动器总容量,只读
@@ -90,6 +100,7 @@ namespace ay.Controls
             set { SetValue(TargetProperty, value); }
         }
 
+        // Using a DependencyProperty as the backing store for Target.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TargetProperty =
             DependencyProperty.Register("Target", typeof(object), typeof(AyFolderPicker), new PropertyMetadata(null));
 
@@ -99,6 +110,7 @@ namespace ay.Controls
             set { SetValue(TotalSizeTargetProperty, value); }
         }
 
+        // Using a DependencyProperty as the backing store for Target.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TotalSizeTargetProperty =
             DependencyProperty.Register("TotalSizeTarget", typeof(object), typeof(AyFolderPicker), new PropertyMetadata(null));
 
@@ -111,6 +123,7 @@ namespace ay.Controls
             set { SetValue(SizeTargetProperty, value); }
         }
 
+        // Using a DependencyProperty as the backing store for Target.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty SizeTargetProperty =
             DependencyProperty.Register("SizeTarget", typeof(object), typeof(AyFolderPicker), new PropertyMetadata(null));
 
@@ -124,6 +137,7 @@ namespace ay.Controls
             set { SetValue(SizeStringFormatProperty, value); }
         }
 
+        // Using a DependencyProperty as the backing store for SizeStringFormat.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty SizeStringFormatProperty =
             DependencyProperty.Register("SizeStringFormat", typeof(string), typeof(AyFolderPicker), new PropertyMetadata("可用空间：{0}"));
 
@@ -136,6 +150,7 @@ namespace ay.Controls
             set { SetValue(TotalSizeStringFormatProperty, value); }
         }
 
+        // Using a DependencyProperty as the backing store for SizeStringFormat.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TotalSizeStringFormatProperty =
             DependencyProperty.Register("TotalSizeStringFormat", typeof(string), typeof(AyFolderPicker), new PropertyMetadata("总空间：{0}"));
 
@@ -148,6 +163,7 @@ namespace ay.Controls
             set { SetValue(DescriptionProperty, value); }
         }
 
+        // Using a DependencyProperty as the backing store for Description.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty DescriptionProperty =
             DependencyProperty.Register("Description", typeof(string), typeof(AyFolderPicker), new PropertyMetadata("请选择文件夹"));
 
@@ -161,6 +177,8 @@ namespace ay.Controls
             get { return (ICommand)GetValue(SelectedCommandProperty); }
             set { SetValue(SelectedCommandProperty, value); }
         }
+
+        // Using a DependencyProperty as the backing store for SelectedCommand.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty SelectedCommandProperty =
             DependencyProperty.Register("SelectedCommand", typeof(ICommand), typeof(AyFolderPicker), new PropertyMetadata(null));
 
@@ -262,7 +280,7 @@ namespace ay.Controls
 
                 if (Selected != null)
                 {
-                    Selected(dirPath, new RoutedEventArgs() { });
+                    Selected(dirPath, new RoutedEventArgs(Button.ClickEvent, this));
                 }
                 if (SelectedCommand != null)
                 {

@@ -26,6 +26,29 @@ namespace ay.Controls
     [TemplatePart(Name = "PART_MinusRepeatButton", Type = typeof(RepeatButton))]
     public partial class AyFormInput : AyTextBox, IAyValidate, IAyHighlight
     {
+        public AyPopKeyBoard PopKeyBoard
+        {
+            get { return (AyPopKeyBoard)GetValue(PopKeyBoardProperty); }
+            set { SetValue(PopKeyBoardProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for PopKeyBoard.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty PopKeyBoardProperty =
+            DependencyProperty.Register("PopKeyBoard", typeof(AyPopKeyBoard), typeof(AyFormInput), new PropertyMetadata(null, new PropertyChangedCallback(OnPopKeyBoard)));
+
+        private static void OnPopKeyBoard(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var _1 = d as AyFormInput;
+            if (_1.IsNotNull())
+            {
+                AyPopKeyBoard _2 = e.NewValue as AyPopKeyBoard;
+                if (_2 != null)
+                {
+                    _2.InitInputChild(_1);
+
+                }
+            }
+        }
 
         public override bool Validate()
         {
@@ -824,7 +847,8 @@ namespace ay.Controls
 
         #region 拓展 时间控件公用属性 2017-2-13 14:53:52
 
-        public virtual void UpdateTextWhenDateChange() {
+        public virtual void UpdateTextWhenDateChange()
+        {
 
         }
 
@@ -834,7 +858,7 @@ namespace ay.Controls
             set { SetValue(PickedDateProperty, value); }
         }
         public static readonly DependencyProperty PickedDateProperty =
-            DependencyProperty.Register("PickedDate", typeof(DateTime?), typeof(AyFormInput), new UIPropertyMetadata(null,onPickedDateChanged));
+            DependencyProperty.Register("PickedDate", typeof(DateTime?), typeof(AyFormInput), new UIPropertyMetadata(null, onPickedDateChanged));
 
         private static void onPickedDateChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -954,6 +978,32 @@ namespace ay.Controls
                 ValdiateTextBox(_d);
             }
         }
+
+
+
+        /// <summary>
+        /// 是否弹出中文键盘
+        /// </summary>
+        public bool IsContainChineseKeyboard
+        {
+            get { return (bool)GetValue(IsContainChineseKeyboardProperty); }
+            set { SetValue(IsContainChineseKeyboardProperty, value); }
+        }
+
+        public static readonly DependencyProperty IsContainChineseKeyboardProperty =
+            DependencyProperty.Register("IsContainChineseKeyboard", typeof(bool), typeof(AyFormInput), new PropertyMetadata(false));
+
+        /// <summary>
+        /// 是否是身份证
+        /// </summary>
+        public bool IsIDCard
+        {
+            get { return (bool)GetValue(IsIDCardProperty); }
+            set { SetValue(IsIDCardProperty, value); }
+        }
+
+        public static readonly DependencyProperty IsIDCardProperty =
+            DependencyProperty.Register("IsIDCard", typeof(bool), typeof(AyFormInput), new PropertyMetadata(false));
 
 
         #region 密码框需求
@@ -1465,8 +1515,9 @@ namespace ay.Controls
             }
         }
 
-        bool IsResponseChange = false;
+        public bool IsResponseChange = false;
         int lastOffset = 0;
+
         private void AyFormPassword_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (!IsResponseChange) //响应事件标识，替换字符时，不处理后续逻辑
@@ -1485,6 +1536,7 @@ namespace ay.Controls
             this.Text = ConvertToPasswordChar(Text.Length);  //将输入的字符替换为密码字符
             IsResponseChange = true;   //回复响应标识
             this.SelectionStart = lastOffset + 1; //设置光标索引
+            //this.SelectionStart = lastOffset ; //设置光标索引
             //Console.WriteLine(string.Format("SelectionStar:{0}", this.SelectionStart));
         }
 

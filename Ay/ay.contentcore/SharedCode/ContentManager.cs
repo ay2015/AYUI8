@@ -1,4 +1,4 @@
-﻿using ay.contentcore.Properties;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,7 +65,11 @@ namespace ay.contentcore
         public void ApplySetting()
         {
             //读取语言
-            var _curLang = Settings.Default.CurrentLang as string;
+            var _curLang = AyGlobalConfig.ACM["CurrentLang"];
+            if (_curLang == "")
+            {
+                _curLang = "zh-CN";
+            }
             string LangDir = System.IO.Path.Combine(ContentManager.Instance.ContentFolder, "Lang");
             if (System.IO.Directory.Exists(LangDir))
             {
@@ -75,10 +79,10 @@ namespace ay.contentcore
 
 
             //读取字体设置
-            string fontFamilyName = Properties.Settings.Default.LastFontFamily;
-            string fontFamilyStretch = Properties.Settings.Default.LastFontStretch;
-            string fontFamilyStyle = Properties.Settings.Default.LastFontStyle;
-            string fontFamilyWeight = Properties.Settings.Default.LastFontWeight;
+            string fontFamilyName = AyGlobalConfig.ACM["LastFontFamily"];
+            string fontFamilyStretch = AyGlobalConfig.ACM["LastFontStretch"];
+            string fontFamilyStyle = AyGlobalConfig.ACM["LastFontStyle"];
+            string fontFamilyWeight = AyGlobalConfig.ACM["LastFontWeight"];
             if (!string.IsNullOrWhiteSpace(fontFamilyName))
             {
                 Application.Current.Resources["NormalFontFamily"] = new FontFamily(fontFamilyName);

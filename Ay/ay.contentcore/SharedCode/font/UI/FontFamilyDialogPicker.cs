@@ -21,10 +21,11 @@ namespace ay.contentcore
         {
             ColorFontFamilyDialog fntDialog = new ColorFontFamilyDialog();
             FontInfo f = new FontInfo();
-            string fontFamilyName = Properties.Settings.Default.LastFontFamily;
-            string fontFamilyStretch = Properties.Settings.Default.LastFontStretch;
-            string fontFamilyStyle = Properties.Settings.Default.LastFontStyle;
-            string fontFamilyWeight = Properties.Settings.Default.LastFontWeight;
+
+            string fontFamilyName = AyGlobalConfig.ACM["LastFontFamily"];
+            string fontFamilyStretch = AyGlobalConfig.ACM["LastFontStretch"];
+            string fontFamilyStyle = AyGlobalConfig.ACM["LastFontStyle"];
+            string fontFamilyWeight = AyGlobalConfig.ACM["LastFontWeight"];
             if (string.IsNullOrWhiteSpace(fontFamilyName))
             {
                 //读取资源
@@ -64,11 +65,12 @@ namespace ay.contentcore
                     Application.Current.Resources["NormalFontStretch"] = selectedFont.Stretch;
                     Application.Current.Resources["NormalFontStyle"] = selectedFont.Style;
                     Application.Current.Resources["NormalFontWeight"] = selectedFont.Weight;
-                    Properties.Settings.Default.LastFontFamily = selectedFont.Family.Source;
-                    Properties.Settings.Default.LastFontStretch = selectedFont.Stretch.ToString();
-                    Properties.Settings.Default.LastFontStyle = selectedFont.Style.ToString();
-                    Properties.Settings.Default.LastFontWeight = selectedFont.Weight.ToString();
-                    Properties.Settings.Default.Save();
+
+                    AyGlobalConfig.ACM["LastFontFamily"] = selectedFont.Family.Source;
+                    AyGlobalConfig.ACM["LastFontStretch"] = selectedFont.Stretch.ToString();
+                    AyGlobalConfig.ACM["LastFontStyle"] = selectedFont.Style.ToString();
+                    AyGlobalConfig.ACM["LastFontWeight"] = selectedFont.Weight.ToString();
+
                 }
             }
         }

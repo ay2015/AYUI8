@@ -4416,6 +4416,228 @@
     </Style>
 
 
+    <Style x:Key="{x:Type ay:TokenTextBoxItem}" TargetType="{x:Type ay:TokenTextBoxItem}">
+        <Setter Property="Padding" Value="10,0" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ay:TokenTextBoxItem}">
+                    <Border Name="Bd" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsHighlighted" Value="True">
+                            <Setter TargetName="Bd" Value="{StaticResource colorprimary}" Property="Background" />
+                            <Setter Value="{StaticResource colorwhite}" Property="Foreground" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Value="{StaticResource DisabledOpacity}" Property="Opacity" />
+                            <Setter Value="No" Property="Cursor" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="{x:Type ay:TokenItem}" TargetType="{x:Type ay:TokenItem}">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Padding" Value="5,0" />
+        <Setter Property="VerticalContentAlignment" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type ay:TokenTextBox}}, Path=VerticalContentAlignment}" />
+        <Setter Property="HorizontalContentAlignment" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type ay:TokenTextBox}}, Path=HorizontalContentAlignment}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ay:TokenItem}">
+                    <Border Name="Bd" Background="{TemplateBinding Control.Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Value="{StaticResource DisabledOpacity}" Property="Opacity" />
+                            <Setter Value="No" Property="Cursor" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <ControlTemplate x:Key="TokenTextBoxTemplate" TargetType="{x:Type ay:TokenTextBox}">
+        <Grid>
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="FocusStates">
+                    <VisualState x:Name="Unfocused">
+                        <Storyboard>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="borderFocus" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)">
+                                <EasingColorKeyFrame  KeyTime="0:0:0.2"  Value="{Binding Source={StaticResource bordercolorbase},Path=Color}" >
+                                </EasingColorKeyFrame>
+                            </ColorAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Focused">
+                        <Storyboard>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="borderFocus" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)">
+                                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="{Binding Source={StaticResource colorprimary},Path=Color}" >
+                                </EasingColorKeyFrame>
+                            </ColorAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal" >
+                        <Storyboard>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)">
+                                <EasingColorKeyFrame  KeyTime="0:0:0.2" Value="{Binding Source={StaticResource bordercolorbase},Path=Color}" >
+                                </EasingColorKeyFrame>
+                            </ColorAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="MouseOver">
+                        <Storyboard>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)">
+                                <EasingColorKeyFrame  KeyTime="0:0:0.2" Value="{Binding Source={StaticResource colortextplaceholder},Path=Color}" >
+                                </EasingColorKeyFrame>
+                            </ColorAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+
+            <RichTextBox Name="PART_RichTextBox" Background="{TemplateBinding Background}" BorderBrush="Transparent" 
+                         BorderThickness="0" Foreground="{TemplateBinding Foreground}" Cursor="Hand"
+                         CaretBrush="{TemplateBinding Foreground}" AllowDrop="False"
+                         VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" 
+                         HorizontalAlignment="{TemplateBinding VerticalContentAlignment}"  SelectionBrush="{TemplateBinding SelectionBrush}"
+                         ScrollViewer.VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}" 
+                         ScrollViewer.HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" 
+                         Padding="10,8" MinWidth="{TemplateBinding FrameworkElement.MinWidth}" 
+                         MinHeight="{TemplateBinding FrameworkElement.MinHeight}" MaxWidth="{TemplateBinding MaxWidth}" 
+                         MaxHeight="{TemplateBinding FrameworkElement.MaxHeight}" AutomationProperties.Name="RichTextBox" />
+            <Border x:Name="border" Visibility="Visible" CornerRadius="{TemplateBinding ay:UIBase.CornerRadius}" BorderBrush="{StaticResource bordercolorbase}" BorderThickness="{TemplateBinding BorderThickness}"  SnapsToDevicePixels="True">
+            </Border>
+            <Border Visibility="Collapsed" x:Name="borderFocus" CornerRadius="{TemplateBinding ay:UIBase.CornerRadius}" BorderBrush="{StaticResource bordercolorbase}" BorderThickness="{TemplateBinding BorderThickness}"  SnapsToDevicePixels="True">
+            </Border>
+            <Popup Name="PART_Popup" AllowsTransparency="True"  Placement="Relative" VerticalOffset="{TemplateBinding ActualHeight,Converter={MathConverter},ConverterParameter=x+1}" StaysOpen="False" IsOpen="{Binding Path=IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}">
+                <Border Name="DropDownBorder" BorderThickness="1" BorderBrush="{StaticResource bordercolorbase}" Background="{StaticResource colorwhite}"  
+                        MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                    <ay:TokenTextBoxCoreItemsControl x:Name="PART_CoreItemsControl" ItemsSource="{TemplateBinding ay:TokenTextBox.FilteredItems}" 
+                                                     HighlightedItem="{TemplateBinding ay:TokenTextBox.HighlightedItem}" 
+                                                     DisplayMemberPath="{TemplateBinding ItemsControl.DisplayMemberPath}" 
+                                                     ItemContainerStyle="{TemplateBinding ItemsControl.ItemContainerStyle}"
+                                                     ItemTemplate="{TemplateBinding ItemsControl.ItemTemplate}" 
+                                                     FontFamily="{TemplateBinding FontFamily}" 
+                                                     FontSize="{TemplateBinding FontSize}" 
+                                                     FontStretch="{TemplateBinding FontStretch}" 
+                                                     FontStyle="{TemplateBinding FontStyle}" 
+                                                     FontWeight="{TemplateBinding FontWeight}" 
+                                                     HorizontalContentAlignment="{TemplateBinding Control.HorizontalContentAlignment}"
+                                                     VerticalContentAlignment="{TemplateBinding Control.VerticalContentAlignment}"
+                                                     Padding="{TemplateBinding Padding}" 
+                                                     IsTabStop="{TemplateBinding IsTabStop}" 
+                                                     BorderBrush="{TemplateBinding BorderBrush}"
+                                                     BorderThickness="{TemplateBinding BorderThickness}"
+                                                     Background="{TemplateBinding Background}"
+                                                     MinWidth="{TemplateBinding MinWidth}" 
+                                                     MinHeight="{TemplateBinding MinHeight}"
+                                                     Foreground="{TemplateBinding Foreground}" VirtualizingStackPanel.IsVirtualizing="True">
+                        <ay:TokenTextBoxCoreItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <VirtualizingStackPanel />
+                            </ItemsPanelTemplate>
+                        </ay:TokenTextBoxCoreItemsControl.ItemsPanel>
+                        <ay:TokenTextBoxCoreItemsControl.Template>
+                            <ControlTemplate>
+                                <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" AutomationProperties.AutomationId="TokenTextBoxScrollViewer" AutomationProperties.Name="TokenTextBoxScrollViewer">
+                                    <Grid>
+                                        <Canvas Height="0" Width="0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                            <Rectangle Name="OpaqueRect" Height="{Binding ElementName=DropDownBorder, Path=ActualHeight}" Width="{Binding ElementName=DropDownBorder, Path=ActualWidth}" Fill="{Binding ElementName=DropDownBorder, Path=Background}" />
+                                        </Canvas>
+                                        <ItemsPresenter Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+                                    </Grid>
+                                </ScrollViewer>
+                            </ControlTemplate>
+                        </ay:TokenTextBoxCoreItemsControl.Template>
+                    </ay:TokenTextBoxCoreItemsControl>
+                </Border>
+            </Popup>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger SourceName="PART_RichTextBox" Property="IsKeyboardFocused" Value="true">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="borderFocus" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)">
+                                <EasingColorKeyFrame  KeyTime="0:0:0.2"  Value="{StaticResource colorprimary.color}" >
+                                </EasingColorKeyFrame>
+                            </ColorAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="borderFocus" Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)">
+                                <EasingColorKeyFrame  KeyTime="0:0:0.2"  Value="{StaticResource bordercolorbase.color}" >
+                                </EasingColorKeyFrame>
+                            </ColorAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+                <Setter TargetName="border" Value="Collapsed" Property="Visibility" />
+                <Setter TargetName="borderFocus" Value="Visible" Property="Visibility" />
+            </Trigger>
+            <Trigger Property="IsFocused" Value="True">
+
+                <Setter TargetName="PART_RichTextBox" Value="{Binding ElementName=PART_RichTextBox}" Property="FocusManager.FocusedElement" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Value="{StaticResource DisabledOpacity}" Property="Opacity" />
+                <Setter Value="No" Property="Cursor" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <DataTemplate x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type ay:TokenTextBox}, ResourceId=DefaultTokenItemTemplate}">
+        <ay:AyText  Text="{Binding}"  Margin="0,4">
+            <TextBlock.TextDecorations>
+                <TextDecorationCollection>
+                    <TextDecoration PenOffset="0.3" PenOffsetUnit="FontRenderingEmSize" />
+                </TextDecorationCollection>
+            </TextBlock.TextDecorations>
+        </ay:AyText>
+    </DataTemplate>
+    <Style x:Key="TokenTextBoxStyle" TargetType="{x:Type ay:TokenTextBox}" BasedOn="{StaticResource CommonControlStyle}">
+        <Setter Property="TokenDelimiter" Value=";" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="SelectionBrush" Value="{StaticResource colorprimary}" />
+        <Setter Property="ay:UIBase.CornerRadius" Value="4" />
+        <Setter Property="Width" Value="180" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="Template" Value="{StaticResource TokenTextBoxTemplate}" />
+        <Setter Property="FrameworkElement.OverridesDefaultStyle" Value="True" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="FocusVisualStyle">
+            <Setter.Value>
+                <Style>
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Border IsHitTestVisible="False" CornerRadius="{TemplateBinding ay:UIBase.CornerRadius}" BorderBrush="{StaticResource colorprimary}"  BorderThickness="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Background" Value="{StaticResource colorwhite}"/>
+        <Setter Property="Padding" Value="15,0"/>
+        <Setter Property="AllowDrop" Value="True" />
+        <Setter Property="SnapsToDevicePixels" Value="true" />
+        <Setter Property="UseLayoutRounding" Value="true" />
+    </Style>
+
+
 
     <Style x:Key="AyFormInputStyle" TargetType="{x:Type ay:AyFormInput}" BasedOn="{StaticResource ayTextBox}">
         <Style.Resources>

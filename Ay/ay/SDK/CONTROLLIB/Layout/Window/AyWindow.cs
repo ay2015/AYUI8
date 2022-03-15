@@ -23,7 +23,7 @@ namespace ay.Controls
     /// <summary>
     /// AY 2015版本窗口
     /// </summary>
-    public class AyWindow : AyWindowBase
+    public class AyWindow : AyWindowBase,IAyLayerSupport
     {
         static AyWindow()
         {
@@ -97,8 +97,8 @@ namespace ay.Controls
         #endregion
 
 
-        public Border AyBackgroundBehindLayer;
-        public Border AyBackgroundLayer;
+        public Border AyBackgroundBehindLayer { get; set; }
+        public Border AyBackgroundLayer { get; set; }
 
         private static double shad = 14.00;//控制默认阴影大小
 
@@ -863,7 +863,7 @@ namespace ay.Controls
 
         }
 
-        public Grid ayLayerArea = null;
+
      
 
 
@@ -1062,7 +1062,7 @@ namespace ay.Controls
 
             base.OnApplyTemplate();
         }
-        public ContentPresenter AllCP;
+        public ContentPresenter AllCP { get; set; }
 
         Grid borderClip = null;
         Grid outerDragBorder = null;

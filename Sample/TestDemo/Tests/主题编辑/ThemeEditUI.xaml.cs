@@ -108,15 +108,58 @@ namespace TestDemo
             return list;
         }
 
-
+        public ObservableCollection<TestTokenItem> TestTokenItems { get; set; }
         AySportsViewModel vmSport = new AySportsViewModel();
-        Window winThis = null;
+
         //SearchMemberPaths="Text,Value"
         private void ThemeEditUI_Loaded(object sender, RoutedEventArgs e)
         {
             Loaded -= ThemeEditUI_Loaded;
+            svRoot.ScrollToVerticalOffset(2000);
 
-            winThis = Window.GetWindow(this);
+            TestTokenItems = new ObservableCollection<TestTokenItem>();
+            //创建集合
+            TestTokenItems.Add(new TestTokenItem { Text = "阿坝", Value = "0000001" });
+            TestTokenItems.Add(new TestTokenItem { Text = "安庆", Value = "0000002" });
+            TestTokenItems.Add(new TestTokenItem { Text = "澳门", Value = "0000003" });
+            TestTokenItems.Add(new TestTokenItem { Text = "北京", Value = "0000004" });
+            TestTokenItems.Add(new TestTokenItem { Text = "包头", Value = "0000005" });
+            TestTokenItems.Add(new TestTokenItem { Text = "亳州", Value = "0000006" });
+            TestTokenItems.Add(new TestTokenItem { Text = "重庆", Value = "0000007" });
+            TestTokenItems.Add(new TestTokenItem { Text = "成都", Value = "0000008" });
+            TestTokenItems.Add(new TestTokenItem { Text = "阿拉善", Value = "0000009" });
+            TestTokenItems.Add(new TestTokenItem { Text = "大连", Value = "00000010" });
+            TestTokenItems.Add(new TestTokenItem { Text = "德州", Value = "00000011" });
+            TestTokenItems.Add(new TestTokenItem { Text = "鄂尔多斯", Value = "00000012" });
+            TestTokenItems.Add(new TestTokenItem { Text = "福州", Value = "00000013" });
+            TestTokenItems.Add(new TestTokenItem { Text = "广州", Value = "00000014" });
+            TestTokenItems.Add(new TestTokenItem { Text = "哈尔滨", Value = "0000015" });
+            TestTokenItems.Add(new TestTokenItem { Text = "合肥", Value = "0000016" });
+            TestTokenItems.Add(new TestTokenItem { Text = "济南", Value = "00000017" });
+            TestTokenItems.Add(new TestTokenItem { Text = "昆明", Value = "00000018" });
+            TestTokenItems.Add(new TestTokenItem { Text = "拉萨", Value = "00000019" });
+            TestTokenItems.Add(new TestTokenItem { Text = "连云港", Value = "00000020" });
+            TestTokenItems.Add(new TestTokenItem { Text = "马鞍山", Value = "00000021" });
+            TestTokenItems.Add(new TestTokenItem { Text = "南京", Value = "00000022" });
+            TestTokenItems.Add(new TestTokenItem { Text = "南昌", Value = "00000023" });
+            TestTokenItems.Add(new TestTokenItem { Text = "南通", Value = "00000024" });
+            TestTokenItems.Add(new TestTokenItem { Text = "攀枝花", Value = "00000025" });
+            TestTokenItems.Add(new TestTokenItem { Text = "青岛", Value = "00000026" });
+            TestTokenItems.Add(new TestTokenItem { Text = "上海", Value = "00000027" });
+            TestTokenItems.Add(new TestTokenItem { Text = "天津", Value = "00000028" });
+            TestTokenItems.Add(new TestTokenItem { Text = "厦门", Value = "00000029" });
+            TestTokenItems.Add(new TestTokenItem { Text = "银川", Value = "00000030" });
+            TestTokenItems.Add(new TestTokenItem { Text = "孝感", Value = "00000031" });
+            TestTokenItems.Add(new TestTokenItem { Text = "铜陵", Value = "00000032" });
+            TestTokenItems.Add(new TestTokenItem { Text = "延安", Value = "00000033" });
+            TestTokenItems.Add(new TestTokenItem { Text = "银川", Value = "00000034" });
+            TestTokenItems.Add(new TestTokenItem { Text = "香港", Value = "00000035" });
+            TestTokenItems.Add(new TestTokenItem { Text = "锡林郭勒", Value = "00000036" });
+            TestTokenItems.Add(new TestTokenItem { Text = "无锡", Value = "00000037" });
+            TestTokenItems.Add(new TestTokenItem { Text = "廊坊", Value = "00000038" });
+            ttxtDiy.ItemsSource = allowInVliadTokenTextBox.ItemsSource = allowDuTokenTextBox.ItemsSource = defaultTokenizedTextBox.ItemsSource = TestTokenItems;
+
+
 
             ObservableCollection<AyPerson> TableViewDatas = new ObservableCollection<AyPerson>();
             for (int i = 0; i < 100; i++)
@@ -356,9 +399,25 @@ namespace TestDemo
             MessageBox.Show(mtxt2.Value?.ToString());
         }
 
-  
+        private void BtnGetTokenText_Click(object sender, RoutedEventArgs e)
+        {
+            var _1 = allowDuTokenTextBox.SelectedItems;
+            StringBuilder sb = new StringBuilder();
+            foreach (TestTokenItem item in _1)
+            {
+                sb.AppendLine(item.Text + "-" + item.Value);
+            }
+            MessageBox.Show(sb.ToString());
+        }
 
 
+
+
+        private void OnDeleteToken(object sender, RoutedEventArgs e)
+        {
+            object item = ((FrameworkElement)e.OriginalSource).DataContext;
+            this.ttxtDiy.SelectedItems.Remove(item);
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -403,27 +462,27 @@ namespace TestDemo
         {
             if (cboMsgType.Text == "信息")
             {
-                AyMessageBox.ShowInformation(winThis,"必须填写用户名");
+                AyMessageBox.ShowInformation("必须填写用户名");
             }
             else if (cboMsgType.Text == "警告")
             {
-                AyMessageBox.ShowWarning(winThis, "必须填写用户名");
+                AyMessageBox.ShowWarning("必须填写用户名");
             }
             else if (cboMsgType.Text == "错误")
             {
-                AyMessageBox.ShowError(winThis, "必须填写用户名");
+                AyMessageBox.ShowError("必须填写用户名");
             }
             else if (cboMsgType.Text == "异常")
             {
-                AyMessageBox.ShowError(winThis, "必须填写用户名");
+                AyMessageBox.ShowError("必须填写用户名");
             }
             else if (cboMsgType.Text == "疑问")
             {
-                AyMessageBox.ShowQuestion(winThis, "必须填写用户名");
+                AyMessageBox.ShowQuestion("必须填写用户名");
             }
             else if (cboMsgType.Text == "长文本内容")
             {
-                AyMessageBox.ShowInformation(winThis, "我是AY,首先声明,我在做一件很枯燥的事情,我是个91后程序员，每天熬夜完成计划的过着下班后的生活\n" +
+                AyMessageBox.ShowInformation("我是AY,首先声明,我在做一件很枯燥的事情,我是个91后程序员，每天熬夜完成计划的过着下班后的生活\n" +
          "那天有人反对，那天有人安慰，那天有人嘲讽，那天有人祝福。\n"
        + "过了6个月后，我对自己的梦想一直没有改变过，继续坚持，终于，AYUI诞生了。\n"
        + "今天有人说造轮子，今天有人说你好厉害，今天有人说开源吗 ? 有人说好喜欢...\n"
@@ -432,7 +491,7 @@ namespace TestDemo
             }
             else if (cboMsgType.Text == "DIY的弹窗")
             {
-                AyMessageBox.Show(winThis, "我是AY,首先声明,我在做一件很枯燥的事情,我是个91后程序员，每天熬夜完成计划的过着下班后的生活\n" +
+                AyMessageBox.Show("我是AY,首先声明,我在做一件很枯燥的事情,我是个91后程序员，每天熬夜完成计划的过着下班后的生活\n" +
 "那天有人反对，那天有人安慰，那天有人嘲讽，那天有人祝福。\n"
 + "过了6个月后，我对自己的梦想一直没有改变过，继续坚持，终于，AYUI诞生了。\n"
 + "今天有人说造轮子，今天有人说你好厉害，今天有人说开源吗 ? 有人说好喜欢...\n"
@@ -444,47 +503,68 @@ namespace TestDemo
             }
             else if (cboMsgType.Text == "删除")
             {
-                if (MessageBoxResult.OK == AyMessageBox.ShowDelete(winThis, "确认删除吗", "删除"))
+                if (MessageBoxResult.OK == AyMessageBox.ShowDelete("确认删除吗", "删除"))
                 {
                     AyMessageBox.ShowRight("操作成功!");
                 }
                 else
                 {
-                    AyMessageBox.ShowRight(winThis, "操作已经被取消!", "操作");
+                    AyMessageBox.ShowRight("操作已经被取消!", "操作");
                 }
             }
             else if (cboMsgType.Text == "疑问确认取消")
             {
-                if (MessageBoxResult.OK == AyMessageBox.ShowQuestionOkCancel(winThis, "确认操作吗？此操作不可以更改", "操作提示"))
+                if (MessageBoxResult.OK == AyMessageBox.ShowQuestionOkCancel("确认操作吗？此操作不可以更改", "操作提示"))
                 {
                     AyMessageBox.ShowRight("操作成功!");
                 }
                 else
                 {
-                    AyMessageBox.ShowRight(winThis, "操作已经被取消!", "操作");
+                    AyMessageBox.ShowRight("操作已经被取消!", "操作");
                 }
             }
 
             else if (cboMsgType.Text == "ok")
             {
-                AyMessageBox.ShowRight(winThis, "操作成功!");
+                AyMessageBox.ShowRight("操作成功!");
             }
         }
 
         private void openIconMessageBox_Click(object sender, RoutedEventArgs e)
         {
-            AyMessageBox.ShowCus(winThis, "确认删除吗", "", "pack://application:,,,/ay.contents;component/Content/Icon/Image/ay/1.png");
+            AyMessageBox.ShowCus("确认删除吗", "", "pack://application:,,,/ay.contents;component/Content/Icon/Image/ay/1.png");
         }
 
         private void openPromt_Click(object sender, RoutedEventArgs e)
         {
             AyMessageBox.Promt((text) =>
             {
-                AyMessageBox.ShowInformation(winThis, "你刚刚输入的是:{0}".StringFormat(text));
+                AyMessageBox.ShowInformation("你刚刚输入的是:{0}".StringFormat(text));
             },
            "等待你的输入...");
         }
 
+
+        //private void inf_scroll(object sender, ScrollChangedEventArgs e)
+        //{
+        //    for (int i = 0; i < e.VerticalChange; i++)
+        //    {
+        //        object tmp = lv.Items[0];
+        //        lv.Items.RemoveAt(0);
+        //        lv.Items.Add(tmp);
+        //    }
+        //    for (int i = 0; i > e.VerticalChange; i--)
+        //    {
+        //        object tmp = lv.Items[lv.Items.Count - 1];
+        //        lv.Items.RemoveAt(lv.Items.Count - 1);
+        //        lv.Items.Insert(0, tmp);
+        //    }
+        //    lv.ScrollChanged -= inf_scroll;        // remove the handler temporarily
+        //    sv.ScrollToVerticalOffset(sv.VerticalOffset - e.VerticalChange);
+        //    Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Send, new Action(() => {
+        //        sv.ScrollChanged += inf_scroll;    // add the handler back after the scrolling has occurred to avoid recursive scrolling
+        //    }));
+        //}
     }
 
 
@@ -569,6 +649,32 @@ namespace TestDemo
     }
 
 
+    public class TestTokenItem : ThemeNotifyModel
+    {
+        private string _Text;
+
+        /// <summary>
+        /// 未填写
+        /// </summary>
+        public string Text
+        {
+            get { return _Text; }
+            set { Set(ref _Text, value, nameof(Text)); }
+        }
+        private string _Value;
+
+        /// <summary>
+        /// 值
+        /// </summary>
+        public string Value
+        {
+            get { return _Value; }
+            set { Set(ref _Value, value, nameof(Value)); }
+        }
+
+
+        //当然这里还可以其他值
+    }
 
     public class AySportsViewModel : AyPropertyChanged
     {

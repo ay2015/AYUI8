@@ -17,6 +17,7 @@
     <Style TargetType="{x:Type ay:AyRadioBoxList}" BasedOn="{StaticResource AyRadioBoxListStyle}" />
     <Style TargetType="{x:Type ay:AyCheckBoxList}" BasedOn="{StaticResource AyCheckBoxListStyle}" />
     <Style x:Key="{x:Type ay:AyPopupContentAdorner}" TargetType="{x:Type ay:AyPopupContentAdorner}" BasedOn="{StaticResource AyPopupContentAdornerStyle}" />
+    <Style x:Key="{x:Type ay:TokenTextBox}" TargetType="{x:Type ay:TokenTextBox}" BasedOn="{StaticResource TokenTextBoxStyle}"/>
     <Style x:Key="{x:Type ay:AyFormInput}" TargetType="{x:Type ay:AyFormInput}" BasedOn="{StaticResource AyFormInputStyle}"/>
     <Style x:Key="{x:Type ay:AyDateBoxYear}" TargetType="{x:Type ay:AyDateBoxYear}" BasedOn="{StaticResource AyDateBoxYearStyle}"/>
     <Style x:Key="{x:Type ay:AyDateBoxMonth}" TargetType="{x:Type ay:AyDateBoxMonth}" BasedOn="{StaticResource AyDateBoxMonthStyle}"/>

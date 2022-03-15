@@ -1,0 +1,512 @@
+﻿<UserControl x:Class="ay.Controls.AyTouchKeyBoardPwd"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ay.Controls" xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+             xmlns:win="clr-namespace:System.Windows;assembly=PresentationFramework" 
+             mc:Ignorable="d"  Focusable="True"
+             d:DesignHeight="440" d:DesignWidth="960">
+    <UserControl.Resources>
+
+            <Style TargetType="Button" x:Key="shouqi">
+                <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                <Setter Property="Width" Value="56" />
+            <Setter Property="Focusable" Value="False" />
+            <Setter Property="Height" Value="56" />
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="BorderBrush" Value="#0292D0"/>
+            <Setter Property="Background" Value="#0292D0"/>
+                <Setter Property="Foreground" Value="#FFFFFF"/>
+                <Setter Property="Template" >
+                    <Setter.Value>
+                        <ControlTemplate  TargetType="{x:Type Button}">
+                        <Border  CornerRadius="99 99 0 0" x:Name="border" BorderThickness="0" BorderBrush="{TemplateBinding BorderBrush}"
+                            Background="{TemplateBinding Background}" 
+                            >
+                                <ContentPresenter  x:Name="contentPresenter" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="false" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RenderTransformOrigin="0.5,0.5">
+                                </ContentPresenter>
+                            </Border>
+                        <!--<Border  Background="#0292D0" Height="48" HorizontalAlignment="Center" Width="160"  VerticalAlignment="Bottom"/>-->
+                        <!--<TextBlock FontSize="16" Text="收起键盘" Margin="0,0,0,10" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="160" Foreground="#CCFFFFFF" TextAlignment="Center"/>-->
+
+                        <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" Value="#03AAF2"/>
+                                <Setter Property="Background" Value="#03AAF2"/>
+                                    <Setter Property="Foreground" Value="#FFFFFF"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="BorderBrush" Value="#0170A0"/>
+                                <Setter Property="Background" Value="#0170A0"/>
+                                    <Setter Property="Foreground" Value="#FFFFFF"/>
+                                </Trigger>
+
+                                <Trigger Property="IsEnabled" Value="false">
+                                    <Setter Property="Opacity" Value="0.5"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+    </UserControl.Resources>
+
+    <Grid  Opacity="0.9" Height="200" VerticalAlignment="Bottom" Background="#1A1A1A" x:Name="layay">
+        <StackPanel x:Name="allkey"  HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" >
+                <StackPanel.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                        <Setter Property="Width" Value="40" />
+                        <Setter Property="Margin" Value="5,0,0,0" />
+                    <Setter Property="Focusable" Value="False" />
+                    <!--<Setter Property="ButtonBase.ClickMode" Value="Release" />-->
+                    <Setter Property="Height" Value="40" />
+                    <Setter Property="FontSize" Value="18"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="BorderBrush" Value="#323232"/>
+                        <Setter Property="Background" Value="#323232"/>
+                        <Setter Property="Foreground" Value="#FFFFFF"/>
+                        <Setter Property="Template" >
+                            <Setter.Value>
+                                <ControlTemplate  TargetType="{x:Type Button}">
+                                    <Border x:Name="border" BorderThickness="0" BorderBrush="{TemplateBinding BorderBrush}"
+                            Background="{TemplateBinding Background}" 
+                            CornerRadius="0">
+                                        <ContentPresenter  x:Name="contentPresenter" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="false" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RenderTransformOrigin="0.5,0.5">
+                                        </ContentPresenter>
+                                    </Border>
+
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="BorderBrush" Value="#EBEBEB"/>
+                                            <Setter Property="Background" Value="#EBEBEB"/>
+                                            <Setter Property="Foreground" Value="#000000"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="true">
+                                            <Setter Property="BorderBrush" Value="#4B94CE"/>
+                                            <Setter Property="Background" Value="#4B94CE"/>
+                                            <Setter Property="Foreground" Value="#FFFFFF"/>
+                                        </Trigger>
+
+                                        <Trigger Property="IsEnabled" Value="false">
+                                            <Setter Property="Opacity" Value="0.5"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                    <Style TargetType="{x:Type local:DoubleCharButton}">
+                        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                        <Setter Property="Width" Value="40" />
+                        <Setter Property="Margin" Value="5,0,0,0" />
+                    <Setter Property="Focusable" Value="False" />
+                    <Setter Property="Height" Value="40" />
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="BorderBrush" Value="#323232"/>
+                        <Setter Property="Background" Value="#323232"/>
+                        <Setter Property="Foreground" Value="#FFFFFF"/>
+
+
+                        <Setter Property="Template" >
+                            <Setter.Value>
+                                <ControlTemplate  TargetType="{x:Type local:DoubleCharButton}">
+                                    <Border x:Name="border"  BorderThickness="0" BorderBrush="{TemplateBinding BorderBrush}"
+                            Background="{TemplateBinding Background}" 
+                            CornerRadius="0">
+                                        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                            <Canvas x:Name="bbb">
+                                                <Label x:Name="t1" Content="{Binding  Text1,RelativeSource={RelativeSource AncestorType={x:Type local:DoubleCharButton},Mode=FindAncestor}}" Foreground="#FFFFFF" FontSize="18" Width="18"   Padding="0" Canvas.Bottom="2"  Canvas.Left="4"></Label>
+                                                <Label x:Name="t2" Content="{Binding  Text2,RelativeSource={RelativeSource AncestorType={x:Type local:DoubleCharButton},Mode=FindAncestor}}" Foreground="#757575" FontSize="14" Width="18"  Padding="0"  Canvas.Top="2"  Canvas.Right="4"></Label>
+                                            </Canvas>
+                                            <TextBlock FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"  Text="{Binding  CurrentText,RelativeSource={RelativeSource AncestorType={x:Type local:DoubleCharButton},Mode=FindAncestor}}"  Visibility="Collapsed"  x:Name="contentPresenter"></TextBlock>
+                                        </Grid>
+                                    </Border>
+
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsSwitched" Value="true">
+                                            <Setter Property="FontSize" TargetName="t1" Value="14"/>
+                                            <Setter Property="Foreground" TargetName="t1" Value="#757575"/>
+
+                                            <Setter Property="FontSize" TargetName="t2" Value="18"/>
+                                            <Setter Property="Foreground" TargetName="t2" Value="#FFFFFF"/>
+                                        </Trigger>
+
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="BorderBrush" Value="#EBEBEB"/>
+                                            <Setter Property="Background" Value="#EBEBEB"/>
+                                            <Setter Property="Foreground" TargetName="contentPresenter" Value="#000000"/>
+                                            <Setter TargetName="bbb" Property="Visibility" Value="Collapsed"/>
+                                            <Setter TargetName="contentPresenter" Property="Visibility" Value="Visible"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="true">
+                                            <Setter Property="BorderBrush" Value="#4B94CE"/>
+                                            <Setter Property="Background" Value="#4B94CE"/>
+                                            <Setter Property="Foreground"  TargetName="contentPresenter" Value="#FFFFFF"/>
+                                            <Setter TargetName="bbb" Property="Visibility" Value="Collapsed"/>
+                                            <Setter TargetName="contentPresenter" Property="Visibility" Value="Visible"/>
+                                        </Trigger>
+
+                                        <Trigger Property="IsEnabled" Value="false">
+                                            <Setter Property="Opacity" Value="0.5"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                    <Style x:Key="{x:Type ToggleButton}" TargetType="{x:Type ToggleButton}">
+                        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="Margin" Value="5,0,0,0" />
+                    <Setter Property="Height" Value="40" />
+                    <Setter Property="Focusable" Value="False" />
+                    <Setter Property="FontSize" Value="16"/>
+                        <Setter Property="BorderBrush" Value="#aaa"/>
+                        <Setter Property="Background" Value="#4C4C4C"/>
+                        <Setter Property="Foreground" Value="#FFFFFF"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                    <Border x:Name="border" BorderThickness="0" BorderBrush="{TemplateBinding BorderBrush}"
+                            Background="{TemplateBinding Background}" 
+                            CornerRadius="0">
+                                        <ContentPresenter  x:Name="contentPresenter" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="false" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RenderTransformOrigin="0.5,0.5">
+                                        </ContentPresenter>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsChecked" Value="true">
+                                            <!--<Setter Property="BorderBrush" Value="#4B94CE"/>
+                                        <Setter Property="Background" Value="#4B94CE"/>-->
+                                            <Setter Property="BorderBrush" Value="#4B94CE"/>
+                                            <Setter Property="Background" Value="#4B94CE"/>
+                                            <Setter Property="Foreground" Value="#FFFFFF"/>
+                                        </Trigger>
+                                        <Trigger Property="IsEnabled" Value="false">
+                                            <Setter Property="Opacity" Value="0.5"/>
+                                        </Trigger>
+                                        <MultiTrigger>
+                                            <MultiTrigger.Conditions>
+                                                <Condition Property="IsMouseOver" Value="True" />
+                                                <Condition Property="IsChecked" Value="False" />
+                                            </MultiTrigger.Conditions>
+                                            <Setter Property="BorderBrush" Value="#4B94CE"/>
+                                            <Setter Property="Background" Value="#4B94CE"/>
+                                            <Setter Property="Foreground" Value="#FFFFFF"/>
+                                        </MultiTrigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+
+                </StackPanel.Resources>
+
+                <StackPanel Margin="20,5,0,0" Orientation="Horizontal" HorizontalAlignment="Left" x:Name="fd">
+                    <local:DoubleCharButton Text1="`" Text2="~" IsSwitched="False"  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Click="btnTwo_Click">
+
+                    </local:DoubleCharButton>
+                    <!--<Button x:Name="btndun" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Click="btnTwo_Click">
+                        <Canvas>
+                            <Label Foreground="{DynamicResource Foreground.Enabled}" FontSize="{DynamicResource fontsize.Enabled}" Width="16"  Padding="0" Canvas.Bottom="2"  Canvas.Left="4">`</Label>
+                            <Label  Foreground="{DynamicResource Foreground.Disabled}" FontSize="{DynamicResource fontsize.Disabled}" Width="16"  Padding="0"  Canvas.Top="2"  Canvas.Right="4">~</Label>
+                        </Canvas>
+                    </Button>-->
+
+                    <local:DoubleCharButton Text1="1" Text2="!" IsSwitched="False" x:Name="btn1"  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Click="btnTwo_Click">
+
+                    </local:DoubleCharButton>
+
+                    <local:DoubleCharButton Text1="2" Text2="@" IsSwitched="False"  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Click="btnTwo_Click">
+
+                    </local:DoubleCharButton>
+                    <local:DoubleCharButton Text1="3" Text2="#" IsSwitched="False"  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Click="btnTwo_Click">
+
+                    </local:DoubleCharButton>
+                    <local:DoubleCharButton Text1="4" Text2="$" IsSwitched="False"  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Click="btnTwo_Click">
+
+                    </local:DoubleCharButton>
+                    <local:DoubleCharButton Text1="5" Text2="%" IsSwitched="False"  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Click="btnTwo_Click">
+
+                    </local:DoubleCharButton>
+
+                    <local:DoubleCharButton Text1="6" Text2="^" IsSwitched="False"  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Click="btnTwo_Click">
+
+                    </local:DoubleCharButton>
+                    <local:DoubleCharButton Text1="7" Text2="&amp;" IsSwitched="False"  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Click="btnTwo_Click">
+
+                    </local:DoubleCharButton>
+                    <local:DoubleCharButton Text1="8" Text2="*" IsSwitched="False"  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Click="btnTwo_Click">
+
+                    </local:DoubleCharButton>
+
+                    <local:DoubleCharButton Text1="9" Text2="(" IsSwitched="False"  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Click="btnTwo_Click">
+
+                    </local:DoubleCharButton>
+                    <local:DoubleCharButton Text1="0" Text2=")" IsSwitched="False"  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Click="btnTwo_Click">
+
+                    </local:DoubleCharButton>
+
+                    <local:DoubleCharButton Text1="-" Text2="_" IsSwitched="False"  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Click="btnTwo_Click">
+
+                    </local:DoubleCharButton>
+                    <local:DoubleCharButton Text1="=" Text2="+" IsSwitched="False"  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Click="btnTwo_Click">
+
+                    </local:DoubleCharButton>
+
+
+
+                    <Button x:Name="btnback" Width="130"  FontSize="16" Click="btnback_Click" Content="← Backspace">
+                    </Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="20,5,0,0" HorizontalAlignment="Left" x:Name="char0">
+
+                    <ToggleButton x:Name="btnCapsLock" Content="CapsLock" Width="98" Checked="btnCapsLock_Checked" Unchecked="btnCapsLock_Unchecked">
+                        <!--<Label Foreground="{StaticResource Foreground.Enabled}"   Padding="0"></Label>-->
+                    </ToggleButton>
+                    <Button Click="btnOne_Click"  Content="q" ></Button>
+                    <Button Click="btnOne_Click"  Content="w" ></Button>
+                    <Button Click="btnOne_Click" Content="e" ></Button>
+                    <Button Click="btnOne_Click"  Content="r" ></Button>
+                    <Button Click="btnOne_Click"  Content="t" ></Button>
+                    <Button Click="btnOne_Click"  Content="y" ></Button>
+                    <Button Click="btnOne_Click"  Content="u" ></Button>
+                    <Button Click="btnOne_Click" Content="i" ></Button>
+                    <Button Click="btnOne_Click"  Content="o" ></Button>
+                    <Button Click="btnOne_Click"  Content="p" ></Button>
+
+                    <local:DoubleCharButton Text1="[" IsSwitched="False"  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Click="btnTwo_Click">
+                        <local:DoubleCharButton.Text2>
+                            <sys:String>{</sys:String>
+                        </local:DoubleCharButton.Text2>
+                    </local:DoubleCharButton>
+
+                    <local:DoubleCharButton Text1="]" IsSwitched="False"  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Click="btnTwo_Click">
+                        <local:DoubleCharButton.Text2>
+                            <sys:String>}</sys:String>
+                        </local:DoubleCharButton.Text2>
+                    </local:DoubleCharButton>
+                <Button x:Name="btnleft" Width="88" Height="40" FontSize="16" Click="btnCurorLeft_Click" Content="光标←">
+                </Button>
+       
+
+
+
+
+            </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="20,5,0,0" HorizontalAlignment="Left" x:Name="char1">
+
+                    <ToggleButton x:Name="btnshift" Content="Shift" Width="118"   Checked="btnshift_Checked" Unchecked="btnshift_Unchecked">
+                        <!--<Label Foreground="{StaticResource Foreground.Enabled}"   Padding="0">Shift</Label>-->
+                    </ToggleButton>
+                    <Button Click="btnOne_Click" Content="a" ></Button>
+                    <Button Click="btnOne_Click"  Content="s" ></Button>
+
+
+                    <Button Click="btnOne_Click" Content="d" ></Button>
+
+                    <Button Click="btnOne_Click"  Content="f" ></Button>
+                    <Button Click="btnOne_Click" Content="g" ></Button>
+                    <Button Click="btnOne_Click" Content="h" ></Button>
+
+                    <Button Click="btnOne_Click" Content="j" ></Button>
+                    <Button Click="btnOne_Click" Content="k" ></Button>
+                    <Button Click="btnOne_Click" Content="l" ></Button>
+                    <local:DoubleCharButton Text1=";" Text2=":" IsSwitched="False"  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Click="btnTwo_Click">
+                    </local:DoubleCharButton>
+                    <local:DoubleCharButton Text1="'" IsSwitched="False"  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Click="btnTwo_Click">
+                        <local:DoubleCharButton.Text2>
+                            <sys:String>"</sys:String>
+                        </local:DoubleCharButton.Text2>
+                    </local:DoubleCharButton>
+
+                    <local:DoubleCharButton Text1="\" IsSwitched="False"  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Click="btnTwo_Click">
+                        <local:DoubleCharButton.Text2>
+                            <sys:String>|</sys:String>
+                        </local:DoubleCharButton.Text2>
+                    </local:DoubleCharButton>
+                <Button x:Name="btnright" Width="88" Height="40" FontSize="16" Click="btnCurorRight_Click" Content="光标→">
+                </Button>
+            </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="20,5,0,0" x:Name="char2" HorizontalAlignment="left">
+
+                    <Button x:Name="btnc" Width="148" Height="40" FontSize="18" Click="clearText_Click" Content="清空">
+                    </Button>
+                    <Button Click="btnOne_Click"  Content="z" ></Button>
+                    <Button Click="btnOne_Click"  Content="x" ></Button>
+                    <Button Click="btnOne_Click" Content="c" ></Button>
+                    <Button Click="btnOne_Click"  Content="v" ></Button>
+                    <Button Click="btnOne_Click" Content="b" ></Button>
+                    <Button Click="btnOne_Click"  Content="n" ></Button>
+                    <Button Click="btnOne_Click" Content="m" ></Button>
+                    <local:DoubleCharButton Text1="," IsSwitched="False"  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Click="btnTwo_Click">
+                        <local:DoubleCharButton.Text2>
+                            <sys:String>&lt;</sys:String>
+                        </local:DoubleCharButton.Text2>
+                    </local:DoubleCharButton>
+                    <local:DoubleCharButton Text1="." IsSwitched="False"  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Click="btnTwo_Click">
+                        <local:DoubleCharButton.Text2>
+                            <sys:String>&gt;</sys:String>
+                        </local:DoubleCharButton.Text2>
+                    </local:DoubleCharButton>
+
+                    <local:DoubleCharButton Text1="/" IsSwitched="False"  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Click="btnTwo_Click">
+                        <local:DoubleCharButton.Text2>
+                            <sys:String>?</sys:String>
+                        </local:DoubleCharButton.Text2>
+                    </local:DoubleCharButton>
+                <Button x:Name="btnshouqi" Width="148" Height="40" FontSize="18" Click="hideKeyboard_Click" Content="收起键盘">
+                </Button>
+            </StackPanel>
+            </StackPanel>
+
+        <local:AyWrapPanelFill    ItemMargin="5" RowMargin="5" Width="660" 
+                                         MinItemWidth="160" HorizontalAlignment="Center" VerticalAlignment="Top"
+                                         MaxItemWidth="180" Margin="0,10"
+                                         FloorItemWidth="False"  x:Name="numkey" Visibility="Collapsed">
+            <local:AyWrapPanelFill.Resources>
+                    <Style TargetType="Button">
+                    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                    <Setter Property="Width" Value="160" />
+                    <Setter Property="Height" Value="40" />
+                    <Setter Property="Focusable" Value="False" />
+                    <Setter Property="FontSize" Value="24" />
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    <Setter Property="BorderBrush" Value="#323232"/>
+                    <Setter Property="Background" Value="#323232"/>
+                    <Setter Property="Foreground" Value="#FFFFFF"/>
+                    <Setter Property="Template" >
+                            <Setter.Value>
+                                <ControlTemplate  TargetType="{x:Type Button}">
+                                    <Border x:Name="border" BorderThickness="0" BorderBrush="{TemplateBinding BorderBrush}"
+                            Background="{TemplateBinding Background}" 
+                            CornerRadius="0">
+                                        <ContentPresenter  x:Name="contentPresenter" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="false" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RenderTransformOrigin="0.5,0.5">
+                                        </ContentPresenter>
+                                    </Border>
+
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="true">
+                                            <Setter Property="BorderBrush" Value="#EBEBEB"/>
+                                            <Setter Property="Background" Value="#EBEBEB"/>
+                                            <Setter Property="Foreground" Value="#000000"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="true">
+                                            <Setter Property="BorderBrush" Value="#4B94CE"/>
+                                            <Setter Property="Background" Value="#4B94CE"/>
+                                            <Setter Property="Foreground" Value="#FFFFFF"/>
+                                        </Trigger>
+
+                                        <Trigger Property="IsEnabled" Value="false">
+                                            <Setter Property="Opacity" Value="0.5"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </local:AyWrapPanelFill.Resources>
+            <Button Click="btnOne_Click"  Content="1" ></Button>
+            <Button Click="btnOne_Click"  Content="2" ></Button>
+            <Button Click="btnOne_Click"   Content="3" ></Button>
+            <Button  Click="btnCurorLeft_Click" Content="光标←">
+            </Button>
+            <Button Click="btnOne_Click" Content="4" ></Button>
+            <Button Click="btnOne_Click" Content="5" ></Button>
+            <Button Click="btnOne_Click" Content="6"></Button>
+            <Button  Click="btnCurorRight_Click" Content="光标→">
+            </Button>
+            <Button Click="btnOne_Click"  Content="7" ></Button>
+            <Button Click="btnOne_Click" Content="8" ></Button>
+            <Button Click="btnOne_Click"  Content="9" ></Button>
+            <Button Click="hideKeyboard_Click" Content="收起键盘"/>
+
+            <Button Click="btnOne_Click"    Content="0" ></Button>
+            <Button Click="btnback_Click"  Content="←" ></Button>
+         
+            <Button Click="clearText_Click"    Content="清空" ></Button>
+
+        </local:AyWrapPanelFill>
+
+
+        <local:AyWrapPanelFill    ItemMargin="5" RowMargin="5" Width="660" 
+                                         MinItemWidth="160" HorizontalAlignment="Center" VerticalAlignment="Top"
+                                         MaxItemWidth="180" Margin="0,10"
+                                         FloorItemWidth="False"  x:Name="IdCardkey" Visibility="Collapsed">
+            <local:AyWrapPanelFill.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                    <Setter Property="Width" Value="160" />
+                    <Setter Property="Height" Value="40" />
+                    <Setter Property="Focusable" Value="False" />
+                    <Setter Property="FontSize" Value="24" />
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    <Setter Property="BorderBrush" Value="#323232"/>
+                    <Setter Property="Background" Value="#323232"/>
+                    <Setter Property="Foreground" Value="#FFFFFF"/>
+                    <Setter Property="Template" >
+                        <Setter.Value>
+                            <ControlTemplate  TargetType="{x:Type Button}">
+                                <Border x:Name="border" BorderThickness="0" BorderBrush="{TemplateBinding BorderBrush}"
+                            Background="{TemplateBinding Background}" 
+                            CornerRadius="0">
+                                    <ContentPresenter  x:Name="contentPresenter" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="false" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RenderTransformOrigin="0.5,0.5">
+                                    </ContentPresenter>
+                                </Border>
+
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter Property="BorderBrush" Value="#EBEBEB"/>
+                                        <Setter Property="Background" Value="#EBEBEB"/>
+                                        <Setter Property="Foreground" Value="#000000"/>
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="true">
+                                        <Setter Property="BorderBrush" Value="#4B94CE"/>
+                                        <Setter Property="Background" Value="#4B94CE"/>
+                                        <Setter Property="Foreground" Value="#FFFFFF"/>
+                                    </Trigger>
+
+                                    <Trigger Property="IsEnabled" Value="false">
+                                        <Setter Property="Opacity" Value="0.5"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </local:AyWrapPanelFill.Resources>
+            <Button Click="btnOne_Click"  Content="1" ></Button>
+            <Button Click="btnOne_Click"  Content="2" ></Button>
+            <Button Click="btnOne_Click"   Content="3" ></Button>
+            <Button Click="btnOne_Click"  Content="X" ></Button>
+            <Button Click="btnOne_Click" Content="4" ></Button>
+            <Button Click="btnOne_Click" Content="5" ></Button>
+            <Button Click="btnOne_Click" Content="6"></Button>
+            <Button  Click="btnCurorLeft_Click" Content="光标←">
+            </Button>
+            <Button Click="btnOne_Click"  Content="7" ></Button>
+            <Button Click="btnOne_Click" Content="8" ></Button>
+            <Button Click="btnOne_Click"  Content="9" ></Button>
+            <Button  Click="btnCurorRight_Click" Content="光标→">
+            </Button>
+            <Button Click="clearText_Click"    Content="清空" ></Button>
+
+            <Button Click="btnOne_Click"    Content="0" ></Button>
+            <Button Click="btnback_Click"  Content="←" ></Button>
+            <Button Click="hideKeyboard_Click" Content="收起键盘">
+            </Button>
+        </local:AyWrapPanelFill>
+        <!--<Button x:Name="hideKeyboard" Style="{StaticResource shouqi}" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="16"  Click="hideKeyboard_Click" Width="120"  Height="38"  Content="收起键盘" ></Button>-->
+    </Grid>
+
+
+</UserControl>

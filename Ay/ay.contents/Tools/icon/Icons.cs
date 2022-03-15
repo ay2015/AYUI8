@@ -45,7 +45,9 @@
 
 public partial  class Icons 
 	{
-		
+		        public const string Image_ay_2_jpg =@"/ay.contents;component/Content/Icon/Image/ay/2.jpg";
+          public const string Image_ay_1_png =@"/ay.contents;component/Content/Icon/Image/ay/1.png";
+  
 	}
 }
 

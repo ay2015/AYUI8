@@ -1,22 +1,43 @@
-﻿using ay.contentcore;
-using ay.FuncFactory;
+﻿using Ay.Framework.WPF.Controls;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using Winform = System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Interactivity;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using i = System.Windows.Interactivity;
-
-
+using ay.contentcore;
 
 namespace ay.Controls
 {
+    public class AyFilePickerExt
+    {
+        public static string GetFIleNameList(string[] filePaths,bool IsLongPath)
+        {
+            StringBuilder b = new StringBuilder();
+            foreach (var item in filePaths)
+            {
+                if (IsLongPath)
+                {
+                    b.Append(item + ",");
+                }
+                else
+                {
+                    b.Append(System.IO.Path.GetFileName(item) + ",");
+                }
+            }
+
+            return b.ToString().TrimEnd(',');
+        }
+    }
 
     [DefaultTrigger(typeof(ButtonBase), typeof(i.EventTrigger), new object[] { "Click" })]
     [DefaultTrigger(typeof(Shape), typeof(i.EventTrigger), new object[] { "MouseLeftButtonDown" })]
@@ -54,7 +75,12 @@ namespace ay.Controls
             DependencyProperty.Register("CurrentFileCount", typeof(int), typeof(AyFilePicker), new PropertyMetadata(0));
 
 
-
+        public object ObjectBind { get; set; }
+        protected override void OnAttached()
+        {
+            base.OnAttached();
+            ObjectBind = this.AssociatedObject;
+        }
         /// <summary>
         /// 文件选择数量限制
         /// </summary>
@@ -110,12 +136,22 @@ namespace ay.Controls
             set { SetValue(TargetProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for Target.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TargetProperty =
             DependencyProperty.Register("Target", typeof(object), typeof(AyFilePicker), new PropertyMetadata(null));
 
 
 
+        /// <summary>
+        /// 路径模式
+        /// </summary>
+        public bool IsLongPath
+        {
+            get { return (bool)GetValue(IsLongPathProperty); }
+            set { SetValue(IsLongPathProperty, value); }
+        }
+
+        public static readonly DependencyProperty IsLongPathProperty =
+            DependencyProperty.Register("IsLongPath", typeof(bool), typeof(AyFilePicker), new PropertyMetadata(false));
 
 
         public string DefaultFolderPath
@@ -185,12 +221,12 @@ namespace ay.Controls
                     FileInfo fi = new FileInfo(filePath);
                     if (MaxFileLength > 0 && fi.Length > MaxFileLength)
                     {
-                        MessageBox.Show("你选择的文件过大,目前仅支持小于" + GetSize(MaxFileLength) + "的文件", "文件选择错误");
+                        AyMessageBox.ShowWarning("你选择的文件过大,目前仅支持小于" + GetSize(MaxFileLength) + "的文件", "文件选择错误");
                         return;
                     }
                     if (Selected != null)
                     {
-                        Selected(filePath, new RoutedEventArgs() { });
+                        Selected(filePath, new RoutedEventArgs(Button.ClickEvent,this) );
                     }
                     if (SelectedCommand != null)
                     {
@@ -201,22 +237,43 @@ namespace ay.Controls
                         var _11 = Target as TextBox;
                         if (_11 != null)
                         {
-                            _11.Text = System.IO.Path.GetFileName(filePath);
+                            if (IsLongPath)
+                            {
+                                _11.Text = filePath;
+                            }
+                            else
+                            {
+                                _11.Text = System.IO.Path.GetFileName(filePath);
+                            }
+
                         }
                         else
                         {
                             var _12 = Target as TextBlock;
                             if (_12.IsNotNull())
                             {
-                                _12.Text = System.IO.Path.GetFileName(filePath);
+                                if (IsLongPath)
+                                {
+                                    _12.Text = filePath;
+                                }
+                                else
+                                {
+                                    _12.Text = System.IO.Path.GetFileName(filePath);
+                                }
                             }
                             else
                             {
-
                                 var _13 = Target as Label;
                                 if (_13.IsNotNull())
                                 {
-                                    _13.Content = System.IO.Path.GetFileName(filePath);
+                                    if (IsLongPath)
+                                    {
+                                        _13.Content = filePath;
+                                    }
+                                    else
+                                    {
+                                        _13.Content = System.IO.Path.GetFileName(filePath);
+                                    }
                                 }
                             }
                         }
@@ -233,7 +290,7 @@ namespace ay.Controls
                             FileInfo fi = new FileInfo(filePath);
                             if (fi.Length > MaxFileLength)
                             {
-                                MessageBox.Show("你选择的文件中有文件过大,目前仅支持小于" + GetSize(MaxFileLength) + "的文件。\r\n" + fi.Name + "(" + GetSize(fi.Length) + ")", "文件选择错误");
+                                AyMessageBox.ShowWarning("你选择的文件中有文件过大,目前仅支持小于" + GetSize(MaxFileLength) + "的文件。\r\n" + fi.Name + "(" + GetSize(fi.Length) + ")", "文件选择错误");
                                 hasNo = true;
                                 break;
                             }
@@ -246,7 +303,7 @@ namespace ay.Controls
 
                     if (Selected != null)
                     {
-                        Selected(filePaths, new RoutedEventArgs() { });
+                        Selected(filePaths, new RoutedEventArgs(Button.ClickEvent, this));
                     }
                     if (SelectedCommand != null)
                     {
@@ -287,12 +344,19 @@ namespace ay.Controls
 
         }
 
-        public static string GetFIleNameList(string[] filePaths)
+        public string GetFIleNameList(string[] filePaths)
         {
             StringBuilder b = new StringBuilder();
             foreach (var item in filePaths)
             {
-                b.Append(System.IO.Path.GetFileName(item) + ",");
+                if (IsLongPath)
+                {
+                    b.Append(item + ",");
+                }
+                else
+                {
+                    b.Append(System.IO.Path.GetFileName(item) + ",");
+                }
             }
 
             return b.ToString().TrimEnd(',');

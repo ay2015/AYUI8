@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 namespace ay.Controls
 {
 
-    public class AyWindowShell : AyWindowBase
+    public class AyWindowShell : AyWindowBase,IAyLayerSupport
     {
         static AyWindowShell()
         {
@@ -136,9 +136,9 @@ namespace ay.Controls
         }
         #endregion
 
-        public Border AyBackgroundBehindLayer;
-        public Border AyBackgroundLayer;
-        public ContentPresenter AllCP;
+        public Border AyBackgroundBehindLayer { get; set; }
+        public Border AyBackgroundLayer { get; set; }
+        public ContentPresenter AllCP { get; set; }
   
         //private WindowResizer wr = null;
         public AyWindowShell()

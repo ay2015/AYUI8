@@ -8,7 +8,7 @@
     <OutputType>library</OutputType>
     <RootNamespace>ay.SDK.CONTROLLIB</RootNamespace>
     <AssemblyName>ay</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -41,6 +41,63 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <PlatformTarget>x86</PlatformTarget>
     <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'x86|x64'">
+    <OutputPath>bin\x64\x86\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'x86|x86'">
+    <OutputPath>bin\x86\x86\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
@@ -135,6 +192,10 @@
     <Compile Include="SDK\CONTROLLIB\Input\Info\MaskedTextBox\MaskFormat.cs" />
     <Compile Include="SDK\CONTROLLIB\Input\Info\TokenTextBox\SegmentInfo.cs" />
     <Compile Include="SDK\CONTROLLIB\Input\Info\TokenTextBox\TextSegmentInfo.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\TokenTextBox\TokenItem.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\TokenTextBox\TokenTextBox.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\TokenTextBox\TokenTextBoxCoreItemsControl.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\TokenTextBox\TokenTextBoxItem.cs" />
     <Compile Include="SDK\CONTROLLIB\Input\Info\TokenTextBox\TokenSegmentInfo.cs" />
     <Compile Include="SDK\CONTROLLIB\Input\Validate\AyFormCollection.cs" />
     <Compile Include="SDK\CONTROLLIB\Large\Tree\Info\AuthTreeViewItemModel.cs" />
@@ -167,6 +228,223 @@
     <Compile Include="SDK\CONTROLLIB\Large\AyTableView\Row\AyTableViewRowsPanel.cs" />
     <Compile Include="SDK\CONTROLLIB\Large\AyTableView\Row\AyTableViewRowsPresenter.cs" />
     <Compile Include="SDK\CONTROLLIB\Large\AyTableView\Row\RowOldNewValue.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Attributes\CategoryOrderAttribute.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Attributes\DefinitionKeyAttribute.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Attributes\DependsOnAttribute.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Attributes\ExpandableObjectAttribute.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Attributes\ExpandedCategoryAttribute.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Attributes\IItemsSource.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Attributes\Item.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Attributes\ItemCollection.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Attributes\ItemsSourceAttribute.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Attributes\LocalizedCategoryAttribute.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Attributes\NewItemTypesAttribute.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Attributes\PropertyItemAutomationPeer.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Attributes\PropertyOrderAttribute.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Attributes\UsageContextEnum.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\CategoryDefinition.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\CategoryDefinitionCollection.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\CategoryGroupStyleSelector.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\CollectionPropertyDescriptor.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Commands\PropertyGridCommands.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Commands\PropertyItemCommands.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\CommonDescriptorPropertyDefinition.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\CommonPropertyExceptionValidationRule.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\ContainerHelperBase.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Converters\CategoryExpanderConverter.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Converters\CommonPropertyConverter.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Converters\EditorTimeSpanConverter.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Converters\ExpandableObjectMarginConverter.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Converters\FileInfoToStringConverter.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Converters\IsCustomPropertyItemConverter.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Converters\IsDefaultCategoryConverter.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Converters\IsStringEmptyConverter.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Converters\ListConverter.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Converters\MultipleValuesConverter.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Converters\ObjectToUIElementConverter.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Converters\PropertyItemEditorConverter.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Converters\SelectedObjectConverter.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\CustomPropertyItem.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\DefinitionBase.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\DefinitionCollectionBase.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\DescriptorPropertyDefinition.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\DescriptorPropertyDefinitionBase.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\EditorBoundDefinition.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\EditorByteUpDownDefinition.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\EditorCheckBoxDefinition.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\EditorCollectionDefinition.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\EditorColorPickerDefinition.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\EditorComboBoxDefinition.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\EditorDateTimeUpDownDefinition.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\EditorDecimalUpDownDefinition.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\EditorDefinition.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\EditorDefinitionBase.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\EditorDefinitionCollection.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\EditorDoubleUpDownDefinition.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\EditorFilePickerDefinition.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\EditorIntegerUpDownDefinition.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\EditorLongUpDownDefinition.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\EditorNumericUpDownDefinitionBase.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\EditorPrimitiveTypeCollectionDefinition.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\EditorSByteUpDownDefinition.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\EditorShortUpDownDefinition.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\EditorSingleUpDownDefinition.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\ByteUpDownEditor.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\CheckBoxEditor.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\CollectionEditor.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\ColorEditor.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\ComboBoxEditor.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\DateTimeUpDownEditor.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\DecimalUpDownEditor.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\DoubleUpDownEditor.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\EnumComboBoxEditor.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\FileEditor.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\FontComboBoxEditor.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\IntegerUpDownEditor.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\ItemsSourceAttributeEditor.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\ITypeEditor.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\LongUpDownEditor.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\MaskedTextBoxEditor.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\NumericUpDownEditor.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\PrimitiveTypeCollectionEditor.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\PropertyGridEditorByteUpDown.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\PropertyGridEditorCheckBox.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\PropertyGridEditorCollectionControl.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\PropertyGridEditorColorPicker.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\PropertyGridEditorComboBox.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\PropertyGridEditorDateTimeUpDown.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\PropertyGridEditorDecimalUpDown.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\PropertyGridEditorDoubleUpDown.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\PropertyGridEditorFilePicker.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\PropertyGridEditorIntegerUpDown.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\PropertyGridEditorLongUpDown.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\PropertyGridEditorMaskedTextBox.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\PropertyGridEditorPrimitiveTypeCollectionControl.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\PropertyGridEditorSByteUpDown.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\PropertyGridEditorShortUpDown.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\PropertyGridEditorSingleUpDown.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\PropertyGridEditorTextBlock.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\PropertyGridEditorTextBox.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\PropertyGridEditorTimeSpanUpDown.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\PropertyGridEditorUIntegerUpDown.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\PropertyGridEditorULongUpDown.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\PropertyGridEditorUShortUpDown.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\SByteUpDownEditor.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\ShortUpDownEditor.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\SingleUpDownEditor.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\SourceComboBoxEditor.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\SourceComboBoxEditorConverter.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\TextBlockEditor.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\TextBoxEditor.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\TimeSpanUpDownEditor.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\TypeEditor.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\UIntegerUpDownEditor.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\ULongUpDownEditor.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\UpDownEditor.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Editors\UShortUpDownEditor.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\EditorTemplateDefinition.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\EditorTextDefinition.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\EditorUIntegerUpDownDefinition.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\EditorULongUpDownDefinition.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\EditorUpDownDefinitionBase.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\EditorUShortUpDownDefinition.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\FilterInfo.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\IPropertyContainer.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\IsPropertyBrowsableArgs.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\IsPropertyBrowsableHandler.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\IsPropertyExpandableArgs.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\IsPropertyExpandableHandler.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\ListPropertyItem.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\ObjectContainerHelper.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\ObjectContainerHelperBase.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\ObjectsContainerHelper.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\PropertiesCollectionView.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\PropertiesContainerHelper.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\PropertiesContainerHelperBase.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\PropertiesSourceContainerHelper.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\PropertyArgs.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\PropertyDefinition.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\PropertyDefinitionBase.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\PropertyDefinitionBaseCollection.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\PropertyDefinitionCollection.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\PropertyGrid.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\PropertyGridUtilities.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\PropertyItem.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\PropertyItemBase.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\PropertyItemCollection.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\PropertyItemEventArgs.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\PropertyItemEventHandler.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\PropertyItemsControl.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\PropertyValueChangedEventArgs.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\PropertyValueChangedEventHandler.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\StringConstants.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\TargetPropertyType.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\TrimmedTextBlock.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\Args\SpinEventArgs.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\ByteUpDown.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\CollectionControl.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\CollectionControlButton.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\CollectionControlDialog.xaml.cs">
+      <DependentUpon>CollectionControlDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\CollectionControlDialogBase.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\ColorPick\ColorItem.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\ColorPick\ColorMode.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\ColorPick\ColorPicker.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\ColorPick\ColorPickerTabItem.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\ColorPick\ColorSorter.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\ColorPick\ColorSortingMode.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\ColorPick\KeyboardUtilities.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\DecimalUpDown.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\DoubleUpDown.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\Args\CancelRoutedEventArgs.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\DTime\Info\DateTimeInfo.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\DTime\Info\DateTimePart.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\DTime\DateTimePickerBase.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\DTime\DateTimeUpDownBase.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\FilePicker.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\Info\AllowedSpecialValues.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\CommonNumericUpDown.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\DTime\Info\DateTimeFormat.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\DTime\DateTimeUpDown.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\DTime\Info\DateTimeParser.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\DTime\DateTimeUtilities.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\ColorPick\ColorUtilities.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\Info\EditableKeyValuePair.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\Args\ItemAddingEventArgs.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\Args\ItemDeletingEventArgs.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\Args\ItemEventArgs.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\Info\FontUtilities.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\Info\GeneralUtilities.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\Info\ListUtilities.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\Attributes\LocalizationHelper.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\Info\PropertyChangedExt.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\Info\ReflectionHelper.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\Info\SpinDirection.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\Info\WeakCollectionChangedWrapper.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\InputBase.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\Info\MouseWheelActiveTrigger.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\Info\Location.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\IntegerUpDown.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\LongUpDown.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\NumericUpDown.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\PrimitiveTypeCollectionControl.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\SByteUpDown.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\ShortUpDown.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\SingleUpDown.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\Spinner.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\TimeSpanUpDown.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\UIntegerUpDown.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\ULongUpDown.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\UpDownBase.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\Args\InputValidationErrorEventArgs.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\Info\IValidateInput.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\Info\KeyModifier.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\Info\KeyModifierCollection.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\Info\KeyModifierCollectionConverter.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\Info\ValidSpinDirections.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\Info\WeakEventListener.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\UShortUpDown.cs" />
     <Compile Include="SDK\CONTROLLIB\Large\Tree\Info\TreeViewHelper.cs" />
     <Compile Include="SDK\CONTROLLIB\Large\Tree\TreeModel\Data\TreeViewItemCatalogData.cs" />
     <Compile Include="SDK\CONTROLLIB\Large\Tree\TreeModel\Data\TreeViewItemData.cs" />
@@ -187,6 +465,13 @@
     <Compile Include="SDK\CONTROLLIB\Layout\Window\AyWinformHost.cs" />
     <Compile Include="SDK\CONTROLLIB\Layout\Window\ElementMoveMode.cs" />
     <Compile Include="SDK\CONTROLLIB\Primitive\EventAtgs\ItemSelectionChangedEventArgs.cs" />
+    <Compile Include="SDK\CONTROLLIB\Primitive\keyboard\AyPopKeyBoard.xaml.cs">
+      <DependentUpon>AyPopKeyBoard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SDK\CONTROLLIB\Primitive\keyboard\AyTouchKeyBoardPwd.xaml.cs">
+      <DependentUpon>AyTouchKeyBoardPwd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SDK\CONTROLLIB\Primitive\keyboard\DoubleCharButton.cs" />
     <Compile Include="SDK\CONTROLLIB\Primitive\Popup\AyPopupContentAdorner.cs" />
     <Compile Include="SDK\CONTROLLIB\Primitive\Selector\Selector.cs" />
     <Compile Include="SDK\CONTROLLIB\Primitive\Selector\SelectorItem.cs" />
@@ -216,6 +501,7 @@
     <Compile Include="SDK\CONTROLLIB\Util\ValueChangeHelper.cs" />
     <Compile Include="SDK\CONTROLLIB\Util\ChangeTypeHelper.cs" />
     <Compile Include="SDK\CONTROLLIB\Input\MaskedTextBox.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\ValueRangeTextBox.cs" />
     <Compile Include="SDK\CONTROLLIB\Layout\RadialPanel.cs" />
     <Compile Include="SDK\CONTROLLIB\Input\UIAutomation\ButtonAutomationPeer.cs" />
     <Compile Include="SDK\CONTROLLIB\Input\UIAutomation\ComboBoxAutomationPeer.cs" />
@@ -229,7 +515,6 @@
     <Compile Include="SDK\CONTROLLIB\Input\UIAutomation\TabItemAutomationPeer.cs" />
     <Compile Include="SDK\CONTROLLIB\Input\UIAutomation\TextBoxAutomationPeer.cs" />
     <Compile Include="SDK\CONTROLLIB\Input\UIAutomation\WindowAutomationPeer.cs" />
-    <Compile Include="SDK\CONTROLLIB\Input\ValueRangeTextBox.cs" />
     <Compile Include="SDK\FUNC\ayzip\Checksums\Adler32.cs" />
     <Compile Include="SDK\FUNC\ayzip\Checksums\CRC32.cs" />
     <Compile Include="SDK\FUNC\ayzip\Checksums\IChecksum.cs" />
@@ -295,7 +580,6 @@
     <Compile Include="SDK\CONTROLLIB\Primitive\Popup\AyPopup.cs" />
     <Compile Include="SDK\HELPER\AnimateCode\Base\AyAnimateBaseIn.cs" />
     <Compile Include="SDK\HELPER\AnimateCode\Base\AyAnimateBase.cs" />
-    <Compile Include="Config\AyInternalGlobalConfig.cs" />
     <Compile Include="SDK\HELPER\AnimateCode\Base\AyAnimateBaseOut.cs" />
     <Compile Include="SDK\HELPER\AnimateCode\Base\ClrBinding.cs" />
     <Compile Include="SDK\HELPER\AnimateCode\Base\IAyAnimateProperty.cs" />
@@ -549,6 +833,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\CollectionControlDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SDK\CONTROLLIB\Primitive\keyboard\AyPopKeyBoard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SDK\CONTROLLIB\Primitive\keyboard\AyTouchKeyBoardPwd.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="SDK\CONTROLLIB\Render\AyGaosiBackgroundLayer.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -583,6 +879,9 @@
     <Resource Include="Config\application.xml">
       <SubType>Designer</SubType>
     </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SDK\CONTROLLIB\Large\PropertyGrid\Implementation.PropertyGrid.Icon.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

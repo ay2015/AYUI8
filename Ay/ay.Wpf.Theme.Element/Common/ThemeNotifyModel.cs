@@ -16,7 +16,7 @@ namespace ay.Wpf.Theme.Element.Common
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        internal bool Set<T>(ref T storage, T value,  string propertyName = null,bool isCheckEquals = true)
+        public bool Set<T>(ref T storage, T value,  string propertyName = null,bool isCheckEquals = true)
         {
             if (isCheckEquals)
                 if (object.Equals(storage, value)) { return false; }

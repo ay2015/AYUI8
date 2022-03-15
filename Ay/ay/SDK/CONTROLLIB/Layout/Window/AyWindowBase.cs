@@ -108,6 +108,8 @@ namespace ay.Controls
         public static readonly DependencyProperty ComfirmBeforeCloseProperty =
             DependencyProperty.Register("ComfirmBeforeClose", typeof(bool), typeof(AyWindowBase), new PropertyMetadata(false));
 
+        public Grid ayLayerArea = null;
+
         public Grid ayLayerAboveArea = null;
 
         public bool CloseIsHideWindow

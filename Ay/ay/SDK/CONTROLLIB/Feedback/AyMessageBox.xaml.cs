@@ -61,7 +61,7 @@ public partial class AyMessageBox : Window
             var okButton = new Button
             {
                 Name = "okButton",
-                Content = Langs.share_ok.Lang(),
+                Content = ay.contents.Langs.share_ok.Lang(),
                 IsDefault = defaultResult == MessageBoxResult.OK,
                 Tag = MessageBoxResult.OK,
                 Margin = new Thickness(10, 0, 0, 0)

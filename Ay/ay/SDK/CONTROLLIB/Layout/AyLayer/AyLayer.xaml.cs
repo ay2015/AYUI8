@@ -71,9 +71,9 @@ namespace ay.Controls
 
             if (owner == null)
             {
-                if (Application.Current.MainWindow is AyWindow)
+                if (Application.Current.MainWindow is AyWindowBase)
                 {
-                    AyWindow mainWindow = Application.Current.MainWindow as AyWindow;
+                    AyWindowBase mainWindow = Application.Current.MainWindow as AyWindowBase;
                     Owner = mainWindow.ayLayerArea;
                 }
             }
@@ -86,7 +86,7 @@ namespace ay.Controls
                 }
                 else
                 {
-                    var _Wn = owner as AyWindow;
+                    var _Wn = owner as AyWindowBase;
                     if (_Wn.IsNotNull())
                         Owner = _Wn.ayLayerArea;
                 }

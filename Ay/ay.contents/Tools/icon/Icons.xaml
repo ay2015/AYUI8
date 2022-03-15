@@ -35,5 +35,7 @@
        <s:String x:Key="more_element_Int_Add" >more_element_Int_Add</s:String>
        <s:String x:Key="path_element_Int_Minus" >path_element_Int_Minus</s:String>
        <s:String x:Key="more_element_camera" >more_element_camera</s:String>
-  	</ResourceDictionary>
+  	   <s:String x:Key="Image_ay_2_jpg" >/ay.contents;component/Content/Icon/Image/ay/2.jpg</s:String>
+        <s:String x:Key="Image_ay_1_png" >/ay.contents;component/Content/Icon/Image/ay/1.png</s:String>
+     </ResourceDictionary>
 	

@@ -6,7 +6,12 @@ using System.Windows.Controls;
 
 namespace ay.Controls
 {
-
+    public interface IAyLayerSupport
+    {
+        Border AyBackgroundBehindLayer { get; set; }
+        Border AyBackgroundLayer { get; set; }
+        ContentPresenter AllCP { get; set; }
+    }
     public class AyLayerOptions : ICloneable
     {
         private static readonly object sync = new object();
@@ -64,7 +69,7 @@ namespace ay.Controls
 
 
 
-        private string _layerId=AyCommon.GetGuidNoSplit;
+        private string _layerId = AyCommon.GetGuidNoSplit;
         /// <summary>
         /// 层Id
         /// </summary>
@@ -184,7 +189,7 @@ namespace ay.Controls
         /// </summary>
         public bool HasCloseAnimation { get; set; } = true;
 
-        private AyLayerDockDirect? _direction= AyLayerDockDirect.CC;
+        private AyLayerDockDirect? _direction = AyLayerDockDirect.CC;
         /// <summary>
         /// 弹窗第一次方向，默认居中。
         /// </summary>
@@ -257,7 +262,7 @@ namespace ay.Controls
         public Action Closed { get; set; }
         #endregion
 
-    
+
     }
     public enum AyLayerDockDirect
     {

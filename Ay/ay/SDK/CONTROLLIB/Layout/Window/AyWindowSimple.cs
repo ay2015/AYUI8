@@ -18,9 +18,11 @@ namespace ay.Controls
     [TemplatePart(Name = "PART_RESTORE", Type = typeof(Button))]
     [TemplatePart(Name = "PART_CLOSE", Type = typeof(Button))]
     [TemplatePart(Name = "contentBorder", Type = typeof(Border))]
-    public class AyWindowSimple : AyWindowBase, INotifyPropertyChanged
+    public class AyWindowSimple : AyWindowBase, INotifyPropertyChanged,IAyLayerSupport
     {
-   
+        public Border AyBackgroundBehindLayer { get; set; }
+        public Border AyBackgroundLayer { get; set; }
+        public ContentPresenter AllCP { get; set; }
         static AyWindowSimple()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(AyWindowSimple),
@@ -237,6 +239,11 @@ namespace ay.Controls
             Button PART_MAX = null;
             Button PART_RESTORE = null;
             Button PART_CLOSE = null;
+
+            AllCP = GetTemplateChild("AllCP") as ContentPresenter;
+
+            ayLayerArea = GetTemplateChild("AyLayerArea") as Grid;
+
             ayLayerAboveArea = GetTemplateChild("AyLayerAboveArea") as Grid;
             AyWindowMaskArea = GetTemplateChild("AyWindowMaskArea") as Rectangle;
             //PART_MENU = GetTemplateChild("PART_MENU") as Button;
@@ -278,6 +285,9 @@ namespace ay.Controls
                 PART_CLOSE.Click += CloseButton_Click;
 
             ContentBorder = GetTemplateChild("contentBorder") as Border;
+            AyBackgroundBehindLayer = GetTemplateChild("AyBackgroundBehindLayer") as Border;
+            AyBackgroundLayer = GetTemplateChild("AyBackgroundLayer") as Border;
+
             //if (moveBarButton != null)
             //    moveBarButton.MouseLeftButtonDown += MoveBarButton_MouseLeftButtonDown;
             base.OnApplyTemplate();

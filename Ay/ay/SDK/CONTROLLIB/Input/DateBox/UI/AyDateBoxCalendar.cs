@@ -591,6 +591,7 @@ namespace ay.Controls
                 try
                 {
                     _1.RootGrid.Children.Clear();
+                    if (_1._PopupContent == null) return;
                     _1._PopupContent.Child = null;
                     _1._PopupContent = null;
                     var _oldRule = AyJsonUtility.DecodeObject2<AyDateRuleJsonToObjects>(oldStr);
