@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="ay.Controls.AyPopKeyBoard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ay.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Popup IsOpen="{Binding IsOpen,RelativeSource={RelativeSource AncestorType={x:Type  local:AyPopKeyBoard},Mode=FindAncestor}}" x:Name="keypop"   AllowsTransparency="true" PopupAnimation="None" StaysOpen="true"  Placement="Custom" >
+        <local:AyTouchKeyBoardPwd ElementName="{Binding ElementName,RelativeSource={RelativeSource AncestorType={x:Type  local:AyPopKeyBoard},Mode=FindAncestor}}" Width="1080" x:Name="akb"  VerticalAlignment="Bottom" HorizontalAlignment="Stretch"></local:AyTouchKeyBoardPwd>
+    </Popup>
+
+    <!--<Grid Visibility="{Binding IsOpen,RelativeSource={RelativeSource AncestorType={x:Type  local:AyPopKeyBoard},Mode=FindAncestor},Converter={local:BoolToValueConverter}}" x:Name="keypop"   >
+        <local:AyTouchKeyBoardPwd ElementName="{Binding ElementName,RelativeSource={RelativeSource AncestorType={x:Type  local:AyPopKeyBoard},Mode=FindAncestor}}" Width="1080" x:Name="akb"  VerticalAlignment="Bottom" HorizontalAlignment="Stretch"></local:AyTouchKeyBoardPwd>
+    </Grid>-->
+</UserControl>

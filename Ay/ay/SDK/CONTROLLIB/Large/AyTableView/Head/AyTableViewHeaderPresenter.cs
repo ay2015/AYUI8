@@ -1,6 +1,7 @@
 ﻿using System.Windows.Controls;
 using System.Windows;
 using System.Collections.Generic;
+using System.Windows.Data;
 
 namespace ay.Controls
 {
@@ -22,6 +23,10 @@ namespace ay.Controls
                         if (_1.IsNotNull())
                         {
                             _parentTableView = AyTableViewUtils.FindParent<AyTableView>(_1);
+                            //_1.FontFamily = _parentTableView.HeaderFontFamily;
+                            //_1.FontWeight = _parentTableView.HeadFontWeight;
+                            //_1.Foreground = _parentTableView.HeaderStaticForeground;
+                            //_1.FontSize = _parentTableView.HeaderFontSize;
                         }
                     }
                 }
@@ -159,7 +164,28 @@ namespace ay.Controls
         //}
         protected override DependencyObject GetContainerForItemOverride()
         {
-            return new AyTableViewColumnHeader();
+            var _1 = new AyTableViewColumnHeader();
+
+            Binding n1 = new Binding { Path = new PropertyPath("HeaderFontFamily"), Mode = BindingMode.TwoWay, Source = ParentTableView };
+            BindingOperations.SetBinding(_1, AyTableViewColumnHeader.FontFamilyProperty, n1);
+
+            Binding n2 = new Binding { Path = new PropertyPath("HeadFontWeight"), Mode = BindingMode.TwoWay, Source = ParentTableView };
+            BindingOperations.SetBinding(_1, AyTableViewColumnHeader.FontWeightProperty, n2);
+
+            Binding n3 = new Binding { Path = new PropertyPath("HeaderStaticForeground"), Mode = BindingMode.TwoWay, Source = ParentTableView };
+            BindingOperations.SetBinding(_1, AyTableViewColumnHeader.ForegroundProperty, n3);
+
+            Binding n4= new Binding { Path = new PropertyPath("HeaderFontSize"), Mode = BindingMode.TwoWay, Source = ParentTableView };
+            BindingOperations.SetBinding(_1, AyTableViewColumnHeader.FontSizeProperty, n4);
+
+            Binding n5 = new Binding { Path = new PropertyPath("HeaderResizeBorderBrush"), Mode = BindingMode.TwoWay, Source = ParentTableView };
+            BindingOperations.SetBinding(_1, AyTableViewColumnHeader.BorderBrushProperty, n5);
+            //_1.FontFamily = ParentTableView.HeaderFontFamily;
+            //_1.FontWeight = ParentTableView.HeadFontWeight;
+            //_1.Foreground = ParentTableView.HeaderStaticForeground;
+            //_1.FontSize = ParentTableView.HeaderFontSize;
+
+            return _1;
         }
 
         protected override bool IsItemItsOwnContainerOverride(object item)

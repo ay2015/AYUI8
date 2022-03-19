@@ -33,13 +33,13 @@ namespace ay.Controls
         public int FromIndex { get; set; }
         public int ToIndex { get; set; }
 
-        public string GroupName
+        internal string GroupName
         {
             get { return (string)GetValue(GroupNameProperty); }
             set { SetValue(GroupNameProperty, value); }
         }
 
-        public static readonly DependencyProperty GroupNameProperty =
+        internal static readonly DependencyProperty GroupNameProperty =
             DependencyProperty.Register("GroupName", typeof(string), typeof(AyTableViewColumnHeader), new FrameworkPropertyMetadata(""));
 
 
@@ -137,7 +137,7 @@ namespace ay.Controls
                     {
                         this.ColumnHeight = col.ParentTableView.HeaderHeight;
                     }
-                    else if (col.ParentTableView.HasCheckBoxColumn && col.Field.ToObjectString() == "AYCHECK")
+                    else if (col.ParentTableView.HasCheckBoxColumn && col.Tag1.ToObjectString() == "AYCHECK")
                     {
                         this.ColumnHeight = col.ParentTableView.HeaderHeight;
                     }
@@ -241,8 +241,6 @@ namespace ay.Controls
 
         }
     
-
-
 
         public Thickness ContentMargin
         {

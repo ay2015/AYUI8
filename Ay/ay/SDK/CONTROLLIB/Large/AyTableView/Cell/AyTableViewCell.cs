@@ -4,18 +4,28 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
+using PixelLab.Common;
 using System.ComponentModel;
 using System.Linq;
-using ay.contentcore;
 
 namespace ay.Controls
 {
     public class AyTableViewCell : ContentControl
     {
 
-        /// <summary>
-        /// 编辑时候模板
-        /// </summary>
+        ///// <summary>
+        ///// 单元格状态，如果编辑就会切换模板
+        ///// </summary>
+        //public bool IsEdit
+        //{
+        //    get { return (bool)GetValue(IsEditProperty); }
+        //    set { SetValue(IsEditProperty, value); }
+        //}
+        //public static readonly DependencyProperty IsEditProperty =
+        //    DependencyProperty.Register("IsEdit", typeof(bool), typeof(AyTableViewCell), new PropertyMetadata(false));
+
+
+
         public DataTemplate CellEditTemplate
         {
             get { return (DataTemplate)GetValue(CellEditTemplateProperty); }
@@ -210,18 +220,20 @@ namespace ay.Controls
             DependencyProperty.Register("ColumnFocusBrush", typeof(Brush), typeof(AyTableViewCell), new PropertyMetadata(new SolidColorBrush(Colors.Transparent)));
 
         public ContentPresenter _EditContent = null;
-        AyText tb = null;
+        TextBlock tb = null;
         Border bd = null;
-        DependencyPropertyDescriptor dpd = DependencyPropertyDescriptor.FromProperty(AyText.ActualWidthProperty, typeof(AyText));
+        DependencyPropertyDescriptor dpd = DependencyPropertyDescriptor.FromProperty(TextBlock.ActualWidthProperty, typeof(TextBlock));
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
             bd = GetTemplateChild("SelectTen") as Border;
 
 
-            ContentPresenter cp = GetTemplateChild("contentPresenter") as ContentPresenter;
+            ContentControl cp = GetTemplateChild("contentPresenter") as ContentControl;
             _EditContent = GetTemplateChild("contentPresenter1") as ContentPresenter;
- 
+            if (cp == null) return;
+            if (cp.ContentTemplate.IsNull())
+            {
                 if (_column.IsNotNull() && _column.Formatter.IsNotNull())
                 {
                     var _b = BindingOperations.GetBinding(cp, ContentPresenter.ContentProperty);
@@ -230,16 +242,34 @@ namespace ay.Controls
                     BindingOperations.SetBinding(cp, ContentPresenter.ContentProperty, newbind);
                 }
                 cp.ApplyTemplate();
-                tb = WpfTreeHelper.FindChild<AyText>(cp);
+                //TextBlock tb = new TextBlock();
+                //var _1b = BindingOperations.GetBinding(cp, ContentPresenter.ContentProperty);
+                //Binding newbind1 = new Binding { Path = _1b.Path, Mode = _1b.Mode, RelativeSource = _1b.RelativeSource };
+                //BindingOperations.ClearBinding(cp, ContentPresenter.ContentProperty);
+
+                //BindingOperations.SetBinding(tb, TextBlock.TextProperty, newbind1);
+                var _cpa = WpfTreeHelper.FindChild<ContentPresenter>(cp);
+                if (_cpa == null) return;
+                _cpa.ApplyTemplate();
+                tb = WpfTreeHelper.FindChild<TextBlock>(_cpa);
+                Binding newbindh = new Binding { Path = new PropertyPath("HorizontalContentAlignment"), Mode = BindingMode.TwoWay, Source = this };
+                BindingOperations.SetBinding(_cpa, ContentPresenter.HorizontalAlignmentProperty, newbindh);
+
+                Binding newbindv = new Binding { Path = new PropertyPath("VerticalContentAlignment"), Mode = BindingMode.TwoWay, Source = this };
+                BindingOperations.SetBinding(_cpa, ContentPresenter.VerticalAlignmentProperty, newbindv);
+                Binding newbindv2 = new Binding { Path = new PropertyPath("VerticalContentAlignment"), Mode = BindingMode.TwoWay, Source = this };
+                BindingOperations.SetBinding(cp, ContentControl.VerticalContentAlignmentProperty, newbindv2);
+           
                 if (tb.IsNotNull())
                 {
+                    tb.VerticalAlignment = this.VerticalContentAlignment;
                     tb.TextWrapping = CellTextWrapping;
 
                     if (CellCharacterEllipsis == TextTrimming.CharacterEllipsis)
                     {
                         ToolTip tt = new System.Windows.Controls.ToolTip();
-                        AyText ttb = new AyText();
-                        ttb.SetBinding(AyText.TextProperty, new Binding { Source = cp.Content });
+                        TextBlock ttb = new TextBlock();
+                        ttb.SetBinding(TextBlock.TextProperty, new Binding { Source = cp.Content });
                         tt.Content = ttb;
                         tb.ToolTip = tt;
                         if (dpd != null)
@@ -252,7 +282,7 @@ namespace ay.Controls
                             tt.Visibility = Visibility.Collapsed;
                     }
                     tb.TextTrimming = CellCharacterEllipsis;
-                
+                }
             }
 
 
@@ -331,7 +361,7 @@ namespace ay.Controls
         //            ParentTableView.RaiseCellEditBegin(Item, _column.Field);
         //        }
         //    }
-
+         
 
         //}
 

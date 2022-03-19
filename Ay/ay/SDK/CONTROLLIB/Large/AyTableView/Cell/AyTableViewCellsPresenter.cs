@@ -6,6 +6,7 @@ using System;
 
 namespace ay.Controls
 {
+
     public class AyTableViewCellsPresenter : ItemsControl
     {
 
@@ -30,7 +31,13 @@ namespace ay.Controls
             var _vs = (source as AyTableViewCellsPresenter);
             if (_vs.isMouseLeftDown == 1)
             {
-                _vs.OnCheckedFocusLe();
+                var _ovalue = (bool)e.OldValue;
+                var _nvalue = (bool)e.NewValue;
+                if(_nvalue && !_ovalue)
+                {
+                    _vs.OnCheckedFocusLe();
+                }
+          
             }
             else if (_vs.isMouseLeftDown == 2)
             {
@@ -373,29 +380,39 @@ namespace ay.Controls
             }
             else if (ParentTableView.RowClickMode == AyTableView.RowClickModes.RowDetail && ccDetail.IsNotNull())
             {
-                if (ParentTableView.SelectedCellsPresenter != null)
+                if (ParentTableView.SelectionMode == AyTableViewSelectionMode.Multiple)
                 {
-                    if (ParentTableView.SelectedCellsPresenter == this)
-                    {
-                        HasRowDetail = !HasRowDetail;
-                        //ParentTableView.SelectedCellsPresenter.ccDetail.Visibility = ParentTableView.SelectedCellsPresenter.ccDetail.Visibility==Visibility.Collapsed? Visibility.Visible: Visibility.Collapsed;
-                    }
-                    else
-                    {
-                        ParentTableView.SelectedCellsPresenter.HasRowDetail = false;
-                        //ParentTableView.SelectedCellsPresenter.ccDetail.Visibility = Visibility.Collapsed;
-                        HasRowDetail = true;
-                        //ccDetail.Visibility = Visibility.Visible;
-                    }
+                    HasRowDetail = !HasRowDetail;
                 }
                 else
                 {
-                    HasRowDetail = true;
+                    if (ParentTableView.SelectedCellsPresenter != null)
+                    {
+                        if (ParentTableView.SelectedCellsPresenter == this)
+                        {
+                            HasRowDetail = !HasRowDetail;
+                            //ParentTableView.SelectedCellsPresenter.ccDetail.Visibility = ParentTableView.SelectedCellsPresenter.ccDetail.Visibility==Visibility.Collapsed? Visibility.Visible: Visibility.Collapsed;
+                        }
+                        else
+                        {
+                            var _12 = ParentTableView.SelectedCellsPresenter.DataContext;
+                            ParentTableView.SelectedCellsPresenter.HasRowDetail = false;
+                            //ParentTableView.SelectedCellsPresenter.ccDetail.Visibility = Visibility.Collapsed;
+                            HasRowDetail = true;
+                            //ccDetail.Visibility = Visibility.Visible;
+                        }
+                    }
+                    else
+                    {
+                        HasRowDetail = true;
+                    }
                 }
+   
             }
             if (ParentTableView.SelectionMode == AyTableViewSelectionMode.Single || ParentTableView.SelectionMode == AyTableViewSelectionMode.RowTenSingle)
             {
                 ParentTableView.FocusedRowChanged(this);
+                //2022年2月5日修改  修复 默认第一个选中，然后单击 后面一个选中，前一个还选中的问题
                 if (ParentTableView.SelectedItem != null)
                 {
                     var _1 = ParentTableView.SelectedItem as AyUIEntity;
@@ -406,7 +423,6 @@ namespace ay.Controls
                 }
                 IsSelected = true;
 
-             
                 if (ParentTableView.SelectedItem != Item)
                 {
                     ParentTableView.SelectedItem = Item;

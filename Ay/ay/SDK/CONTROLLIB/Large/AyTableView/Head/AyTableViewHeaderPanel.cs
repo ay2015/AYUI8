@@ -20,6 +20,11 @@ namespace ay.Controls
                     if (_1.IsNotNull())
                     {
                         _parentTableView = _1.Column.ParentTableView;
+                        //_1.FontFamily = _parentTableView.HeaderFontFamily;
+                        //_1.FontWeight = _parentTableView.HeadFontWeight;
+                        //_1.Foreground = _parentTableView.HeaderStaticForeground;
+                        //_1.FontSize = _parentTableView.HeaderFontSize;
+
                         //_parentTableView = AyTableViewUtils.FindParent<AyTableView>(_1);
                         //if (_parentTableView == null)
                         //{

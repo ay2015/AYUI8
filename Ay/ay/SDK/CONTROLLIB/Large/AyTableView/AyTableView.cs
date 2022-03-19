@@ -11,8 +11,8 @@ using System.Collections.Generic;
 using System.Windows.Data;
 using System.IO;
 using System.Linq;
-
 using System.Windows.Input;
+
 
 public static class AyTableViewExtension
 {
@@ -32,6 +32,7 @@ namespace ay.Controls
     [StyleTypedProperty(Property = "ScrollViewerStyle", StyleTargetType = typeof(ScrollViewer))]
     public class AyTableView : Control
     {
+
 
         static AyTableView()
         {
@@ -114,6 +115,7 @@ namespace ay.Controls
             ColumnsHead = new TableViewColumnCollection();
 
             //ColSpans = new ColSpansCollection();
+
             //SnapsToDevicePixels = true;
             //UseLayoutRounding = true;
             //Columns.CollectionChanged += ColumnsChanged;
@@ -188,10 +190,6 @@ namespace ay.Controls
                                 w += _4;
                             }
                         }
-                        if (w <= 0)
-                        {
-                            w = 10;
-                        }
                         col.Width = w;
 
                     }
@@ -205,10 +203,6 @@ namespace ay.Controls
                         else
                         {
                             w += (col.PercentWidth * SYWIDTH);
-                        }
-                        if (w <= 0)
-                        {
-                            w = 10;
                         }
                         col.Width = w;
 
@@ -436,27 +430,6 @@ namespace ay.Controls
 
                     }
 
-                    //var _cp = _1.ParentCellsPresenter.CellsPanel.Children;
-                    //if (_cp.IsNotNull())
-                    //{
-                    //    //_1.ParentCellsPresenter.IsEdit = false;
-                    //    foreach (var item in _cp)
-                    //    {
-                    //        var _2 = item as AyTableViewCell;
-                    //        _2.IsEdit = false;
-                    //        if (_2._column.CellEditTemplate == null)
-                    //        {
-                    //            //TODO
-                    //            if (_2._column.ContextBinding != null)
-                    //                BindingOperations.SetBinding(_2, DataContextProperty, (_2._column.ContextBinding));
-                    //        }
-                    //        else
-                    //        {
-
-                    //            _2.DataContext = _1231;
-                    //        }
-
-                    //    }
 
                     _1.ParentCellsPresenter.ParentTableView.RaiseRowEditEnd(_1231);
 
@@ -668,13 +641,13 @@ namespace ay.Controls
         public event EventHandler<AyTableViewRowsEventArgs> OnPastingRowClipboardContent;
         public void RaiseOnPastingingRowClipboardContent()
         {
-            if (OnPastingRowClipboardContent!=null)
+            if (OnPastingRowClipboardContent != null)
             {
                 OnPastingRowClipboardContent(this, null);
             }
         }
 
-        
+
 
 
         public event EventHandler<AyTableViewColumnEventArgs> ColumnWidthChanged;
@@ -1219,7 +1192,7 @@ namespace ay.Controls
         /// <param name="e"></param>
         private void Paste_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-             RaiseOnPastingingRowClipboardContent();
+            RaiseOnPastingingRowClipboardContent();
         }
         private void Copy_Enabled(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -1320,7 +1293,7 @@ namespace ay.Controls
         /// 数字宽度占用的总宽度,由于未初始化完,整个aytableview是拿不到值
         /// </summary>
         public double SYWIDTH33 { get; set; }
-        public void RefreshColumn()
+        internal void RefreshColumn()
         {
             if (Columns == null)
             {
@@ -1406,9 +1379,91 @@ namespace ay.Controls
             }
 
         }
+        public void RefreshColumnInfo()
+        {
+            if (Columns == null)
+            {
+                return;
+            }
+            Columns.Clear();
+            int headIndex = 0;
+            int _from = 0;
+            double sumNormalWidth = 0; //先算出 剩下的 需要百分比切割的宽度
+            if (PercentWidthSupport)
+            {
+                foreach (var col in ColumnsHead)
+                {
+                    if (col.Columns.Count > 0)
+                    {
+                        double _gWidth = 0;
+                        CreatePercentWidthColumns(col, ref _gWidth);
+                        sumNormalWidth += _gWidth;
+                    }
+                    else
+                    {
+                        if (col.PercentWidth > 1)
+                        {
+                            sumNormalWidth += col.PercentWidth;
+                        }
 
+                    }
+                }
+                SYWIDTH33 = sumNormalWidth;
 
+                foreach (var col in ColumnsHead)
+                {
+                    if (col.Columns.Count > 0)
+                    {
+                        col.IsGroup = true;
+                        col.FromIndex = _from;
+                        col.ToIndex = col.FromIndex + col.Columns.Count - 1;
+                        _from = col.ToIndex;
+                        _from++;
+                        double _gWidth = 0;
+                        CreateColumns(col, ref _gWidth);
+                        col.Width = _gWidth;
 
+                        headIndex++;
+
+                    }
+                    else
+                    {
+                        col.ColumnsHeadIndex = headIndex;
+                        headIndex++;
+                        _from++;
+                        Columns.Add(col);
+                    }
+                }
+            }
+            else
+            {
+                foreach (var col in ColumnsHead)
+                {
+                    if (col.Columns.Count > 0)
+                    {
+                        col.IsGroup = true;
+                        col.FromIndex = _from;
+                        col.ToIndex = col.FromIndex + col.Columns.Count - 1;
+                        _from = col.ToIndex;
+                        _from++;
+                        double _gWidth = 0;
+                        CreateColumns(col, ref _gWidth);
+                        col.Width = _gWidth;
+                        headIndex++;
+
+                    }
+                    else
+                    {
+                        col.ColumnsHeadIndex = headIndex;
+                        headIndex++;
+                        _from++;
+                        Columns.Add(col);
+                    }
+                }
+
+            }
+
+        }
         public DataTemplate RowDetailTemplate
         {
             get { return (DataTemplate)GetValue(RowDetailTemplateProperty); }
@@ -1426,7 +1481,6 @@ namespace ay.Controls
         }
         bool isfirstAddColumn = true;
         bool isfirstAddCheckColumn = true;
-
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
@@ -1487,7 +1541,7 @@ namespace ay.Controls
                 cbCheckAll.Padding = new Thickness(0);
                 cbCheckAll.Checked += CbCheckAll_Checked;
                 cbCheckAll.Unchecked += CbCheckAll_Unchecked;
-
+                cbCheckAll.SetResourceReference(CheckBox.StyleProperty, "AyTableViewCheckBox");
                 if (SelectionMode == AyTableViewSelectionMode.Multiple)
                 {
                     cbCheckAll.Visibility = Visibility.Visible;
@@ -1506,9 +1560,11 @@ namespace ay.Controls
                 factory.SetValue(CheckBox.HorizontalAlignmentProperty, HorizontalAlignment.Center);
                 factory.SetValue(CheckBox.VerticalAlignmentProperty, VerticalAlignment.Center);
                 factory.SetValue(CheckBox.PaddingProperty, new Thickness(0));
+                factory.SetResourceReference(CheckBox.StyleProperty, "AyTableViewCheckBox");
                 dt.VisualTree = factory;
                 //dt.Seal();
                 //=============
+                //2022年3月18日15:23:07修改 原来的会导致程序报一些警告
                 var _vc = new AyTableViewColumn()
                 {
                     Title = cbCheckAll,
@@ -1517,8 +1573,10 @@ namespace ay.Controls
                     Width = 40,
                     ResizeColumn = false,
                     CellTemplate = dt,
-                    Field = "AYCHECK"
+                    Field = "",
+                    Tag1="AYCHECK"
                 };
+                //修改
                 _columnsHead.Insert(ed, _vc);
 
                 if (PercentWidthSupport)
@@ -1562,7 +1620,6 @@ namespace ay.Controls
         public void CheckAll()
         {
             SelectedItems.Clear();
-            if (ItemsSource == null) return;
             foreach (var item in ItemsSource)
             {
                 var _2 = item as AyUIEntity;
@@ -1615,7 +1672,7 @@ namespace ay.Controls
             WhenColumnsChanged();
         }
 
-        private void WhenColumnsChanged()
+        public void WhenColumnsChanged()
         {
             if (isUpdateColumns)
             {

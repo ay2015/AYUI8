@@ -15,7 +15,7 @@ namespace ay.Controls
     {
         //该列对应内容列的索引
         public int? ColumnsHeadIndex { get; set; }
-        public AyTableView ParentTableView { get; internal set; }
+        public AyTableView ParentTableView { get; set; }
         public int ColumnIndex { get { return (ParentTableView == null) ? -1 : ParentTableView.Columns.IndexOf(this); } }
 
         /// <summary>
@@ -52,13 +52,13 @@ namespace ay.Controls
         #region 组头
 
 
-        internal bool IsGroup
+        public bool IsGroup
         {
             get { return (bool)GetValue(IsGroupProperty); }
             set { SetValue(IsGroupProperty, value); }
         }
 
-        internal static readonly DependencyProperty IsGroupProperty =
+        public static readonly DependencyProperty IsGroupProperty =
             DependencyProperty.Register("IsGroup", typeof(bool), typeof(AyTableViewColumn), new PropertyMetadata(false));
 
 
@@ -135,21 +135,21 @@ namespace ay.Controls
 
         private void WhenSubColumnsChanged()
         {
-    
-                if (ParentTableView.HeaderRowPresenter != null)
-                {
-                    ParentTableView.ResetFixedClipRect();
-                    ParentTableView.ResetFixedClipRect2();
-                    ParentTableView.HeaderRowPresenter.HeaderInvalidateArrange();
-                    ParentTableView.HeaderRowPresenter2.HeaderInvalidateArrange();
-                }
 
-                if (ParentTableView.RowsPresenter != null)
-                    ParentTableView.RowsPresenter.ColumnsChanged();
-            
+            if (ParentTableView.HeaderRowPresenter != null)
+            {
+                ParentTableView.ResetFixedClipRect();
+                ParentTableView.ResetFixedClipRect2();
+                ParentTableView.HeaderRowPresenter.HeaderInvalidateArrange();
+                ParentTableView.HeaderRowPresenter2.HeaderInvalidateArrange();
+            }
+
+            if (ParentTableView.RowsPresenter != null)
+                ParentTableView.RowsPresenter.ColumnsChanged();
+
         }
 
- 
+
 
 
         #endregion
@@ -363,6 +363,11 @@ namespace ay.Controls
             get { return (string)GetValue(FieldProperty); }
             set { SetValue(FieldProperty, value); }
         }
+
+        //2022年3月18日15:21:57 增加控制内置功能列的属性值，方便其他的类获取处理
+        internal string Tag1 { get; set; }
+        internal string Tag2 { get; set; }
+
         #endregion
 
         public Binding WidthBinding { get; private set; }

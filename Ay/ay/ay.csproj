@@ -192,12 +192,20 @@
     <Compile Include="SDK\CONTROLLIB\Input\Info\MaskedTextBox\MaskFormat.cs" />
     <Compile Include="SDK\CONTROLLIB\Input\Info\TokenTextBox\SegmentInfo.cs" />
     <Compile Include="SDK\CONTROLLIB\Input\Info\TokenTextBox\TextSegmentInfo.cs" />
+    <Compile Include="SDK\CONTROLLIB\Input\keyboard\AyPopKeyBoard.xaml.cs">
+      <DependentUpon>AyPopKeyBoard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SDK\CONTROLLIB\Input\keyboard\AyTouchKeyBoardPwd.xaml.cs">
+      <DependentUpon>AyTouchKeyBoardPwd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SDK\CONTROLLIB\Input\keyboard\DoubleCharButton.cs" />
     <Compile Include="SDK\CONTROLLIB\Input\TokenTextBox\TokenItem.cs" />
     <Compile Include="SDK\CONTROLLIB\Input\TokenTextBox\TokenTextBox.cs" />
     <Compile Include="SDK\CONTROLLIB\Input\TokenTextBox\TokenTextBoxCoreItemsControl.cs" />
     <Compile Include="SDK\CONTROLLIB\Input\TokenTextBox\TokenTextBoxItem.cs" />
     <Compile Include="SDK\CONTROLLIB\Input\Info\TokenTextBox\TokenSegmentInfo.cs" />
     <Compile Include="SDK\CONTROLLIB\Input\Validate\AyFormCollection.cs" />
+    <Compile Include="SDK\CONTROLLIB\Large\AyTableView\TouchScrolling.cs" />
     <Compile Include="SDK\CONTROLLIB\Large\Tree\Info\AuthTreeViewItemModel.cs" />
     <Compile Include="SDK\CONTROLLIB\Large\Tree\Info\AyTreeViewItemModel.cs" />
     <Compile Include="SDK\CONTROLLIB\Layout\AyLayer\AyLayer.xaml.cs">
@@ -465,13 +473,6 @@
     <Compile Include="SDK\CONTROLLIB\Layout\Window\AyWinformHost.cs" />
     <Compile Include="SDK\CONTROLLIB\Layout\Window\ElementMoveMode.cs" />
     <Compile Include="SDK\CONTROLLIB\Primitive\EventAtgs\ItemSelectionChangedEventArgs.cs" />
-    <Compile Include="SDK\CONTROLLIB\Primitive\keyboard\AyPopKeyBoard.xaml.cs">
-      <DependentUpon>AyPopKeyBoard.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="SDK\CONTROLLIB\Primitive\keyboard\AyTouchKeyBoardPwd.xaml.cs">
-      <DependentUpon>AyTouchKeyBoardPwd.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="SDK\CONTROLLIB\Primitive\keyboard\DoubleCharButton.cs" />
     <Compile Include="SDK\CONTROLLIB\Primitive\Popup\AyPopupContentAdorner.cs" />
     <Compile Include="SDK\CONTROLLIB\Primitive\Selector\Selector.cs" />
     <Compile Include="SDK\CONTROLLIB\Primitive\Selector\SelectorItem.cs" />
@@ -829,6 +830,14 @@
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
+    <Page Include="SDK\CONTROLLIB\Input\keyboard\AyPopKeyBoard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SDK\CONTROLLIB\Input\keyboard\AyTouchKeyBoardPwd.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="SDK\CONTROLLIB\Layout\AyLayer\AyLayer.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -836,14 +845,6 @@
     <Page Include="SDK\CONTROLLIB\Large\PropertyGrid\UI\CollectionControlDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="SDK\CONTROLLIB\Primitive\keyboard\AyPopKeyBoard.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="SDK\CONTROLLIB\Primitive\keyboard\AyTouchKeyBoardPwd.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="SDK\CONTROLLIB\Render\AyGaosiBackgroundLayer.xaml">
       <Generator>MSBuild:Compile</Generator>
