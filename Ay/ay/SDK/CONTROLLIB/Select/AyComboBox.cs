@@ -154,7 +154,7 @@ namespace ay.Controls
                     {
 
                         editBox.TextChanged += TextBox_TextChanged;
-               
+
                         //this.MouseLeave += Txt_MouseLeave;
                     }
 
@@ -164,14 +164,14 @@ namespace ay.Controls
                 {
                     editBox.KeyUp += (sender2, arg2) =>
                    {
-                        if ((arg2.Key == Key.Back && editBox.Text.Length == 0) || (arg2.Key == Key.Left && editBox.CaretIndex ==0))
-                        {
-                            IsDropDownOpen = true;
-                            return;
-                        }
-                        arg2.Handled = true;
+                       if ((arg2.Key == Key.Back && editBox.Text.Length == 0) || (arg2.Key == Key.Left && editBox.CaretIndex == 0))
+                       {
+                           IsDropDownOpen = true;
+                           return;
+                       }
+                       arg2.Handled = true;
 
-                    };
+                   };
                 }
                 //if (searchBox.IsNotNull() && SearchBoxVisibility == Visibility.Visible)
                 //{
@@ -242,7 +242,7 @@ namespace ay.Controls
 
         public AyTextBox searchBox = null;
 
-    
+
 
         public AyTextBox editBox = null;
 
@@ -407,7 +407,7 @@ namespace ay.Controls
             //var _1isview = FormHelper.GetIsViewMode(this);
             //if (!_1isview)
             //{
-            if (editBox.IsNotNull())
+            if (editBox.IsNotNull() && IsEditable)
             {
                 if (editBox.Text.Length > 0)
                 {
@@ -421,13 +421,20 @@ namespace ay.Controls
                 {
                     return false;
                 }
+                else if (!IsEditable && Rule.Contains("required"))
+                {
+                    if (this.SelectedIndex >= 0)
+                    {
+
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
                 return true;
-                //if (!IsFirstItemInvalid && this.SelectedIndex < 0)
-                //{
-                //    return true;
-                //}
             }
-            //}
             return false;
         }
 
@@ -441,7 +448,7 @@ namespace ay.Controls
             //var _1isview = FormHelper.GetIsViewMode(this);
             //if (!_1isview)
             //{
-            if (editBox.IsNotNull())
+            if (editBox.IsNotNull() && IsEditable)
             {
                 ValdiateTextBox(editBox);
                 return !editBox.IsError;
@@ -453,6 +460,20 @@ namespace ay.Controls
                     ErrorInfo = AyFormErrorTemplate.Required;
                     apErrorToolTip.IsOpen = true;
                     return false;
+                }
+                else if (!IsEditable && Rule.Contains("required"))
+                {
+                    if (this.SelectedIndex >= 0)
+                    {
+                        apErrorToolTip.IsOpen = false;
+                        return true;
+                    }
+                    else
+                    {
+                        ErrorInfo = AyFormErrorTemplate.Required;
+                        apErrorToolTip.IsOpen = true;
+                        return false;
+                    }
                 }
                 apErrorToolTip.IsOpen = false;
                 return true;
@@ -475,6 +496,20 @@ namespace ay.Controls
                 {
                     ErrorInfo = AyFormErrorTemplate.Required;
                     return false;
+                }
+                else if (!IsEditable && Rule.Contains("required"))
+                {
+                    if (this.SelectedIndex >= 0)
+                    {
+                        apErrorToolTip.IsOpen = false;
+                        return true;
+                    }
+                    else
+                    {
+                        ErrorInfo = AyFormErrorTemplate.Required;
+                        apErrorToolTip.IsOpen = true;
+                        return false;
+                    }
                 }
                 return true;
             }
@@ -727,6 +762,23 @@ namespace ay.Controls
                 apErrorToolTip.IsOpen = true;
                 _d.IsError = true;
                 return;
+            }
+            else if (!IsEditable && Rule.Contains("required"))
+            {
+                if (this.SelectedIndex >= 0)
+                {
+                    _d.IsError = false;
+                    apErrorToolTip.IsOpen = false; 
+                    ErrorInfo = string.Empty;
+                    return;
+                }
+                else
+                {
+                    _d.IsError = true;
+                    ErrorInfo = AyFormErrorTemplate.Required;
+                    apErrorToolTip.IsOpen = true;
+                    return;
+                }
             }
 
 

@@ -86,7 +86,7 @@ namespace ay.contentcore
             if (SelectedItem == null) return;
             var _1 = (SelectedItem as ComboBoxItem).Content as string;
             var _p = System.IO.Path.Combine(LangDir, _1);
-            AyGlobalConfig.ACM["CurrentLang"] = _p;
+            AyGlobalConfig.ACM["CurrentLang"] = _1;
 
             //Settings.Default.CurrentLang = _1;
             //Settings.Default.Save();
@@ -102,7 +102,7 @@ namespace ay.contentcore
             LangService.UpdateLangage(Application.Current, _p);
             //Settings.Default.CurrentLang = _1;
             //Settings.Default.Save();
-            AyGlobalConfig.ACM["CurrentLang"] = _p;
+            AyGlobalConfig.ACM["CurrentLang"] = _1;
         }
 
         /// <summary>
@@ -126,7 +126,7 @@ namespace ay.contentcore
             if (SelectedItem == null) return;
             var _1 = (SelectedItem as ComboBoxItem).Content as string;
             var _p = System.IO.Path.Combine(LangDir, _1);
-            LangService.UpdateLangage(Application.Current, _p);
+            LangService.UpdateLangage(Application.Current, _1);
         }
     }
 }
