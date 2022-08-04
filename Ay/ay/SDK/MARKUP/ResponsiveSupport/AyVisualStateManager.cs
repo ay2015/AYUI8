@@ -56,7 +56,7 @@ namespace ay.MARKUP.ResponsiveSupport
                     collection = new AyVisualStateGroupCollection();
                     collection.Owner = d;
                     var _2 = d as FrameworkElement;
-                    if (_2!=null)
+                    if (_2 != null)
                     {
 
                         Microsoft.Win32.SystemEvents.DisplaySettingsChanged += (sen, eargs) =>
@@ -97,7 +97,7 @@ namespace ay.MARKUP.ResponsiveSupport
         private static void WhenOwnerSizeChanged(Size _nowSize, AyVisualStateGroupCollection collection, FrameworkElement _2)
         {
             var _31 = collection.FirstOrDefault(x => x.Orientation == AyOrientation.Both);
-            if (_31!=null)
+            if (_31 != null)
             {
                 //执行
                 var _4 = _31.VisualStates;
@@ -200,7 +200,7 @@ namespace ay.MARKUP.ResponsiveSupport
             }
 
             var _3 = collection.FirstOrDefault(x => x.Orientation == ScreenDirection);
-            if (_3!=null)
+            if (_3 != null)
             {
                 var _4 = _3.VisualStates;
                 foreach (var item in _4)
@@ -338,32 +338,32 @@ namespace ay.MARKUP.ResponsiveSupport
                 {
                     var setter = setter2 as DataSetter;
 
-                    if (setter.TargetName!=null)
+                    if (setter.TargetName != null)
                     {
                         switch (setter.Scope)
                         {
                             case DataSetterScope.Current:
                                 var _CurrentFind = w.FindName(setter.TargetName) as UIElement;
-                                if (_CurrentFind!=null)
+                                if (_CurrentFind != null)
                                 {
                                     _CurrentFind.SetValue(setter.Property, setter.Value);
                                 }
                                 break;
                             case DataSetterScope.ParentWindow:
-                                if (_parentWindow!=null)
+                                if (_parentWindow != null)
                                 {
                                     var _ParentWindowFind = _parentWindow.FindName(setter.TargetName) as UIElement;
-                                    if (_ParentWindowFind!=null)
+                                    if (_ParentWindowFind != null)
                                     {
                                         _ParentWindowFind.SetValue(setter.Property, setter.Value);
                                     }
                                 }
                                 break;
                             case DataSetterScope.ParentPage:
-                                if (_parentPage!=null)
+                                if (_parentPage != null)
                                 {
                                     var _ParentPageFind = _parentPage.FindName(setter.TargetName) as UIElement;
-                                    if (_ParentPageFind!=null)
+                                    if (_ParentPageFind != null)
                                     {
                                         _ParentPageFind.SetValue(setter.Property, setter.Value);
                                     }
@@ -376,36 +376,80 @@ namespace ay.MARKUP.ResponsiveSupport
                 {
                     var setter = setter2 as ResourceSetter;
 
-                    if (setter.TargetName!=null)
+                    if (setter.TargetName != null)
                     {
                         switch (setter.Scope)
                         {
                             case ResourceSetterScope.FindInPageResource:
-                                if (_parentPage!=null)
+                                if (_parentPage != null)
                                 {
                                     var _resources = _parentPage.Resources;
-                                    _resources[setter.TargetName] = Convert.ChangeType(setter.ResourceValue, setter.ResourceType);
+                                    if (setter.ResourceType == typeof(Thickness))
+                                    {
+                                        _resources[setter.TargetName] = setter.ResourceValue.ToString().ToThickness();
+                                    }
+                                    else if (setter.ResourceType == typeof(CornerRadius))
+                                    {
+                                        _resources[setter.TargetName] = setter.ResourceValue.ToString().ToCornerRadius();
+                                    }
+                                    else
+                                    {
+                                        _resources[setter.TargetName] = Convert.ChangeType(setter.ResourceValue, setter.ResourceType);
+                                    }
                                 }
                                 break;
                             case ResourceSetterScope.FindInApplicationResource:
-                                if (_parentPage!=null)
-                                {
-                                    var _resources = Application.Current.Resources;
-                                    _resources[setter.TargetName] = Convert.ChangeType(setter.ResourceValue, setter.ResourceType);
+                                { 
+                                var _resources = Application.Current.Resources;
+                                    if (setter.ResourceType == typeof(Thickness))
+                                    {
+                                        _resources[setter.TargetName] = setter.ResourceValue.ToString().ToThickness();
+                                    }
+                                    else if (setter.ResourceType == typeof(CornerRadius))
+                                    {
+                                        _resources[setter.TargetName] = setter.ResourceValue.ToString().ToCornerRadius();
+                                    }
+                                    else
+                                    {
+                                        _resources[setter.TargetName] = Convert.ChangeType(setter.ResourceValue, setter.ResourceType);
+                                    }
                                 }
                                 break;
                             case ResourceSetterScope.FindInWindowResource:
-                                if (_parentPage!=null)
+                                if (_parentWindow != null)
                                 {
                                     var _resources = _parentWindow.Resources;
-                                    _resources[setter.TargetName] = Convert.ChangeType(setter.ResourceValue, setter.ResourceType);
+                                    if (setter.ResourceType == typeof(Thickness))
+                                    {
+                                        _resources[setter.TargetName] = setter.ResourceValue.ToString().ToThickness();
+                                    }
+                                    else if (setter.ResourceType == typeof(CornerRadius))
+                                    {
+                                        _resources[setter.TargetName] = setter.ResourceValue.ToString().ToCornerRadius();
+                                    }
+                                    else
+                                    {
+                                        _resources[setter.TargetName] = Convert.ChangeType(setter.ResourceValue, setter.ResourceType);
+                                    }
+                                   
                                 }
                                 break;
                             case ResourceSetterScope.FindInUserControlResource:
-                                if (_parentPage!=null)
+                                if (_parentUserControl != null)
                                 {
                                     var _resources = _parentUserControl.Resources;
-                                    _resources[setter.TargetName] = Convert.ChangeType(setter.ResourceValue, setter.ResourceType);
+                                    if (setter.ResourceType == typeof(Thickness))
+                                    {
+                                        _resources[setter.TargetName] = setter.ResourceValue.ToString().ToThickness();
+                                    }
+                                    else if (setter.ResourceType == typeof(CornerRadius))
+                                    {
+                                        _resources[setter.TargetName] = setter.ResourceValue.ToString().ToCornerRadius();
+                                    }
+                                    else
+                                    {
+                                        _resources[setter.TargetName] = Convert.ChangeType(setter.ResourceValue, setter.ResourceType);
+                                    }
                                 }
                                 break;
                         }

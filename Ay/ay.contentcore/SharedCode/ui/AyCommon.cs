@@ -130,7 +130,19 @@ public static class AyCommon
         var _1 = str.Split(',');
         return new Thickness(_1[0].ToDouble(), _1[1].ToDouble(), _1[2].ToDouble(), _1[3].ToDouble());
     }
-
+  public static CornerRadius ToCornerRadius(this string str)
+    {
+        var _1 = str.Split(',');
+        if (_1.Length == 1)
+        {
+            return new CornerRadius(_1[0].ToDouble());
+        }
+        else
+        {
+            return new CornerRadius(_1[0].ToDouble(), _1[1].ToDouble(), _1[2].ToDouble(), _1[3].ToDouble());
+        }
+      
+    }
     public static int[] ToIntArray(this string[] region)
     {
         ArrayList aList = new ArrayList();
