@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 提供表单，动画，基础控件，内容库，主题库，多国语言，图标方案，响应式，AY表达式，AY日期控件，AY表格控件，Ay树，等原创东西，企业版只是额外加控件
+=======
+提供表单，动画，基础控件，内容库，主题库，多国语言，图标方案，响应式，AY表达式，AY日期控件，AY表格控件，Ay树，等原创东西
+>>>>>>> 1bb32ae9d5a98913b999ae8fcd4fadb6bd9bad45
 
 *源码里面有md文件，教怎么使用的。
 ![image](https://user-images.githubusercontent.com/11953271/158342962-6e0aed06-544f-4f92-b4f2-37019fe10b94.png)
@@ -16,4 +20,8 @@
 ![image](https://user-images.githubusercontent.com/11953271/158343457-0417e539-df2e-425e-bd81-bbb82bf4bec8.png)
 ![image](https://user-images.githubusercontent.com/11953271/158343479-f763cc29-bff8-46d4-8556-09e7a5eb426f.png)
 ![image](https://user-images.githubusercontent.com/11953271/158343503-0b76135d-1502-4d8d-bcd3-bc2e4b9ae578.png)
+<<<<<<< HEAD
 ![image](https://user-images.githubusercontent.com/11953271/158343576-fac315d3-bf0c-4e3f-8d89-8d3a1f0d4643.png)
+=======
+![image](https://user-images.githubusercontent.com/11953271/158343576-fac315d3-bf0c-4e3f-8d89-8d3a1f0d4643.png)
+>>>>>>> 1bb32ae9d5a98913b999ae8fcd4fadb6bd9bad45
